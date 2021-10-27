@@ -47,13 +47,13 @@ exports.nowarn = `✳️ El usuario no tiene ninguna advertencia`;
 exports.Pbahasa = `✳️ Seleccione el idioma que desea utilizar
 
 *Idiomas disponibles*
-- Spanish
+- Español
 - Indonesia
 - English`;
 exports.nobahasa = `Idioma no disponible
 
 *Idiomas disponibles*
-- Spanish
+- Español
 - Indonesia
 - English`;
 exports.online = '✅ Bot activo  en este grupo'
