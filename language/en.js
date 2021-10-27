@@ -46,17 +46,15 @@ exports.nowarn = `User has no warning`;
 exports.Pbahasa = `Select the language you want to use
 
 Usable language
+-Español
 - Indonesia
-- English
-- Jawa
-- Sunda`;
+- English`;
 exports.nobahasa = `Language not available
 
 Usable language
+- Español
 - Indonesia
-- English
-- Jawa
-- Sunda`;
+- English`;
 exports.online = 'Successfully turned on the bot in this group';
 exports.offline = 'Successfully turned off bots in this group';
 
