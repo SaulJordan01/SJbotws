@@ -47,17 +47,15 @@ exports.nowarn = `User tidak memiliki peringatan`;
 exports.Pbahasa = `Pilih bahasa yang ingin kamu gunakan
 
 Bahasa yang dapat digunakan
+- Español
 - Indonesia
-- English
-- Jawa
-- Sunda`;
+- English`;
 exports.nobahasa = `Bahasa tidak tersedia
 
 Bahasa yang dapat digunakan
+- Español
 - Indonesia
-- English
-- Jawa
-- Sunda`;
+- English`;
 exports.online = 'Berhasil menyalakan bot di group ini'
 exports.offline = 'Berhasil mematikan bot di group ini'
 
