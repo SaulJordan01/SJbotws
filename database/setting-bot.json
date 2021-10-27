@@ -15,6 +15,6 @@
 	],
 	"gameTime": 30000,
 	"poinGame": 100,
-	"poinAwal": 500,
+	"poinDefect": 500,
 	"totalcommand": 1
 }
