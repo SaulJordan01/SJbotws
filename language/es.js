@@ -1,9 +1,9 @@
- // -- enviar mensaje
+// -- enviar mensaje
 exports.wait = `*⌛ _Cargando..._ ▬▬▬▭*`;
 exports.bye = `Adios...`;
 exports.done = `✅ Finalizado`;
 exports.next = (value) => {
-  return 'Haga click en siguiente para '+value+' siguiente';
+  return `Haga click en siguiente para *${value}* `;
 };
 exports.packon = 'Nombre del paquete ya registrado';
 exports.packoff = 'El nombre del paquete de medios no está registrado en la base de datos.';
@@ -47,13 +47,13 @@ exports.nowarn = `✳️ El usuario no tiene ninguna advertencia`;
 exports.Pbahasa = `✳️ Seleccione el idioma que desea utilizar
 
 *Idiomas disponibles*
-- Español
+- Spanish
 - Indonesia
 - English`;
 exports.nobahasa = `Idioma no disponible
 
 *Idiomas disponibles*
-- Español
+- Spanish
 - Indonesia
 - English`;
 exports.online = '✅ Bot activo  en este grupo'
