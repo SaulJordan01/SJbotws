@@ -8,7 +8,7 @@ exports.next = (value) => {
 exports.packon = 'Nombre del paquete ya registrado';
 exports.packoff = 'El nombre del paquete de medios no está registrado en la base de datos.';
 exports.liston = '✅ Lista de medios almacenados en la base de datos';
-exports.getlist = '✳️ Use el comando getimg/getvid/getav/getstik para enviar un paquete de un medio\n*📌Ejemplo* : /getimg auron';
+exports.getlist = '✳️ Use el comando *getimg/getvid/getav/getstick* para enviar un paquete de un medio\n*📌Ejemplo* : /getimg auron';
 exports.nolink = (value) => {
   return '✳️ Repita agregando un enlace ' + value;
 };
