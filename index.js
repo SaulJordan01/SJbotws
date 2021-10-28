@@ -856,8 +856,7 @@ break
      word = m.quoted.text
    }
    await translate(word, { to: lang }).then(res => {
-     capt = 'Traducido de' + bahasa[to].toUpperCase()
-     capt += '\n✅ Resultado : ' + res.text
+     capt += '\n✅ trad : ' + res.text
       return m.reply(capt) 
    }).catch(err => {
         return m.reply('⚠️ Error')
