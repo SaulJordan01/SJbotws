@@ -356,7 +356,7 @@ switch (command) {
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send2ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`)
+    Fg.send2ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`)
     break
     
   case 'restart': 
@@ -376,7 +376,26 @@ try {
     m.reply(`🟢 *Velocidad* : ${latensi.toFixed(3)} _Segundos_`)
   break 
   
-
+  case 'idioma':
+case 'bahasa':
+case 'language':
+case 'lenguaje':
+    if(!value) return m.reply(msg.Pbahasa)
+    if (value.toLowerCase() === "español") {
+      await addBahasa(sender, "español")
+      m.reply("✅ Idioma cambiado a Español ")
+    } else if (value.toLowerCase() === "indonesia") {
+      await addBahasa(sender, "indonesia")
+      m.reply("Bahasa Indonesia terpilih\nSekarang bot akan membalas pesanmu dengan bahasa Indonesia")
+    } else if (value.toLowerCase() === "english") {
+      await addBahasa(sender, "english")
+      m.reply("Selected English\nNow the bot will reply to your message in English")
+    } else {
+      m.reply(msg.nobahasa)
+    }
+    break; 
+    
+//---
   default:
   
     if (budy.startsWith('$')){
