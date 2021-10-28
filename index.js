@@ -630,21 +630,37 @@ case "s":
           fs.unlinkSync(ran);
         });
         break;
-        case 'joox':
-    if (!value) return m.reply(msg.notext)
-    m.reply(msg.wait) 
-    res = await fgx.joox(value)
-    let json = JSON.parse(JSON.stringify(res))
-    let hasil = json.data[0]
-    judul = hasil.lagu
-    artis = hasil.penyanyi
-    album = hasil.album
-    foto = hasil.img
-    lagu = hasil.mp3
-    jooxy = await getBuffer(foto)
-    path = await getBuffer(lagu)
-    Fg.adReply(from, path, document, judul+' - '+artis, artis+' ('+album+')', jooxy, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link')
-  break
+        
+        case 'pinterest':
+        case 'img':
+        case 'imagen':
+    if(!value) return m.reply(no.text)
+    m.reply(msg.wait)
+    go = await fgx.pinterest(value)
+    pin = pickRandom(go)
+    if(!pin) return m.reply('Error')
+    client.sendMessage(from, await getBuffer(pin), image, { quoted: mek, caption: '✅ *Resultado*\n'+pin, thumbnail: fakethumb })
+ break
+
+  case 'man':
+    cogan = ['man', 'young model']
+    push = pickRandom(cogan)
+    m.reply(msg.wait)
+    go = await lxa.pinterest(push)
+    pin = pickRandom(go)
+    if(!pin) return m.reply('Error')
+    client.sendButtonImg(from, await getBuffer(pin), 'Result from : *PINTEREST*\n'+pin, msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
+ break
+
+  case 'girl':
+    cecan = ['pretty girl', 'girl','russian woman', 'schoolgirl', 'girl in bikinis']
+    push = pickRandom(cecan)
+    m.reply(msg.wait)
+    go = await lxa.pinterest(push)
+    pin = pickRandom(go)
+    if(!pin) return m.reply('Error')
+    client.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n'+pin, msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
+ break
     
 //---
   default:
