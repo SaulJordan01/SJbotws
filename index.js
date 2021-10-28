@@ -639,7 +639,7 @@ case "s":
     go = await fgx.pinterest(value)
     pin = pickRandom(go)
     if(!pin) return m.reply('Error')
-    Fg.sendMessage(from, await getBuffer(pin), image, { quoted: mek, caption: '✅ *Resultado*\n'+pin, thumbnail: fakethumb })
+    Fg.sendMessage(from, await getBuffer(pin), image, { quoted: mek, caption: '✅ *Resultado*\n', thumbnail: fakethumb })
  break 
 
   case 'man':
@@ -649,7 +649,7 @@ case "s":
     go = await fgx.pinterest(push)
     pin = pickRandom(go)
     if(!pin) return m.reply('Error')
-    Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n', '▷▷ Siguiente', `${prefix + command}`, mek)
+    Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n', 'msg.next(command)', '▷▷ Siguiente', `${prefix + command}`, mek)
  break
 
   case 'girl':
@@ -659,7 +659,7 @@ case "s":
     go = await fgx.pinterest(push)
     pin = pickRandom(go)
     if(!pin) return m.reply('Error')
-    Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n', '▷▷ Siguiente', `${prefix + command}`, mek)
+    Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n', 'msg.next(command)', '▷▷ Siguiente', `${prefix + command}`, mek)
  break
     
 //---
