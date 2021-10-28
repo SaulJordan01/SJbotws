@@ -345,7 +345,23 @@ if (isBanned) return; // los usuarios con estado baneado no podrán usar el coma
 
 switch (command) { 
  
+ case 'menu': 
+ case 'help':
+    capt = `Hola *${pushname}*
+    
+*Nivel* : ${isLevel}
+*Total Poin* : ${isPoin}
+*Premium* : ${prem}
+*Runtime* : ${kyun(process.uptime())}
+
+${readMore}
+${menu(prefix)} 
+`
+    client.send2ButtonLoc(from, thumb, capt, 'Total hit : '+isTotalcmd+'\n'+isWm, '📝 Menu', '.menu', '👥 Owner', '.owner')
+    break
+    
   case 'restart': 
+  case 'reiniciar': 
     if(!isOwner) return m.reply(msg.owner)
     m.reply('Reiniciando bot')
 try {
