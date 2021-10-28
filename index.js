@@ -450,6 +450,8 @@ number = '59172945992@s.whatsapp.net'
     case 'nameninja':
  case 'blackpill':
  case 'typewriter':
+ case 'sans':
+ case 'castle':
  if(!value) return m.reply(msg.notext)
   if(command === "nameninja" ) {
       hasil = await fgx.namaninja(value)
@@ -457,6 +459,10 @@ number = '59172945992@s.whatsapp.net'
     hasil = await fgx.blackpill(value)
   } else if(command === "typewriter"){
     hasil = await fgx.typewriter(value)
+   } else if(command === "sans"){
+    hasil = await fgx.sans(value)
+  } else if(command === "castle"){
+    hasil = await fgx.castle(value)
   }
    m.reply(hasil)
    break
