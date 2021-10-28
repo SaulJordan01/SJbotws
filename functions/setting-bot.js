@@ -72,7 +72,7 @@ module.exports = {
   addAuthor,
   addPackname,
   addWm,
-  addGamewaktu,
+  addGametime,
   addPoingame,
   addCmd
 };
