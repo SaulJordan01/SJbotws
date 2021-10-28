@@ -696,7 +696,7 @@ case "s":
    listvid = direc.video
    listaud = direc.audio
    liststik = direc.sticker
-   teks = msg.liston+'\n'
+   teks = msg.liston+'\n\n'
    teks += '┌─⊷ *IMAGE* \n'
    	for ( v of listimg) { 
    	  teks += `▢  ${v}\n`
@@ -794,7 +794,7 @@ case "s":
      }
      break
 
- case 'addstik':
+ case 'addstick':
    if(!isQuotedSticker) return m.reply(msg.replyStic)
    if (!value) return m.reply(msg.notext)
    for ( i of direc.sticker) {
@@ -807,7 +807,7 @@ case "s":
    await addStiker(value.toLowerCase())
 break
 
- case 'getstik':
+ case 'getstick':
    try { 
      tik = fs.readFileSync(`./database/media/sticker/${value.toLowerCase()}.webp`) 
      Fg.sendMessage(from, tik, sticker, { quoted: mek })
@@ -815,6 +815,26 @@ break
        m.reply(msg.packoff)
      }
      break
+     case 'setfakethumb':
+   if(!isOwner) return m.reply(msg.owner)
+   if(isMedia || isQuotedImage) {
+   q = m.quoted ? m.quoted : m 
+   thumb = await q.download() 
+   fs.writeFileSync(`./temp/fake.jpg`, thumb)
+   m.reply(msg.done)
+   } else {
+     m.reply(msg.replyImg)
+   }
+   break
+   case 'fakethumb':
+   if(isMedia || isQuotedImage) {
+   q = m.quoted ? m.quoted : m 
+   hasil = await q.download() 
+   Fg.sendMessage(from, hasil, image, {quoted: mek, caption: msg.done, thumbnail: fakethumb})
+   } else {
+     m.reply(msg.replyImg)
+   }
+   break
  
     
 //---
