@@ -25,7 +25,7 @@ function pickRandom(list) {
 }
 
 // -- archivo de resultados json
-const _truth = readfile('./result/random/truth.json');
+/*const _truth = readfile('./result/random/truth.json');
 const _dare = readfile('./result/random/dare.json');
 const _dilan = readfile('./result/random/dilan.json');
 const _fakta = readfile('./result/random/fakta.json');
@@ -60,17 +60,17 @@ const gombal = () => {
 
 const hacker = () => {
  return pickRandom(_hacker);
-};
+};*/
 
 
 module.exports = {
-  truth,
+  /*truth,
   dare,
   dilan,
   ilham,
   fakta,
   gombal,
-  hacker,
+  hacker,*/
   namaninja,
   blackpill,
   typewriter,
