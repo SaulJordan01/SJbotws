@@ -639,27 +639,27 @@ case "s":
     go = await fgx.pinterest(value)
     pin = pickRandom(go)
     if(!pin) return m.reply('Error')
-    client.sendMessage(from, await getBuffer(pin), image, { quoted: mek, caption: '✅ *Resultado*\n'+pin, thumbnail: fakethumb })
- break
+    Fg.sendMessage(from, await getBuffer(pin), image, { quoted: mek, caption: '✅ *Resultado*\n'+pin, thumbnail: fakethumb })
+ break 
 
   case 'man':
     cogan = ['man', 'young model']
     push = pickRandom(cogan)
     m.reply(msg.wait)
-    go = await lxa.pinterest(push)
+    go = await fgx.pinterest(push)
     pin = pickRandom(go)
     if(!pin) return m.reply('Error')
-    client.sendButtonImg(from, await getBuffer(pin), 'Result from : *PINTEREST*\n'+pin, msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
+    Fg.sendButtonImg(from, await getBuffer(pin), 'Result from : *PINTEREST*\n'+pin, msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
  break
 
   case 'girl':
     cecan = ['pretty girl', 'girl','russian woman', 'schoolgirl', 'girl in bikinis']
     push = pickRandom(cecan)
     m.reply(msg.wait)
-    go = await lxa.pinterest(push)
+    go = await fgx.pinterest(push)
     pin = pickRandom(go)
     if(!pin) return m.reply('Error')
-    client.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n'+pin, msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
+    Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n'+pin, msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
  break
     
 //---
