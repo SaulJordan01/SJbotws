@@ -357,7 +357,7 @@ switch (command) {
 ${readMore}
 ${menu(prefix)} 
 `
-    client.send2ButtonLoc(from, thumb, capt, 'Total hit : '+isTotalcmd+'\n'+isWm, '📝 Menu', '.menu', '👥 Owner', '.owner')
+    Fg.send2ButtonLoc(from, thumb, capt, 'Total hit : '+isTotalcmd+'\n'+isWm, '📝 Menu', '.menu', '👥 Owner', '.owner')
     break
     
   case 'restart': 
