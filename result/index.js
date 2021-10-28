@@ -19,7 +19,7 @@ const { joox } = require('./download/jooxDl.js');
 const { playstore } = require('./search/playstore');
 
 // -- resultados de información 
-const {nameninja, blackpill, typewriter, sans, castle} = require('./informasi/text_generator');
+const {namaninja, blackpill, typewriter, sans, castle} = require('./informasi/text_generator');
 
 // -- archivo de resultados json
 const _verdad = readfile('./result/random/verdad.json');
