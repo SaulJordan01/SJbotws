@@ -129,7 +129,7 @@ const {
   addAuthor,
   addPackname,
   addWm,
-  addGamewaktu,
+  addGametime,
   addPoingame,
   addCmd
 } = require('./functions/setting-bot'); // cambiar datos en ./database/setting-bot
