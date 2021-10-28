@@ -209,7 +209,16 @@ module.exports = Fg = async (Fg, mek) => {
      
 //-- Grupo Metadata
      const isGroup = from.endsWith('@g.us');
-     const sender = isGroup ? mek.participant : mek.key.remoteJid;
+     const sender = mek.key.fromMe 
+      ? Fg.user.jid
+      : isGroup
+      ? mek.participant
+      : mek.key.remoteJid;
+    let senderr = mek.key.fromMe
+      ? Fg.user.jid
+      : mek.key.remoteJid.endsWith("@g.us")
+      ? mek.participant
+      : mek.key.remoteJid;
      const groupMetadata = isGroup ? await Fg.groupMetadata(from) : '';
      const groupName = isGroup ? groupMetadata.subject : '';
      const groupId = isGroup ? groupMetadata.jid : '';
