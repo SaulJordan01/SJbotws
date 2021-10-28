@@ -353,11 +353,10 @@ switch (command) {
 *Total Poin* : ${isPoin}
 *Premium* : ${prem}
 *Runtime* : ${kyun(process.uptime())}
-
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send2ButtonLoc(from, thumb, capt, 'Total hit : '+isTotalcmd+'\n'+isWm, '📝 Menu', '.menu', '👥 Owner', '.owner')
+    Fg.send2ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`)
     break
     
   case 'restart': 
