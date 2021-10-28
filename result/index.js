@@ -7,7 +7,6 @@ const { Ttdl } = require('./download/tiktokPost_dl.js');
 
 // -- resultados de búsqueda
 const { playstore } = require('./search/playstore');
-const { RandomCerpen } = require('./search/cerpen');
 
 // -- resultados de información 
 const { covid } = require('./informasi/corona');
@@ -78,7 +77,6 @@ module.exports = {
   typewriter,
   pinterest,
   playstore,
-  RandomCerpen,
   igDl,
   Ttdl
 };
