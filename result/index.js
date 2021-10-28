@@ -1,20 +1,5 @@
 const fs = require('fs');
 
-// -- resultados de descarga
-const { pinterest } = require('./download/pinterest_img');
-const { igDl } = require('./download/instagramPost_dl.js');
-const { Ttdl } = require('./download/tiktokPost_dl.js');
-
-// -- resultados de búsqueda
-const { playstore } = require('./search/playstore');
-
-// -- resultados de información 
-const {
-  namaninja,
-  blackpill,
-  typewriter
-} = require('./informasi/text_generator');
-
 // nueva funcion
 function readfile(file) {
   return JSON.parse(fs.readFileSync(file));
@@ -22,7 +7,19 @@ function readfile(file) {
 
 function pickRandom(list) {
   return list[Math.floor(Math.random() * list.length)];
-}
+} 
+
+// -- resultados de descarga
+const { pinterest } = require('./download/pinterest_img');
+const { igDl } = require('./download/instagramPost_dl.js');
+const { Ttdl } = require('./download/tiktokPost_dl.js');
+const { joox } = require('./download/jooxDl.js');
+
+// -- resultados de búsqueda
+const { playstore } = require('./search/playstore');
+
+// -- resultados de información 
+const {nameninja, blackpill, typewriter, sans, castle} = require('./informasi/text_generator');
 
 // -- archivo de resultados json
 const _verdad = readfile('./result/random/verdad.json');
@@ -46,8 +43,11 @@ module.exports = {
   namaninja,
   blackpill,
   typewriter,
+  sans, 
+  castle,
   pinterest,
   playstore,
   igDl,
-  Ttdl
+  Ttdl, 
+  joox
 };
