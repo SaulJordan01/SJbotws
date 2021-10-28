@@ -440,7 +440,24 @@ END:VCARD
     */
     
 
-
+    async adReply(from, path, type, title, body, thumbnail, url, quoted, ptt){
+      this.sendMessage(from, path, type, {
+        ptt: ptt,
+        quoted: quoted,
+        filename: title,
+        mimetype: 'audio/mp4',
+        contextInfo: {
+          mentionedJid: this.parseMention(path),
+          externalAdReply: {
+            title: title,
+            body: body,
+            mediaType: 2,
+            thumbnail: thumbnail,
+            mediaUrl: url 
+          }
+        }
+      })
+    }
 
     async sendVideo(jid, url, caption, quoted, opt) {
       await download(url, 'mp4', async ({ buffer, filename }) => {
@@ -971,7 +988,7 @@ async function generateThumbnail(file, mediaType, info) {
         info.thumbnail = alternate
       }
     } catch (err) {
-      console.log('no se pudo generar una miniatura de video: ' + err)
+      console.log('could not generate video thumb: ' + err)
     }
   }
 }
