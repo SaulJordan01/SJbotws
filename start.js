@@ -1,4 +1,4 @@
-console.log('Starting...')
+console.log('✅ Iniciando...')
 let { spawn } = require('child_process')
 let path = require('path')
 let fs = require('fs')
@@ -11,7 +11,6 @@ const CFonts  = require('cfonts')
   colors: ['green'],
 });*/
 
-const CFonts  = require('cfonts')
 CFonts.say('FG98', {
   font: 'pallet',
   align: 'center',
