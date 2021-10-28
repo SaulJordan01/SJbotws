@@ -481,7 +481,7 @@ number = '59172945992@s.whatsapp.net'
     Fg.fakeReply(from, text1, dia, text2, from)
     break
     
-    case 'pregunta:' 
+    case 'pregunta:':
     if(!value) return m.reply(msg.notext)
     naon = ["Si","No","En efecto"," Tal vez","No lo se","Quizas","2 dias","Jamas", "Un domingo", "no lo hace", "muy falso"]
 random = naon[Math.floor(Math.random() * (naon.length))]
