@@ -380,6 +380,7 @@ try {
 case 'bahasa':
 case 'language':
 case 'lenguaje':
+if(!isOwner) return m.reply(msg.owner)
     if(!value) return m.reply(msg.Pbahasa)
     if (value.toLowerCase() === "español") {
       await addBahasa(sender, "español")
@@ -394,6 +395,27 @@ case 'lenguaje':
       m.reply(msg.nobahasa)
     }
     break; 
+    
+    case 'owner':
+case 'creator':
+case 'creador': 
+case 'developer':
+number = '59172945992@s.whatsapp.net'
+    capt = `Numero : @${number.split('@')[0]}\n`
+    capt += 'Instagram : https://www.instagram.com/fg98._'
+    await Fg.fakeLink(from, capt, thumb, 'Click aquí', 'https://www.instagram.com/fg98._', mek)
+   /* Fg.sendContact(from, '59172945992', 'owner', {
+	 key: {
+          fromMe: false,
+	      participant: `0@s.whatsapp.net`, ...(from ? 
+	 { remoteJid: from } : {}) 
+                },
+	 message: { 
+		"extendedTextMessage": {
+                 "text":"Mi creador"
+                        }
+	                  }})*/
+    break
     
 //---
   default:
