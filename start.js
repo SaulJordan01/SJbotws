@@ -4,11 +4,24 @@ let path = require('path')
 let fs = require('fs')
 let package = require('./package.json')
 const CFonts  = require('cfonts')
-CFonts.say(`'${package.name}' By @${package.author.name || package.author}`, {
+
+/*CFonts.say(`'${package.name}' By @${package.author.name || package.author}`, {
   font: 'pallet',
   align: 'center',
   colors: ['green'],
-});
+});*/
+
+const CFonts  = require('cfonts')
+CFonts.say('FG98', {
+  font: 'pallet',
+  align: 'center',
+  gradient: ['red', 'magenta']
+})
+CFonts.say(`dylux-bot By FG98 Ig : @fg98._`, {
+  font: 'console',
+  align: 'center',
+  colors: ['yellow']
+})
 
 var isRunning = false;
 /**
