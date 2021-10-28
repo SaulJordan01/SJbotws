@@ -165,7 +165,7 @@ module.exports = Fg = async (Fg, mek) => {
     if (!mek.hasNewMessage) return;
     mek = mek.messages.all()[0];
     if (!mek.message) return;
-   // if(mek.key.fromMe) return; // elimínelo para los usuarios de bots propios, pero habrá errores en las funciones del juego
+   if(mek.key.fromMe) return; // Eliminalo para que el Bot sea self
     if (mek.key && mek.key.remoteJid == 'status@broadcast') return;
     mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
     let m = simple.smsg(Fg, mek);
@@ -209,29 +209,15 @@ module.exports = Fg = async (Fg, mek) => {
      
 //-- Grupo Metadata
      const isGroup = from.endsWith('@g.us');
-     const sender = mek.key.fromMe 
-      ? Fg.user.jid
-      : isGroup
-      ? mek.participant
-      : mek.key.remoteJid;
-    let senderr = mek.key.fromMe
-      ? Fg.user.jid
-      : mek.key.remoteJid.endsWith("@g.us")
-      ? mek.participant
-      : mek.key.remoteJid;
+     const sender = isGroup ? mek.participant : mek.key.remoteJid;
      const groupMetadata = isGroup ? await Fg.groupMetadata(from) : '';
      const groupName = isGroup ? groupMetadata.subject : '';
      const groupId = isGroup ? groupMetadata.jid : '';
      const groupMembers = isGroup ? groupMetadata.participants : '';
      const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : '';
-     
-     const senderNumber = sender.split("@")[0]
-     
-     const isYo = mek.key.fromMe ? true : false
-     const isOwner = senderNumber == ownerNumber || senderNumber == botNumero
      //const isMods = mods.includes(senderNumber)
       
-     //const isOwner = ownerNumber.includes(sender) || false;
+     const isOwner = ownerNumber.includes(sender) || false;
      const isBotAdmins = groupAdmins.includes(botNumber) || false;
      const isAdmins = groupAdmins.includes(sender) || false;
      let conts = mek.key.fromMe ? Fg.user.jid : Fg.contacts[sender] || { notify: jid.replace(/@.+/, '') };
@@ -851,6 +837,35 @@ break
    } else {
      m.reply(msg.replyImg)
    }
+   break
+   
+   case 'trad':
+ case 'translate':
+   if(!value) return m.reply(msg.notext)
+   to = args[0]
+   bahasa = {
+     id: 'indonesia',
+     en: 'english',
+     ja: 'jepang',
+     ko: 'korea',
+     pt: 'portugal',
+     ar: 'arab'
+     es: 'español'
+   }
+   var lang = to || 'es' 
+   if (!bahasa[lang]) return m.reply('⚠️ Lenguaje no soportado : ' + lang);
+   if(!m.quoted) {
+     word = value.split(lang)[1]
+   } else if(m.quoted){
+     word = m.quoted.text
+   }
+   await translate(word, { to: lang }).then(res => {
+     capt = 'Traducido de' + bahasa[to].toUpperCase()
+     capt += '\n✅ Resultado : ' + res.text
+      return m.reply(capt) 
+   }).catch(err => {
+        return m.reply('⚠️ Error')
+      })
    break
  
     
