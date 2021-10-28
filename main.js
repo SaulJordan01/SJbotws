@@ -11,7 +11,7 @@ const {
   cekDetect
 } = require('./functions/group');
 const fs = require("fs");
-const thumb = fs.readFileSync('./temp/thumb.jpeg')
+const thumb = fs.readFileSync('./temp/fg.jpg')
 const { getBuffer, week, time, tanggal} = require("./library/functions");
 const { color } = require("./library/color");
 async function starts() {
@@ -19,7 +19,7 @@ async function starts() {
 	Fg.version = [2, 2140, 6];
 	Fg.logger.level = 'warn';
 	Fg.on('qr', () => {
-	console.log(color('[QR]','white'), color('Scan to establish connection'));
+	console.log(color('[QR]','white'), color('Escanee el codigo QR para conectarse...'));
 	});
 
 	fs.existsSync('./whatsapp/sessions.json') && Fg.loadAuthInfo('./whatsapp/sessions.json');
