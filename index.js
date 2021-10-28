@@ -468,8 +468,17 @@ number = '59172945992@s.whatsapp.net'
     } else if (command === "reto" ) {
       hasil = fgx.reto()
       }
-    capt = `‣ ${command.toUpperCase()} \n\n${hasil}`
+    capt = `‣ *${command.toUpperCase()}* \n\n${hasil}`
     Fg.sendButton(from, capt, msg.next(command), '▷▷ Siguiente', prefix+command)
+    break
+    
+    case 'fake':
+    case 'fitnah':
+    if(!value) return m.reply(msg.notext)
+    if(!dia) return m.reply(msg.notag)
+    text1 = value.split("|")[0]
+    text2 = value.split("|")[2]
+    Fg.fakeReply(from, text1, dia, text2, from)
     break
     
 //---
