@@ -401,8 +401,8 @@ case 'creator':
 case 'creador': 
 case 'developer':
 number = '59172945992@s.whatsapp.net'
-    capt = `Numero : @${number.split('@')[0]}\n`
-    capt += 'Instagram : https://www.instagram.com/fg98._'
+    capt = `▢ Numero : @${number.split('@')[0]}\n\n`
+    capt += '▢ Instagram : https://www.instagram.com/fg98._'
     await Fg.fakeLink(from, capt, thumb, 'Click aquí', 'https://www.instagram.com/fg98._', mek)
    /* Fg.sendContact(from, '59172945992', 'owner', {
 	 key: {
@@ -416,6 +416,37 @@ number = '59172945992@s.whatsapp.net'
                         }
 	                  }})*/
     break
+    
+    case 'info':
+   const unread = await Fg.loadAllUnreadMessages ();
+   i = []
+   giid = []
+				for (mem of totalchat){
+					i.push(mem.jid)
+				}
+				for (id of i){
+					if (id && id.includes('g.us')){
+						giid.push(id)
+					}
+				}
+   uptime = process.uptime()
+   teks = `*INFO BOT*
+   
+*≡ ESTADO*
+▢ Contactos : ${Object.keys(Fg.contacts).length}
+▢ *${totalchat.length}* Total Chats
+▢ *${totalchat.length - giid.length}* Chats privados
+▢ *${giid.length}* Chats de grupo
+▢ *${unread.length}* Mensaje no leídos
+
+
+*≡ DISPOSITIVO*
+
+🔋 Batería : ${baterai.baterai}%
+▢ Versi Wa : ${Fg.user.phone.wa_version}
+` 
+  Fg.fakeLink(from, teks, thumb, tanggal, 'https://www.instagram.com/fg98._', mek)
+   break
     
 //---
   default:
