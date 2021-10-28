@@ -863,6 +863,20 @@ break
         return m.reply('⚠️ Error')
       })
    break
+   
+   case "playstore":
+     if(!value) return m.reply(msg.notext)
+     m.reply(msg.wait)
+     let play = await fgx.playstore(value); 
+     store = '*PLAY STORE*\n'
+     for (let i of play) {
+       store += `*Nombre* : ${i.name}
+*Link* : ${i.link}
+*Dev* : ${i.developer}
+*Link Dev* : ${i.link_dev}\n────────────────\n`;
+        } 
+     m.reply(store);
+   break;
  
     
 //---
