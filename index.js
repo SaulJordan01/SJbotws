@@ -845,11 +845,7 @@ break
    to = args[0]
    bahasa = {
      id: 'indonesia',
-     en: 'english',
-     ja: 'jepang',
-     ko: 'korea',
-     pt: 'portugal',
-     ar: 'arab'
+     en: 'english', 
      es: 'español'
    }
    var lang = to || 'es' 
