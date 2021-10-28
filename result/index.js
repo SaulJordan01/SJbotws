@@ -25,52 +25,24 @@ function pickRandom(list) {
 }
 
 // -- archivo de resultados json
-/*const _truth = readfile('./result/random/truth.json');
-const _dare = readfile('./result/random/dare.json');
-const _dilan = readfile('./result/random/dilan.json');
-const _fakta = readfile('./result/random/fakta.json');
-const _gombal = readfile('./result/random/gombal.json');
-const _hacker = readfile('./result/random/hacker.json');
-const _ilham = readfile('./result/random/hacker.json');
+const _verdad = readfile('./result/random/verdad.json');
+const _reto = readfile('./result/random/reto.json');
 
 // -- get resultados
-const truth = () => {
- return pickRandom(_truth);
+const verdad = () => {
+ return pickRandom(_verdad);
 };
 
-const dare = () => {
- return pickRandom(_dare);
+const reto = () => {
+ return pickRandom(_reto);
 };
 
-const dilan = () => {
- return pickRandom(_dilan);
-};
 
-const ilham = () => {
- return pickRandom(_ilham);
-};
-
-const fakta = () => {
- return pickRandom(_fakta);
-};
-
-const gombal = () => {
- return pickRandom(_gombal);
-};
-
-const hacker = () => {
- return pickRandom(_hacker);
-};*/
 
 
 module.exports = {
-  /*truth,
-  dare,
-  dilan,
-  ilham,
-  fakta,
-  gombal,
-  hacker,*/
+	verdad, 
+	reto, 
   namaninja,
   blackpill,
   typewriter,
