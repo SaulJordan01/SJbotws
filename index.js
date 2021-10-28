@@ -33,7 +33,7 @@ const toMs = require('ms');
 const fs = require("fs");
 const similarity = require('similarity');
 const threshold = 0.72;
-const lxa = require('./result/index');
+const fgx = require('./result/index');
 const package = require('./package.json');
 //-- library
 const simple = require('./whatsapp/connecting');
@@ -434,7 +434,7 @@ number = '59172945992@s.whatsapp.net'
    
 *≡ ESTADO*
 ▢ Contactos : ${Object.keys(Fg.contacts).length}
-▢ *${totalchat.length}* Total Chats
+▢ Total Chats : *${totalchat.length}* 
 ▢ *${totalchat.length - giid.length}* Chats privados
 ▢ *${giid.length}* Chats de grupo
 ▢ *${unread.length}* Mensaje no leídos
@@ -442,10 +442,22 @@ number = '59172945992@s.whatsapp.net'
 
 *≡ DISPOSITIVO*
 
-🔋 Batería : ${baterai.baterai}%
 ▢ Versi Wa : ${Fg.user.phone.wa_version}
 ` 
   m.reply(teks)
+   break
+   
+    case 'nameninja':
+ case 'blackpill':
+ case 'typewriter':
+  if(command === "nameninja" ) {
+      hasil = await fgx.namaninja(value)
+  } else if(command === "blackpill"){
+    hasil = await fgx.blackpill(value)
+  } else if(command === "typewriter"){
+    hasil = await fgx.typewriter(value)
+  }
+   m.reply(hasil)
    break
     
 //---
