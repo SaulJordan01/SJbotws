@@ -445,7 +445,7 @@ number = '59172945992@s.whatsapp.net'
 🔋 Batería : ${baterai.baterai}%
 ▢ Versi Wa : ${Fg.user.phone.wa_version}
 ` 
-  Fg.fakeLink(from, teks, thumb, tanggal, 'https://www.instagram.com/fg98._', mek)
+  m.reply(teks)
    break
     
 //---
