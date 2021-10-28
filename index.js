@@ -481,7 +481,7 @@ number = '59172945992@s.whatsapp.net'
     Fg.fakeReply(from, text1, dia, text2, from)
     break
     
-    case 'pregunta:':
+    case 'pregunta':
     if(!value) return m.reply(msg.notext)
     naon = ["Si","No","En efecto"," Tal vez","No lo se","Quizas","2 dias","Jamas", "Un domingo", "no lo hace", "muy falso"]
 random = naon[Math.floor(Math.random() * (naon.length))]
@@ -507,7 +507,7 @@ case "s":
           ffmpeg(media) 
           .on("error", (e) => { 
             console.log(e); 
-            Fg.sendMessage(from, "Terjadi kesalahan", "conversation", { quoted: mek }); 
+            Fg.sendMessage(from, "⚠️ Hay un error", "conversation", { quoted: mek }); 
             fs.unlinkSync(media); 
             })
             .on("end", () => { 
@@ -555,7 +555,7 @@ case "s":
           ffmpeg(media)
             .on("error", (e) => {
               console.log(e);
-              Fg.sendMessage(from, "Terjadi kesalahan", "conversation", {
+              Fg.sendMessage(from, "⚠️ Hay un error", "conversation", {
                 quoted: mek,
               });
               fs.unlinkSync(media);
@@ -591,7 +591,7 @@ case "s":
             .save(out);
         } else {
           m.reply(
-            `Kirim gambar dengan caption ${prefix}stiker, untuk video durasi kurang dari *7 detik*`
+            `✳️ Envia una imagen con *${prefix + command}* Nombre|Autor \n o etiqueta una imagen que se haya enviado, *Videos 1-9 segundos*`
           );
         }
         break
@@ -620,7 +620,7 @@ case "s":
           fs.unlinkSync(media);
           if (err) return m.reply("⚠️ Error, inténtelo de nuevo ");
           buffer = fs.readFileSync(ran);
-          Fg.sendMessage(from, buffer, image, {caption: msg.done})
+          Fg.sendMessage(from, buffer, image, {thumbnail: fakethumb, quoted: mek, caption: msg.done})
           fs.unlinkSync(ran);
         });
         break;
