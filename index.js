@@ -468,7 +468,7 @@ number = '59172945992@s.whatsapp.net'
     } else if (command === "reto" ) {
       hasil = fgx.reto()
       }
-    capt = "‣ *"+command.toUpperCase()+"*\n"+hasil
+    capt = `‣ ${command.toUpperCase()} \n\n${hasil}`
     Fg.sendButton(from, capt, msg.next(command), '▷▷ Siguiente', prefix+command)
     break
     
