@@ -9,7 +9,6 @@ const { Ttdl } = require('./download/tiktokPost_dl.js');
 const { playstore } = require('./search/playstore');
 
 // -- resultados de información 
-const { covid } = require('./informasi/corona');
 const {
   namaninja,
   blackpill,
