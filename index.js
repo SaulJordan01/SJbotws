@@ -661,6 +661,18 @@ case "s":
     if(!pin) return m.reply('Error')
     Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n', msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
  break
+ 
+ case 'wallpaper':
+ case 'wp':
+    if(!value) return m.reply(msg.notext)
+    m.reply(msg.wait)
+    go = await fgx.pinterest(`Wallpaper hd ${value}`)
+    pin = pickRandom(go)
+    if(!pin) return m.reply('⚠️ Error')
+    Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n', msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
+ break
+ 
+ 
     
 //---
   default:
