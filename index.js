@@ -165,7 +165,7 @@ module.exports = Fg = async (Fg, mek) => {
     if (!mek.hasNewMessage) return;
     mek = mek.messages.all()[0];
     if (!mek.message) return;
-    if(mek.key.fromMe) return; // elimínelo para los usuarios de bots propios, pero habrá errores en las funciones del juego
+   // if(mek.key.fromMe) return; // elimínelo para los usuarios de bots propios, pero habrá errores en las funciones del juego
     if (mek.key && mek.key.remoteJid == 'status@broadcast') return;
     mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
     let m = simple.smsg(Fg, mek);
@@ -205,6 +205,7 @@ module.exports = Fg = async (Fg, mek) => {
      const isCmd = body.startsWith(prefix);
      const totalchat = await Fg.chats.all();
      const botNumber = Fg.user.jid;
+     const botNumero = botNumber.replace('@s.whatsapp.net', '') // número del bot   
      
 //-- Grupo Metadata
      const isGroup = from.endsWith('@g.us');
@@ -214,7 +215,14 @@ module.exports = Fg = async (Fg, mek) => {
      const groupId = isGroup ? groupMetadata.jid : '';
      const groupMembers = isGroup ? groupMetadata.participants : '';
      const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : '';
-     const isOwner = ownerNumber.includes(sender) || false;
+     
+     const senderNumber = sender.split("@")[0]
+     
+     const isYo = mek.key.fromMe ? true : false
+     const isOwner = senderNumber == ownerNumber || senderNumber == botNumero
+     //const isMods = mods.includes(senderNumber)
+      
+     //const isOwner = ownerNumber.includes(sender) || false;
      const isBotAdmins = groupAdmins.includes(botNumber) || false;
      const isAdmins = groupAdmins.includes(sender) || false;
      let conts = mek.key.fromMe ? Fg.user.jid : Fg.contacts[sender] || { notify: jid.replace(/@.+/, '') };
