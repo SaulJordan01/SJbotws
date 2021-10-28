@@ -450,6 +450,7 @@ number = '59172945992@s.whatsapp.net'
     case 'nameninja':
  case 'blackpill':
  case 'typewriter':
+ if(!value) return m.reply(msg.notext)
   if(command === "nameninja" ) {
       hasil = await fgx.namaninja(value)
   } else if(command === "blackpill"){
@@ -459,6 +460,17 @@ number = '59172945992@s.whatsapp.net'
   }
    m.reply(hasil)
    break
+   
+   case 'verdad':
+  case 'reto':
+    if(command === "verdad" ) {
+      hasil = fgx.verdad()
+    } else if (command === "reto" ) {
+      hasil = fgx.reto()
+      }
+    capt = "‣ *"+command.toUpperCase()+"*\n"+hasil
+    Fg.sendButton(from, capt, msg.next(command), '▷▷ Siguiente', prefix+command)
+    break
     
 //---
   default:
