@@ -868,7 +868,7 @@ break
      if(!value) return m.reply(msg.notext)
      m.reply(msg.wait)
      let play = await fgx.playstore(value); 
-     store = '          *PLAY STORE*\n\n────────────────'
+     store = '          *PLAY STORE*\n\n────────────────\n'
      for (let i of play) {
        store += `▢ *📌Nombre* : ${i.name}
 ▢ *🔗 Link* : ${i.link}
@@ -878,6 +878,25 @@ break
         } 
      m.reply(store);
    break;
+   
+   case 'igvid':
+ case 'igimg':
+ case 'igdl':
+ case 'ig':
+   if(!isUrl(value) && !value) return m.reply(msg.nolink('instagram'));
+   if(isUrl(value) && !value.match("instagram.com/p/")) return m.reply('⚠️ Link invalido');
+   m.reply(msg.wait)
+   igdl = await fgx.igDl(value)
+   buffer = await getBuffer(igdl.result.link)
+   desk = igdl.result.desc
+   if(!buffer) return m.reply('Error')
+   if(igdl.result.link.match('.mp4')){
+     if(!isPremium) return m.reply(msg.premdl+igdl.result.link)
+     Fg.sendMessage(from, buffer, video, {quoted: mek, caption: desk})
+   } else {
+     Fg.sendMessage(from, buffer, image, {quoted: mek, caption: desk, thumbnail: fakethumb})
+   }
+   break
  
     
 //---
