@@ -902,26 +902,26 @@ break
  case 'tiktoknowm':
  case 'tiktokaudio':
    if(!isUrl(value) && !value) return m.reply(msg.nolink('tiktok'));
-   if(isUrl(value) && !value.match("tiktok.com")) return m.reply('Link invalid');
+   if(isUrl(value) && !value.match("tiktok.com")) return m.reply('⚠️ Link invalido');
    m.reply(msg.wait)
    ttdl = await fgx.Ttdl(value)
    if(command.includes('nowm')) {
    buffer = await getBuffer(ttdl.result.nowatermark)
-   if(!buffer) return m.reply('Error')
+   if(!buffer) return m.reply('⚠️ Error')
    Fg.sendMessage(from, buffer, video, {quoted: mek, caption: msg.done})
    } else if (command.includes('audio')) {
      buffer = await getBuffer(ttdl.result.nowatermark)
-     if(!buffer) return m.reply('Error')
+     if(!buffer) return m.reply('⚠️ Error')
      Fg.sendMessage(from, buffer, document, {quoted: mek, mimetype: 'audio/mp4', filename: `Tiktokdescarga.mp3`})
    } else {
      buffer = await getBuffer(ttdl.result.watermark)
-     if(!buffer) return m.reply('Error')
+     if(!buffer) return m.reply('⚠️ Error')
      Fg.sendMessage(from, buffer, video, {quoted: mek, caption: msg.done})
    }
    break
 
   case 'hidetag':
-  case 'notif':
+  case 'notify':
         if(!isOwner && !isAdmins) return m.reply(msg.admin)
         if (!isGroup) return m.reply(msg.group);
         if(!m.quoted) {
