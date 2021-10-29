@@ -1221,6 +1221,24 @@ https://chat.whatsapp.com/${linkgp}`
     }
     break
     
+    case 'detect':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!value) return m.reply(msg.OnorOff)
+    if (value.toLowerCase() === "on") {
+      if(isDetect === true ) return m.reply(msg.Thison(command.toUpperCase()))
+      await addDetect(from)
+      m.reply(msg.On(command.toUpperCase()))
+    } else if (value.toLowerCase() === "off") {
+      if(isDetect === false ) return m.reply(msg.Thisoff(command.toUpperCase()))
+      await delDetect(from)
+      m.reply(msg.Off(command.toUpperCase()))
+    } else {
+      m.reply(msg.OnorOff)
+    }
+    break
+    
   case 'antidelete':
     if(!isGroup) return m.reply(msg.group)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
