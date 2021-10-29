@@ -940,6 +940,15 @@ break
         };
         Fg.sendMessage(from, optionshidetag, text);
         break;
+        
+        case 'tagall':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    mention = groupMembers.map(u => u.jid) 
+    m.reply('Tag all\n' + mention.map((v, i) => i + 1 + '. @' + v.replace(/@.+/, '')).join`\n`, null, {
+    contextInfo: { mentionedJid: mention }
+  })
+  break
  
     
 //---
