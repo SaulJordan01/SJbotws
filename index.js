@@ -968,6 +968,21 @@ break
     fglink = `Link del Grupo *${groupName}*\n\nhttps://chat.whatsapp.com/${code}`
     m.reply(fglink)
     break
+    
+case 'resetlink': 
+case 'revokelink': 
+case 'anularlink':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    Fg.query({ json: ['action', 'inviteReset', from], expect200: true })
+linkgp = await Fg.groupInviteCode(from)
+fgxd = `✅ Enlace del grupo anulado
+
+📌 Nuevo enlace : 
+https://chat.whatsapp.com/${linkgp}`
+    m.reply(fgxd)
+    break
  
     
 //---
