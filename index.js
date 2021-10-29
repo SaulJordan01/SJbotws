@@ -1016,6 +1016,30 @@ https://chat.whatsapp.com/${linkgp}`
     m.reply(msg.cekwarn(warn))
     break
     
+    case 'addpremium':
+    case 'addprem': 
+    if(!isGroup) return m.reply(msg.group)
+    if(!isOwner) return m.reply(msg.owner)
+    prem = cekPremium(dia)
+    if (prem === true) {
+      return m.reply(msg.isprem)
+    }
+    await addPremium(dia)
+    m.reply(msg.done)
+    break
+    
+  case 'delpremium':
+  case 'delprem':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isOwner) return m.reply(msg.owner)
+    prem = cekPremium(dia)
+    if (prem === false) {
+      return m.reply(msg.noprem)
+    }
+    await delPremium(dia)
+    m.reply(msg.done)
+    break
+    
 //---
   default:
   
