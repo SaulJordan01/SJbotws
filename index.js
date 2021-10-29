@@ -891,7 +891,7 @@ break
    desk = igdl.result.desc
    if(!buffer) return m.reply('Error')
    if(igdl.result.link.match('.mp4')){
-     if(!isPremium) return m.reply(msg.premdl+igdl.result.link)
+     //if(!isPremium) return m.reply(msg.premdl+igdl.result.link)
      Fg.sendMessage(from, buffer, video, {quoted: mek, caption: desk})
    } else {
      Fg.sendMessage(from, buffer, image, {quoted: mek, caption: desk, thumbnail: fakethumb})
