@@ -1168,6 +1168,77 @@ https://chat.whatsapp.com/${linkgp}`
     }
     break 
     
+    case 'promote':
+    case 'promover':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!dia) return m.reply(msg.notag)
+    
+    await Fg.groupMakeAdmin (from, [dia])
+    anu = "@"+dia.split('@')[0]
+    capt = msg.promote(anu)
+    m.reply(capt, null, {
+          contextInfo: {
+            mentionedJid: Fg.parseMention(capt),
+          },
+        });
+    break
+
+  case 'demote':
+  case 'degradar':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!dia) return m.reply(msg.notag)
+ 
+    await Fg.groupDemoteAdmin (from, [dia]) //demote admins
+    anu = "@"+dia.split('@')[0]
+    capt = msg.demote(anu)
+    m.reply(capt, null, {
+          contextInfo: {
+            mentionedJid: Fg.parseMention(capt),
+          },
+        });
+    break
+
+  case 'welcome':
+  case 'bienvenida':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!value) return m.reply(msg.OnorOff)
+    if (value.toLowerCase() === "on") {
+      if(isWelcome === true ) return m.reply(msg.Thison(command.toUpperCase()))
+      await addWelcome(from)
+      m.reply(msg.On(command.toUpperCase()))
+    } else if (value.toLowerCase() === "off") {
+      if(isWelcome === false ) return m.reply(msg.Thisoff(command.toUpperCase()))
+      await delWelcome(from)
+      m.reply(msg.Off(command.toUpperCase()))
+    } else {
+      m.reply(msg.OnorOff)
+    }
+    break
+    
+  case 'antidelete':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!value) return m.reply(msg.OnorOff)
+    if (value.toLowerCase() === "on") {
+      if(isAntidelete === true ) return m.reply(msg.Thison(command.toUpperCase()))
+      await addAntidelete(from)
+      m.reply(msg.On(command.toUpperCase()))
+    } else if (value.toLowerCase() === "off") {
+      if(isAntidelete === false ) return m.reply(msg.Thisoff(command.toUpperCase()))
+      await delAntidelete(from)
+      m.reply(msg.Off(command.toUpperCase()))
+    } else {
+      m.reply(msg.OnorOff)
+    }
+    break
+    
 //---
   default:
   
