@@ -945,10 +945,21 @@ break
     if(!isGroup) return m.reply(msg.group)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
     mention = groupMembers.map(u => u.jid) 
-    m.reply('Tag all\n' + mention.map((v, i) => i + 1 + '. @' + v.replace(/@.+/, '')).join`\n`, null, {
+    m.reply('TAG ALL\n\n' + mention.map((v, i) => i + 1 + '- @' + v.replace(/@.+/, '')).join`\n`, null, {
     contextInfo: { mentionedJid: mention }
   })
   break
+  
+  case 'join':
+  case 'entrabot':
+    if(!isOwner) return
+    if(!value) return
+    join = value.split('https://chat.whatsapp.com/')[1]
+    await Fg.acceptInvite(join).then((res) => {
+      Fg.sendMessage(res.gid,`Hola 👋🏻\n@${sender.split("@")[0]} invítame a un grupo para unirme`, text, {contextInfo:{mentionedJid:[sender]}})
+      m.reply(`✅ Me uní correctamente al grupo`)
+      }).catch((err) => m.reply("‣ "+jsonformat(err)))
+    break
  
     
 //---
