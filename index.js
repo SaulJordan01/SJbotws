@@ -953,13 +953,21 @@ break
   case 'join':
   case 'entrabot':
     if(!isOwner) return
-    if(!value) return
+    if(!value) return m.reply(`✳️Ingrese el link de tu Grupo`) 
     join = value.split('https://chat.whatsapp.com/')[1]
     await Fg.acceptInvite(join).then((res) => {
-      Fg.sendMessage(res.gid,`🎈 Hola soy *${Fg.user.name}*\n_🛡️ Fui invitado por @${sender.split("@")[0]} para unirme al grupo_\n📌 Escriba *${prefix}help* para ver el Menu del bote`, text, {contextInfo:{mentionedJid:[sender]}})
+      Fg.sendMessage(res.gid,`🎈 Hola soy *${Fg.user.name}*\n\n_🛡️ Fui invitado por @${sender.split("@")[0]} para unirme al grupo_\n\n📌 Escriba *${prefix}help* para ver el Menu del bot`, text, {contextInfo:{mentionedJid:[sender]}})
       m.reply(`✅ Me uní correctamente al grupo`)
       }).catch((err) => m.reply("‣ "+jsonformat(err)))
     break 
+    
+    case 'link':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    code = await Fg.groupInviteCode(from)
+    fglink = `Link del Grupo *${groupName}*\n\nhttps://chat.whatsapp.com/${code}`
+    m.reply(fglink)
+    break
  
     
 //---
