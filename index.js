@@ -956,10 +956,10 @@ break
     if(!value) return
     join = value.split('https://chat.whatsapp.com/')[1]
     await Fg.acceptInvite(join).then((res) => {
-      Fg.sendMessage(res.gid,`Hola 👋🏻\n@${sender.split("@")[0]} invítame a un grupo para unirme`, text, {contextInfo:{mentionedJid:[sender]}})
+      Fg.sendMessage(res.gid,`🎈 Hola soy *${Fg.user.name}*\n_🛡️ Fui invitado por @${sender.split("@")[0]} para unirme al grupo_\n📌 Escriba *${prefix}help* para ver el Menu del bote`, text, {contextInfo:{mentionedJid:[sender]}})
       m.reply(`✅ Me uní correctamente al grupo`)
       }).catch((err) => m.reply("‣ "+jsonformat(err)))
-    break
+    break 
  
     
 //---
