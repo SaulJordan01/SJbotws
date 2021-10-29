@@ -9,7 +9,7 @@ const addFilter = (from) => {
     usedCommandRecently.add(from);
     setTimeout(() => {
         return usedCommandRecently.delete(from);
-    }, 3000);// 3 segundos es un retraso antes de procesar el siguiente comando;
+    }, 1000);// 3 segundos es un retraso antes de procesar el siguiente comando;
 };
 module.exports = {
     msgFilter: {
