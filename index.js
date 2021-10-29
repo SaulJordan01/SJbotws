@@ -984,6 +984,37 @@ https://chat.whatsapp.com/${linkgp}`
     m.reply(fgxd)
     break
  
+ case 'warn':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isOwner && !isAdmins) return m.reply(msg.admin)
+    if(!dia) return m.reply(msg.notag)
+    await addWarn(dia)
+    warn = cekWarn(dia)
+    if (warn === 3) {
+      Fg.groupRemove(from, [dia]).catch((e) => {console.log(`⚠️ *ERROR:* ${e}`)})
+      await delWarn(sender, 3)
+      return m.reply(msg.bye)
+     }
+    m.reply(msg.addwarn)
+    break
+
+  case 'delwarn':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isOwner && !isAdmins) return m.reply(msg.admin)
+    if(!dia) return m.reply(msg.notag)
+    warn = cekWarn(dia)
+    if (warn === 0) {
+      return m.reply(msg.nowarn)
+    }
+    await delWarn(dia, 1)
+    m.reply(msg.delwarn)
+    break
+
+  case 'checkwarn':
+  case 'warns':
+    warn = cekWarn(siapa)
+    m.reply(msg.cekwarn(warn))
+    break
     
 //---
   default:
