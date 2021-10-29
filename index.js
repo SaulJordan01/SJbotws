@@ -868,7 +868,7 @@ break
      if(!value) return m.reply(msg.notext)
      m.reply(msg.wait)
      let play = await fgx.playstore(value); 
-     store = '      *PLAY STORE*\n'
+     store = '          *PLAY STORE*\n\n────────────────'
      for (let i of play) {
        store += `▢ *📌Nombre* : ${i.name}
 ▢ *🔗 Link* : ${i.link}
