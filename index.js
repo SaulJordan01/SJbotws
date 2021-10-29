@@ -1040,6 +1040,134 @@ https://chat.whatsapp.com/${linkgp}`
     m.reply(msg.done)
     break
     
+    case 'banned':
+    case 'ban':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isOwner) return m.reply(msg.owner)
+    ban = cekBanned(dia)
+    if (ban === true) {
+      return m.reply(msg.ban)
+    }
+    await addBanned(dia)
+    m.reply(msg.done)
+    break
+    
+  case 'unbanned':
+  case 'unban':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isOwner) return m.reply(msg.owner)
+    ban = cekBanned(dia)
+    if (ban === false) {
+      return m.reply(msg.noban)
+    }
+    await delBanned(dia)
+    m.reply(msg.done)
+    break
+
+  case 'open':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    // allow everyone to send Message
+    await Fg.groupSettingChange (from, GroupSettingChange.messageSend, false)
+    m.reply(msg.open)
+    break
+    
+  case 'close':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    // only allow admins to send messages
+    await Fg.groupSettingChange (from, GroupSettingChange.messageSend, true)
+    m.reply(msg.close)
+    break
+    
+    case 'setname':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!value) return m.reply(msg.notext)
+    await Fg.groupUpdateSubject(from, value)
+    m.reply(msg.name(value))
+    break
+
+  case 'setppgp':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(isMedia || isQuotedImage) {
+    q = m.quoted ? m.quoted : m 
+    let img = await q.download() 
+    await Fg.updateProfilePicture (from, img)
+   } else {
+     m.reply(msg.replyImg)
+   }
+    break
+
+  case 'setppbot':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(isMedia || isQuotedImage) {
+    q = m.quoted ? m.quoted : m 
+    let img = await q.download() 
+    id = Fg.user.jid
+    await Fg.updateProfilePicture (from, img)
+   } else {
+     m.reply(msg.replyImg)
+   }
+    break
+
+  case 'setdesc':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!value) return m.reply(msg.notext)
+    await Fg.groupUpdateDescription(from, value)
+    m.reply(msg.desk(value))
+    break
+    
+    case 'kick':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isOwner) return m.reply(msg.owner)
+    if(!dia) return m.reply(msg.notag)
+    if(dia = isAdmins) return m.reply(msg.isadmin)
+    anu = "@"+dia.split('@')[0]
+    capt = msg.kick(anu)
+    m.reply(capt, null, {
+          contextInfo: {
+            mentionedJid: Fg.parseMention(capt),
+          },
+        });
+    await Fg.groupRemove(from, [dia])
+    break
+
+  case 'add':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isOwner) return m.reply(msg.owner)
+    //if(!dia) return m.reply(msg.notag)
+    user = value.replace(/[^0-9]/g, '')+"@s.whatsapp.net"
+    try {
+    response = await Fg.groupAdd(from, [user])
+    v = response.participants[0]
+    invit = (Object.values(v))
+    if(invit[0].code == 409) return m.reply(msg.onwa)
+    else if(invit[0].code == 403){
+    capt = msg.sendlink+"@"+user.split('@')[0]
+    m.reply(capt, null, {
+          contextInfo: {
+            mentionedJid: Fg.parseMention(capt),
+          },
+        });
+    Fg.sendGroupV4Invite(from, user, invit[0].invite_code, invit[0].invite_code_exp, groupMetadata.subject , `✳️ Te invito a unirte a un grupo`)
+    }
+    } catch (e) {
+      m.reply(msg.nonum)
+    }
+    break 
+    
 //---
   default:
   
