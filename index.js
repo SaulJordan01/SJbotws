@@ -1239,6 +1239,33 @@ https://chat.whatsapp.com/${linkgp}`
     }
     break
     
+    case 'antilink':
+    case 'antilinkwha':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!value) return m.reply(msg.OnorOff)
+    if (value.toLowerCase() === "on") {
+      if(isAntilink === true ) return m.reply(msg.Thison(command.toUpperCase()))
+      await addAntilink(from)
+      m.reply(msg.On(command.toUpperCase()))
+    } else if (value.toLowerCase() === "off") {
+      if(isAntilink === false ) return m.reply(msg.Thisoff(command.toUpperCase()))
+      await delAntilink(from)
+      m.reply(msg.Off(command.toUpperCase()))
+    } else {
+      m.reply(msg.OnorOff)
+    }
+    break
+    
+
+  case 'q': 
+    if (!m.quoted) return m.reply(msg.reply)
+    let qse = Fg.serializeM(await m.getQuotedObj())
+    if (!qse.quoted) return m.reply(msg.noreply)
+    await qse.quoted.copyNForward(from, true)
+    break 
+    
 //---
   default:
   
