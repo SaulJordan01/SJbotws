@@ -1441,7 +1441,7 @@ ${listDevote}`.trim()
 
  case 'checkvote':
    if(!isGroup) return m.reply(msg.group)
-   if(!isAdmins) return m.reply(msg.admin)
+  // if(!isAdmins) return m.reply(msg.admin)
    if (!(from in Fg.vote)) {
         await m.reply(msg.nomain('Votacion'))
         throw false
