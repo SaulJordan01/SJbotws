@@ -1293,6 +1293,7 @@ https://chat.whatsapp.com/${linkgp}`
    break
    
    case 'perfil':
+   case 'profile':
    if(!isGroup) return m.reply(msg.group)
    try {
 	      ppimg = await Fg.getProfilePicture(who);
@@ -1302,7 +1303,6 @@ https://chat.whatsapp.com/${linkgp}`
 	 Prema = cekPremium(who) ? 'Si' : 'No'
    perfil = ` ┌───「 *PERFIL* 」
 ▢ *🔖 Nombre:* ${pushname}
-▢ *🔮 Tag :* @${sender.split("@")[0]}
 ▢ *📇 Info:* ${about}
 ▢ *⚠️ Advertencia* : ${cekWarn(who)}
 ▢ *⭐ Premium* : ${Prema}
@@ -1310,7 +1310,7 @@ https://chat.whatsapp.com/${linkgp}`
 ▢ *Point* : ${cekPoin(who)} 
 └──────────────`
 prof = await getBuffer(ppimg)
-Fg.sendMessage(from, prof, image, {contextInfo: {  mentionedJid: [who]}, thumbnail: fakethumb, quoted: mek, caption: perfil})
+Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: perfil})
    break
    
 //---
