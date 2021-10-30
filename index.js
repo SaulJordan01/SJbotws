@@ -1331,7 +1331,7 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
    infogp = `┌──「 *INFO DE GRUPO* 」
 ▢ *🔖Nombre* : ${groupName}
 ▢ *🪀Se creó el* : ${creation}
-▢ *⭐ Ownergp* : @${ownergp}
+//▢ *⭐ Ownergp* : @${ownergp}
 ▢ *🕵🏻‍♂️Admins* : ${groupAdmins.length}
 ▢ *👥Miembros* : ${groupMembers.length}
 ≡ CONFI
