@@ -208,22 +208,22 @@ module.exports = Fg = async (Fg, mek) => {
      const botNumero = botNumber.replace('@s.whatsapp.net', '') // número del bot   
      
 //-- Grupo Metadata
-     const isGroup = from.endsWith('@g.us');
+      const isGroup = from.endsWith('@g.us');
      const sender = isGroup ? mek.participant : mek.key.remoteJid;
      const groupMetadata = isGroup ? await Fg.groupMetadata(from) : '';
      const groupName = isGroup ? groupMetadata.subject : '';
+     const groupDesc = isGroup ? groupMetadata.desc : ''
      const groupId = isGroup ? groupMetadata.jid : '';
      const groupMembers = isGroup ? groupMetadata.participants : '';
      const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : '';
-     //const isMods = mods.includes(senderNumber)
-      
      const isOwner = ownerNumber.includes(sender) || false;
      const isBotAdmins = groupAdmins.includes(botNumber) || false;
      const isAdmins = groupAdmins.includes(sender) || false;
-     let conts = mek.key.fromMe ? Fg.user.jid : Fg.contacts[sender] || { notify: jid.replace(/@.+/, '') };
-     const pushname = mek.key.fromMe ? Fg.user.name : conts.name || conts.vname || conts.notify || '-';
-     let siapa = mek.quoted ? mek.quoted.sender : mek.mentionedJid && mek.mentionedJid[0] ? mek.mentionedJid[0] : mek.fromMe ? Fg.user.jid : mek.sender;
+    // let siapa = mek.quoted ? mek.quoted.sender : mek.mentionedJid && mek.mentionedJid[0] ? mek.mentionedJid[0] : mek.fromMe ? Fg.user.jid : mek.sender;
+     let who = mek.quoted ? mek.quoted.sender : mek.mentionedJid && mek.mentionedJid[0] ? mek.mentionedJid[0] : mek.fromMe ? Fg.user.jid : mek.sender;
      let dia = mek.quoted ? mek.quoted.sender : mek.mentionedJid && mek.mentionedJid[0] ? mek.mentionedJid[0] : false;
+     const pushname = Fg.getName(who);
+     const about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
 
 //--- comprobar la información del usuario
      let isPoin = cekPoin(sender);
@@ -1012,7 +1012,7 @@ https://chat.whatsapp.com/${linkgp}`
 
   case 'checkwarn':
   case 'warns':
-    warn = cekWarn(siapa)
+    warn = cekWarn(who)
     m.reply(msg.cekwarn(warn))
     break
     
@@ -1296,11 +1296,11 @@ https://chat.whatsapp.com/${linkgp}`
    //if(!siapa) return m.reply(msg.notag)
    if(!isGroup) return m.reply(msg.group)
    try {
-	      ppimg = await Fg.getProfilePicture(siapa);
+	      ppimg = await Fg.getProfilePicture(who);
 	    } catch {
 	      ppimg = 'https://telegra.ph/file/7c0b1068736040b515d81.jpg';
 	    }
-	 Prema = cekPremium(siapa) ? 'Yes' : 'No'
+	 Prema = cekPremium(who) ? 'Yes' : 'No'
    capt = '*PROFILE*\n\n'
    capt += '*Nomor* : ' + siapa.split('@')[0]
    capt += '\n*Nama* : ' + pushname
