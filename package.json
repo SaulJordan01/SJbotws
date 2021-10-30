@@ -3,7 +3,7 @@
   "name": "dylux-bot",
 
   "version": "0.0.5",
-  "description": "WhatsApp Bot  Baileys",
+  "description": "WhatsApp Bot Baileys",
   "main": "main.js",
   "directories": {
     "lib": "library"
