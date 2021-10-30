@@ -1530,7 +1530,7 @@ case 'riddle':  //acertijo
       Use.onepref = true
       m.reply(msg.done + ' Prefix ' + Use.prefix)
     } else if (!value) {
-    	Fg.send3Button(from, `✳️ Profijos Disponibles\n • *multi*\n • nopref \n• onepref`, 'Elige lo que quieras', 'Un Prefijo', `${prefix + command} onepref`, 'Sin Prefijo', `${prefix + command} nopref`, 'Multi Prefijo', `${prefix + command} multi`)
+    	Fg.send3Button(from, `✳️ Profijos Disponibles\n • *multi* _muti prefijo_\n • *nopref* _Sin prefijo_ \n• *onepref* _Solo un prefijo_`, 'Elige lo que quieras', 'Un Prefijo', `${prefix + command} onepref`, 'Sin Prefijo', `${prefix + command} nopref`, 'Multi Prefijo', `${prefix + command} multi`)
    } 
     break
  
