@@ -1351,15 +1351,15 @@ case 'votacion':
    if(!value) return m.reply(msg.notext)
    Fg.vote = Fg.vote ? Fg.vote : {}
     if (from in Fg.vote) {
-        await m.reply(msg.main('Votar'))
+        await m.reply(msg.main('Votacion'))
         return false
     }
     caption = `≡ *VOTAR*
 
 Razón : ${value}
 
-*${prefix}voto*
-*${prefix}nvoto*`
+*${prefix}voto* _si estas a favor_
+*${prefix}nvoto* _si no estas a favor_`
     Fg.vote[from] = [
         await Fg.send2Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', false, { contextInfo:{
           mentionedJid: Fg.parseMention(caption)
@@ -1383,7 +1383,7 @@ Razón : ${value}
     break
 
  case 'vote':
- case 'votar':
+ case 'voto':
    if(!isGroup) return m.reply(msg.group)
    if (!(from in Fg.vote)) {
        m.reply(msg.nomain('Votación'))
