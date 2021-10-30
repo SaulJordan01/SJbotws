@@ -1328,10 +1328,10 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
    creation = moment(groupMetadata.creation * 1000).tz('America/La_Paz').format(`DD-MM-YYYY`)
    ownergp = groupMetadata.owner.split('@')[0]
    
-   infogp = `┌──「 *INFO DE GRUPO* 」
+   infogpp = `┌──「 *INFO DE GRUPO* 」
 ▢ *🔖Nombre* : ${groupName}
 ▢ *🪀Se creó el* : ${creation}
-//▢ *⭐ Ownergp* : @${ownergp}
+▢ *⭐ Ownergp* : @${ownergp}
 ▢ *🕵🏻‍♂️Admins* : ${groupAdmins.length}
 ▢ *👥Miembros* : ${groupMembers.length}
 ≡ CONFI
@@ -1341,7 +1341,126 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
 ▢ *❕Detected* : ${isDetect}
 ▢ *📌Descripción* : \n${groupDesc}`
 gpp = await getBuffer(ppimg)
-Fg.sendMessage(from, gpp, image, { thumbnail: fakethumb, quoted: mek, caption: infogp})
+Fg.sendMessage(from, gpp, image, { thumbnail: fakethumb, quoted: mek, caption: infogpp})
+break 
+
+case 'voting':
+case 'votacion':
+   if(!isGroup) return m.reply(msg.group)
+   if(!isAdmins) return m.reply(msg.admin)
+   if(!value) return m.reply(msg.notext)
+   Fg.vote = Fg.vote ? Fg.vote : {}
+    if (from in Fg.vote) {
+        await m.reply(msg.main('Votar'))
+        return false
+    }
+    caption = `≡ *VOTAR*
+
+Razón : ${value}
+
+*${prefix}voto*
+*${prefix}nvoto*`
+    Fg.vote[from] = [
+        await Fg.send2Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', false, { contextInfo:{
+          mentionedJid: Fg.parseMention(caption)
+        }}),
+        [],
+        [],
+        value,
+    ]
+    break
+    
+    case 'delvote':
+    case 'delvoto':
+   if(!isGroup) return m.reply(msg.group)
+   if(!isAdmins) return m.reply(msg.admin)
+    if (!(from in Fg.vote)) {
+        await m.reply(msg.nomain('Votacion'))
+        return false
+    }
+    delete Fg.vote[from]
+    m.reply(msg.hapus('Votacion'))
+    break
+
+ case 'vote':
+ case 'votar':
+   if(!isGroup) return m.reply(msg.group)
+   if (!(from in Fg.vote)) {
+       m.reply(msg.nomain('Votación'))
+       return false
+    }
+    vote = Fg.vote[from][1]
+    devote = Fg.vote[from][2]
+    inVote = vote.includes(sender)
+    inDevote = devote.includes(sender)
+    if (inVote) return m.reply(msg.inmain('Votacion'))
+    if (inDevote) return m.reply(msg.inmain('Votacion'))
+    vote.push(sender)
+    listVote = vote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
+    listDevote = devote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
+        caption = `*VOTACION*
+
+RAZON : ${Fg.vote[from][3]}
+
+VOTO : ${vote.length}
+${listVote}
+
+NO VOTO : ${devote.length}
+${listDevote}`.trim()
+    await Fg.send3Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', 'Ver Votaciones', prefix + 'checkvote', false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    break
+
+ case 'devote':
+ case 'nvoto':
+   if(!isGroup) return m.reply(msg.group)
+   if (!(from in Fg.vote)) {
+       m.reply(msg.nomain('Votacion'))
+       return false
+    }
+    vote = Fg.vote[from][1]
+    devote = Fg.vote[from][2]
+    inVote = vote.includes(sender)
+    inDevote = devote.includes(sender)
+    if (inVote) return m.reply(msg.inmain('Votacion'))
+    if (inDevote) return m.reply(msg.inmain('Votacion'))
+    devote.push(sender)
+    listVote = vote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
+    listDevote = devote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
+        caption = `*VOTACION*
+
+RAZON: ${Fg.vote[from][3]}
+
+VOTO : ${vote.length}
+${listVote}
+
+NO VOTO : ${devote.length}
+${listDevote}`.trim()
+    await Fg.send3Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', 'Ver Votaciones', prefix + 'checkvote', false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    break
+
+
+ case 'checkvote':
+   if(!isGroup) return m.reply(msg.group)
+   if(!isAdmins) return m.reply(msg.admin)
+   if (!(from in Fg.vote)) {
+        await m.reply(msg.nomain('Votacion'))
+        throw false
+    }
+    vote = Fg.vote[from][1]
+    devote = Fg.vote[from][2]
+    listVote = vote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
+    listDevote = devote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
+    caption = `≡ *RESULTADOS DE VOTACION*
+
+RAZON: ${Fg.vote[from][3]}
+
+VOTOS : ${vote.length}
+${listVote}
+
+NO VOTOS : ${devote.length}
+${listDevote}`.trim()
+    await Fg.send3Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', 'Eliminar Voto', prefix + 'delvote', false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+break
    
 //---
   default:
