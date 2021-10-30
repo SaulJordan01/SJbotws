@@ -1302,14 +1302,14 @@ https://chat.whatsapp.com/${linkgp}`
 	    }
 	 Prema = cekPremium(who) ? 'Yes' : 'No'
    capt = '*PROFILE*\n\n'
-   capt += '*Nomor* : ' + siapa.split('@')[0]
+   capt += '*Nomor* : ' + who.split('@')[0]
    capt += '\n*Nama* : ' + pushname
    capt += '\n*Bio* : ' + about
    capt += '\n*Premium* : ' + Prema
-   capt += '\n*Bahasa* : ' + cekBahasa(siapa)
-   capt += '\n*Level* : ' + cekLevel(siapa)
-   capt += '\n*Poin* : ' + cekPoin(siapa)
-   capt += '\n*Warning* : ' + cekWarn(siapa)
+   capt += '\n*Bahasa* : ' + cekBahasa(who)
+   capt += '\n*Level* : ' + cekLevel(who)
+   capt += '\n*Poin* : ' + cekPoin(who)
+   capt += '\n*Warning* : ' + cekWarn(who)
    Fg.adReply(from, capt, text, 'Profile from database', tanggal, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link', mek)
    break
    
