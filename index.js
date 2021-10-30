@@ -1284,6 +1284,35 @@ https://chat.whatsapp.com/${linkgp}`
     await qse.quoted.copyNForward(from, true)
     break 
     
+    case 'fetch':
+ case 'result':
+ case 'view':
+   if(!isOwner) return m.reply(msg.owner)
+   let res = await fetchText(value)
+   m.reply(res)
+   break
+   
+   case 'profile':
+   //if(!siapa) return m.reply(msg.notag)
+   if(!isGroup) return m.reply(msg.group)
+   try {
+	      ppimg = await Fg.getProfilePicture(siapa);
+	    } catch {
+	      ppimg = 'https://telegra.ph/file/7c0b1068736040b515d81.jpg';
+	    }
+	 Prema = cekPremium(siapa) ? 'Yes' : 'No'
+   capt = '*PROFILE*\n\n'
+   capt += '*Nomor* : ' + siapa.split('@')[0]
+   capt += '\n*Nama* : ' + pushname
+   capt += '\n*Bio* : ' + about
+   capt += '\n*Premium* : ' + Prema
+   capt += '\n*Bahasa* : ' + cekBahasa(siapa)
+   capt += '\n*Level* : ' + cekLevel(siapa)
+   capt += '\n*Poin* : ' + cekPoin(siapa)
+   capt += '\n*Warning* : ' + cekWarn(siapa)
+   Fg.adReply(from, capt, text, 'Profile from database', tanggal, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link', mek)
+   break
+   
 //---
   default:
   
