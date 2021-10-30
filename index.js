@@ -1461,6 +1461,33 @@ NO VOTOS : ${devote.length}
 ${listDevote}`.trim()
     await Fg.send3Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', 'Eliminar Voto', prefix + 'delvote', false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
 break
+
+case 'riddle':  //acertijo
+  
+    Fg.game = Fg.game ? Fg.game : {}
+    if (from in Fg.game) {
+        Fg.reply(from, msg.onGame, Fg.game[from][0])
+        return false
+        } 
+        data = fs.readFileSync(`./result/game/${command}.js`);
+        list = JSON.parse(data);
+        random = Math.floor(Math.random() * list.length);
+        json = list[random]
+        caption = msg.soal(json.soal, (isGamewaktu / 1000).toFixed(2), isPoingame).trim()
+    Fg.game[from] = [
+        await Fg.reply(from, caption, m),
+        json, isPoingame,
+        setTimeout(() => {
+          capt = json.jawaban.replace(/[aiueoAIUEO]/gi, '▢')
+          m.reply("*Pista*\n"+capt.toUpperCase())
+        }, isGamewaktu - 10000),
+        setTimeout(() => {
+            if (Fg.game[from]) Fg.reply(from, msg.timeout+json.jawaban.toUpperCase(), Fg.game[from][0])
+            delete Fg.game[from]
+        }, isGamewaktu)
+    ]
+ break
+ 
    
 //---
   default:
