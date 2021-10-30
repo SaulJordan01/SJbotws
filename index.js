@@ -1313,6 +1313,36 @@ prof = await getBuffer(ppimg)
 Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: perfil})
    break
    
+   case 'infogp':
+   case 'groupinfo':
+   if(!isGroup) return m.reply(group)
+   try {
+	      ppimg = await Fg.getProfilePicture(from);
+	    } catch {
+	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
+	    }
+   isAntilink = isAntilink ? 'Si' : 'No' 
+   isAntidelete = isAntidelete ? 'Si' : 'No' 
+   isDetect = isDetect ? 'Si' : 'No' 
+   isWelcome = isWelcome ? 'Si' : 'No' 
+   creation = moment(groupMetadata.creation * 1000).tz('America/La_Paz').format(`DD-MM-YYYY`)
+   ownergp = groupMetadata.owner.split('@')[0]
+   
+   infogp = `┌──「 *INFO DE GRUPO* 」
+▢ *🔖Nombre* : ${groupName}
+▢ *🪀Se creó el* : ${creation
+▢ *⭐ Ownergp* : @${ownergp}
+▢ *🕵🏻‍♂️Admins* : ${groupAdmins.length}
+▢ *👥Miembros* : ${groupMembers.length}
+≡ CONFI
+▢ *📮Bienvenida* : ${isWelcome}
+▢ *🚨Anti Link Wha* : ${isAntilink}
+▢ *🚫 Antidelete* : ${isAntidelete}
+▢ *❕Detected* : ${isDetect}
+▢ *📌Descripción* : \n${groupDesc}`
+gpp = await getBuffer(ppimg)
+Fg.sendMessage(from, gpp, image, { thumbnail: fakethumb, quoted: mek, caption: infogp})
+   
 //---
   default:
   
