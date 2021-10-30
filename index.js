@@ -1516,21 +1516,21 @@ case 'riddle':  //acertijo
       Use.multi = true
       Use.nopref = false
       Use.onepref = false
-      m.reply(msg.done)
+      m.reply(`✅ Se cambio el prefijo a *multiprefijo*`)
   } else if ((args[0]) == 'nopref'){
       if(Use.nopref) return m.reply(msg.Thison(command.toUpperCase()))
       Use.multi = false
       Use.onepref = false
       Use.nopref = true
-      m.reply(msg.done)
+      m.reply(`✅ Se cambió de prefijo a *nopref* `)
     } else if ((args[0]) === 'onepref') {
       if(Use.onepref) return m.reply(msg.Thison(command.toUpperCase()))
       Use.multi = false
       Use.nopref = false
       Use.onepref = true
-      m.reply(msg.done + ' Prefix ' + Use.prefix)
+      m.reply(` ✅ Se cambio el prefijo a *${Use.prefix}*`)
     } else if (!value) {
-    	Fg.send3Button(from, `✳️ Profijos Disponibles\n • *multi* _muti prefijo_\n • *nopref* _Sin prefijo_ \n• *onepref* _Solo un prefijo_`, 'Elige lo que quieras', 'Un Prefijo', `${prefix + command} onepref`, 'Sin Prefijo', `${prefix + command} nopref`, 'Multi Prefijo', `${prefix + command} multi`)
+    	Fg.send3Button(from, `✳️ Profijos Disponibles\n\n• *multi* _muti prefijo_\n • *nopref* _Sin prefijo_ \n• *onepref* _Solo un prefijo_`, 'Elige lo que quieras', 'Un Prefijo', `${prefix + command} onepref`, 'Sin Prefijo', `${prefix + command} nopref`, 'Multi Prefijo', `${prefix + command} multi`)
    } 
     break
  
