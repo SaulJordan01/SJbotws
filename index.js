@@ -1292,25 +1292,25 @@ https://chat.whatsapp.com/${linkgp}`
    m.reply(res)
    break
    
-   case 'profile':
-   //if(!siapa) return m.reply(msg.notag)
+   case 'perfil':
    if(!isGroup) return m.reply(msg.group)
    try {
 	      ppimg = await Fg.getProfilePicture(who);
 	    } catch {
-	      ppimg = 'https://telegra.ph/file/7c0b1068736040b515d81.jpg';
+	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
 	    }
-	 Prema = cekPremium(who) ? 'Yes' : 'No'
-   capt = '*PROFILE*\n\n'
-   capt += '*Nomor* : ' + who.split('@')[0]
-   capt += '\n*Nama* : ' + pushname
-   capt += '\n*Bio* : ' + about
-   capt += '\n*Premium* : ' + Prema
-   capt += '\n*Bahasa* : ' + cekBahasa(who)
-   capt += '\n*Level* : ' + cekLevel(who)
-   capt += '\n*Poin* : ' + cekPoin(who)
-   capt += '\n*Warning* : ' + cekWarn(who)
-   Fg.adReply(from, capt, text, 'Profile from database', tanggal, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link', mek)
+	 Prema = cekPremium(who) ? 'Si' : 'No'
+   perfil = ` ┌───「 *PERFIL* 」
+▢ *🔖 Nombre:* ${pushname}
+▢ *🔮 Tag :* @${sender.split("@")[0]}
+▢ *📇 Info:* ${about}
+▢ *⚠️ Advertencia* : ${cekWarn(who)}
+▢ *⭐ Premium* : ${Prema}
+▢ *🆙 Nivel* : ${cekLevel(who)}
+▢ *Point* : ${cekPoin(who)} 
+└──────────────`
+prof = await getBuffer(ppimg)
+Fg.sendMessage(from, prof, image, {contextInfo: {  mentionedJid: [who]}, thumbnail: fakethumb, quoted: mek, caption: perfil})
    break
    
 //---
