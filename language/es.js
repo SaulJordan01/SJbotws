@@ -107,7 +107,7 @@ exports.nomain = (value) => {
   return `✳️ No hay *${value}* en curso`;
 };
 exports.inmain = (value) => {
-  return `Has hecho *${value}*`
+  return `Ya has Votado *${value}*`
 };
 exports.hapus = (value) =>{
   return `✅ Se eliminó *${value}* de este grupo`;
