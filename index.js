@@ -159,7 +159,14 @@ let baterai = {
     baterai: 0,
     cas: false
 };
-
+//- Prefijos
+let Use = {
+  prefix: '/',
+  multi: true,
+  nopref: false,
+  onepref: false
+};
+//-
 module.exports = Fg = async (Fg, mek) => {
   try {
     if (!mek.hasNewMessage) return;
@@ -177,25 +184,30 @@ module.exports = Fg = async (Fg, mek) => {
     const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType;
     const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = Fg.user.phone;
 //--
-    let body =
-      type === "conversation" && mek.message.conversation
-        ? mek.message.conversation
-        : type == "imageMessage" && mek.message.imageMessage.caption
-        ? mek.message.imageMessage.caption
-        : type == "videoMessage" && mek.message.videoMessage.caption
-        ? mek.message.videoMessage.caption
-        : type == "extendedTextMessage" && mek.message.extendedTextMessage.text
-        ? mek.message.extendedTextMessage.text
-        : (type == 'listResponseMessage') && mek.message[type].singleSelectReply.selectedRowId 
-       ? mek.message[type].singleSelectReply.selectedRowId 
-        : type == "buttonsResponseMessage" && mek.message[type].selectedButtonId
-        ? mek.message[type].selectedButtonId
-        : '';
-      for(var v of listprefix){
-			if(body.startsWith(v)){
-			  prefix = v ;
-			}
-      }
+     const cmd = 
+    type === 'conversation' && mek.message.conversation ? mek.message.conversation :
+    type === 'imageMessage' && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : 
+    type === 'videoMessage' && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : 
+    type === 'extendedTextMessage' && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : 
+    type === 'listResponseMessage' && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId :
+    type === 'buttonsResponseMessage' && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : ''.slice(1).trim().split(/ +/).shift().toLowerCase();
+    
+      if(Use.multi){
+        var prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~zZ+×_*!#%^&./\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓=|~xzZ+×_*!#,|`÷?;:%^&./\\©^]/gi) : '-';
+      } else if (Use.nopref) {
+        prefix = '';
+      } else if (Use.onepref) {
+        prefix = Use.prefix;
+        }
+
+    const body = 
+    type === 'conversation' && mek.message.conversation.startsWith(prefix) ? mek.message.conversation : 
+    type === 'imageMessage' && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : 
+    type === 'videoMessage' && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : 
+    type === 'extendedTextMessage' && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : 
+    type === 'listResponseMessage' && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId :
+    type === 'buttonsResponseMessage' && mek.message[type].selectedButtonId.startsWith(prefix) ? mek.message[type].selectedButtonId : ''
+    
      const budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : '';
      const command = body.slice(1).trim().split(/ +/).shift().toLowerCase();
      const args = body.trim().split(/ +/).slice(1);
@@ -251,6 +263,14 @@ module.exports = Fg = async (Fg, mek) => {
      } else {
        msg = espa;
      }
+ //-- prefijo
+     if (Use.multi) {
+        modepref = 'Multi Prefijo'
+      } else if (Use.nopref) {
+        modepref = 'Sin Prefijo'
+      } else if (Use.onepref) {
+        modepref = 'Prefijo ' + Use.prefix
+      }
      
      // funciones de mención de usuario premium
      if (isPremium) {
@@ -1487,6 +1507,32 @@ case 'riddle':  //acertijo
         }, isGametime)
     ]
  break
+ 
+ case 'setprefix':
+    if (!isOwner) return m.reply(msg.owner)
+    //if (!value) return m.reply(msg.notext)
+   if((args[0]) == 'multi'){
+      if(Use.multi) return m.reply(msg.Thison(command.toUpperCase()))
+      Use.multi = true
+      Use.nopref = false
+      Use.onepref = false
+      m.reply(msg.done)
+  } else if ((args[0]) == 'nopref'){
+      if(Use.nopref) return m.reply(msg.Thison(command.toUpperCase()))
+      Use.multi = false
+      Use.onepref = false
+      Use.nopref = true
+      m.reply(msg.done)
+    } else if ((args[0]) === 'onepref') {
+      if(Use.onepref) return m.reply(msg.Thison(command.toUpperCase()))
+      Use.multi = false
+      Use.nopref = false
+      Use.onepref = true
+      m.reply(msg.done + ' Prefix ' + Use.prefix)
+    } else if (!value) {
+    	Fg.send3Button(from, `✳️ Profijos Disponibles\n • *multi*\n • nopref \n• onepref`, 'Elige lo que quieras', 'Un Prefijo', `${prefix + command} onepref`, 'Sin Prefijo', `${prefix + command} nopref`, 'Multi Prefijo', `${prefix + command} multi`)
+   } 
+    break
  
    
 //---
