@@ -1596,22 +1596,21 @@ case 'delwelcome':
   
  case 'simulate':
  case 'simular':
-case 'simulasi' :
    if(!isGroup) return m.reply(msg.group)
    if(!isAdmins && !isOwner) return m.reply(msg.admin)
-   if(!value) return m.reply('List Simulasi\n\n- Welcome\n-Bye')
+   if(!value) return m.reply('Lista de eventos\n\n- Welcome\n-Bye')
    welc = getCustomWelcome(from)
    bye = getCustomBye(from)
    tag = '@'+sender.split('@')[0]
    about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
    if(value.toLowerCase() === 'welcome') {
-     capt = welc.replace('@tag', tag).replace('@nama', pushname).replace('@about', about).replace('@tanggal', tanggal).replace('@group', groupName)
-     Fg.adReply(from, capt, text, 'Selamat datang member baru', 'Member ke ' + groupMembers.length + ' Group ' + groupName, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
+     capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@fecha', tanggal).replace('@group', groupName)
+     Fg.adReply(from, capt, text, 'Bienvenido nuevo', 'al grupo' + groupMembers.length + ' Group ' + groupName, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
      } else if(value.toLowerCase() === 'bye') {
-       capt = bye.replace('@tag', tag).replace('@nama', pushname).replace('@about', about).replace('@tanggal', tanggal).replace('@group', groupName)
+       capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@fecha', tanggal).replace('@group', groupName)
        m.reply(capt)
      } else {
-       m.reply('List Simulasi\n\n- Welcome\n- Bye')
+       m.reply('Lista de eventos\n\n- Welcome\n- Bye')
      }
   break
   
