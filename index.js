@@ -1348,7 +1348,6 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
    infogpp = `┌──「 *INFO DE GRUPO* 」
 ▢ *🔖Nombre* : ${groupName}
 ▢ *🪀Se creó el* : ${creation}
-//▢ *⭐ Ownergp* : @${ownergp}
 ▢ *🕵🏻‍♂️Admins* : ${groupAdmins.length}
 ▢ *👥Miembros* : ${groupMembers.length}
 ≡ CONFI
