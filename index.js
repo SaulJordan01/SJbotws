@@ -1531,6 +1531,15 @@ case 'riddle':  //acertijo
     	Fg.send3Button(from, `✳️ Profijos Disponibles\n\n• *multi* _muti prefijo_\n• *nopref* _Sin prefijo_ \n• *onepref* _Solo un prefijo_`, 'Elige lo que quieras', 'Un Prefijo', `${prefix + command} onepref`, 'Sin Prefijo', `${prefix + command} nopref`, 'Multi Prefijo', `${prefix + command} multi`)
    } 
     break
+    
+    case 'update':
+if (!isOwner) return m.reply(msg.owner)
+gfg = `git remote set-url origin https://github.com/FG98F/dylux-bot.git && git pull `
+exec(`${gfg}`, (err, stdout) => {
+if (err) return reply(err)
+if (stdout) reply(`✅ *Actualizado*\n\nInforme :\n\n*${stdout}*`)
+})
+break
  
    
 //---
