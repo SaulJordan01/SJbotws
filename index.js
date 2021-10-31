@@ -320,10 +320,10 @@ Fg.on('CB:action,,battery', json => {
     }
 
 // Anti spam que se suma al spam :v
-    if (isCmd && msgFilter.isFiltered(from)) {
-         return m.reply('⚠️ no spam')
+   /* if (isCmd && msgFilter.isFiltered(from)) {
+         return m.reply('⚠️ Espera 2 segundos antes de usar otro comando')
 					}
-    if (isCmd && !isOwner) msgFilter.addFilter(from)
+    if (isCmd && !isOwner) msgFilter.addFilter(from*/
 
 
 if (budy) addUser(sender); // agregar información de usuario a la base de datos
