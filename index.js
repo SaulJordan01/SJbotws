@@ -1374,12 +1374,12 @@ case 'votacion':
         await m.reply(msg.main('Votacion'))
         return false
     }
-    caption = `≡ *VOTAR*
+    caption = `≡ *VOTACIÓN*
 
 Razón : ${value}
 
-*${prefix}voto* _si estas a favor_
-*${prefix}nvoto* _si no estas a favor_`
+✅ : *Si estas de acuerdo*
+❎ : *Si no estas de acuerdo*`
     Fg.vote[from] = [
         await Fg.send2Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', false, { contextInfo:{
           mentionedJid: Fg.parseMention(caption)
@@ -1402,8 +1402,7 @@ Razón : ${value}
     m.reply(msg.hapus('Votacion'))
     break
 
- case 'vote':
- case 'voto':
+ case 'yes':
    if(!isGroup) return m.reply(msg.group)
    if (!(from in Fg.vote)) {
        m.reply(msg.nomain('Votación'))
@@ -1413,8 +1412,8 @@ Razón : ${value}
     devote = Fg.vote[from][2]
     inVote = vote.includes(sender)
     inDevote = devote.includes(sender)
-    if (inVote) return m.reply(msg.inmain('Voto'))
-    if (inDevote) return m.reply(msg.inmain('No Voto'))
+    if (inVote) return m.reply(msg.inmain('✅'))
+    if (inDevote) return m.reply(msg.inmain('❎'))
     vote.push(sender)
     listVote = vote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
     listDevote = devote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
@@ -1422,16 +1421,15 @@ Razón : ${value}
 
 RAZON : ${Fg.vote[from][3]}
 
-VOTO : ${vote.length}
+✅ : ${vote.length} *Total*
 ${listVote}
 
-NO VOTO : ${devote.length}
+❎ : ${devote.length} *Total*
 ${listDevote}`.trim()
-    await Fg.send3Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', 'Ver Votaciones', prefix + 'checkvote', false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    await Fg.send3Button(from, caption, isWm, '✅', `${prefix}yes`, '❎', `${prefix}no`, '📈 Ver Votaciones', `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
     break
 
- case 'devote':
- case 'nvoto':
+ case 'no':
    if(!isGroup) return m.reply(msg.group)
    if (!(from in Fg.vote)) {
        m.reply(msg.nomain('Votacion'))
@@ -1441,21 +1439,21 @@ ${listDevote}`.trim()
     devote = Fg.vote[from][2]
     inVote = vote.includes(sender)
     inDevote = devote.includes(sender)
-    if (inVote) return m.reply(msg.inmain('Voto'))
-    if (inDevote) return m.reply(msg.inmain('No Voto'))
+    if (inVote) return m.reply(msg.inmain('✅'))
+    if (inDevote) return m.reply(msg.inmain('❎'))
     devote.push(sender)
     listVote = vote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
     listDevote = devote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
         caption = `*VOTACION*
 
-RAZON: ${Fg.vote[from][3]}
+RAZON : ${Fg.vote[from][3]}
 
-VOTO : ${vote.length}
+✅ : ${vote.length} *Total*
 ${listVote}
 
-NO VOTO : ${devote.length}
+❎ : ${devote.length} *Total*
 ${listDevote}`.trim()
-    await Fg.send3Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', 'Ver Votaciones', prefix + 'checkvote', false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    await Fg.send3Button(from, caption, isWm, '✅', `${prefix}yes`, '❎', `${prefix}no`, '📈 Ver Votaciones', `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
     break
 
 
@@ -1474,12 +1472,12 @@ ${listDevote}`.trim()
 
 RAZON: ${Fg.vote[from][3]}
 
-VOTOS : ${vote.length}
+✅ : ${vote.length} *Total*
 ${listVote}
 
-NO VOTOS : ${devote.length}
+❎ : ${devote.length} *Total*
 ${listDevote}`.trim()
-    await Fg.send3Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', 'Eliminar Voto', prefix + 'delvote', false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    await Fg.sendButton(from, caption, isWm, '🚫 Eliminar', `${prefix}delvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
 break
 
 case 'riddle':  //acertijo
@@ -1516,21 +1514,21 @@ case 'riddle':  //acertijo
       Use.multi = true
       Use.nopref = false
       Use.onepref = false
-      m.reply(`✅ Se cambio el prefijo a *multiprefijo*`)
+      m.reply(`✅ Se cambio el prefijo a : *multiprefijo*`)
   } else if ((args[0]) == 'nopref'){
       if(Use.nopref) return m.reply(msg.Thison(command.toUpperCase()))
       Use.multi = false
       Use.onepref = false
       Use.nopref = true
-      m.reply(`✅ Se cambió de prefijo a *nopref* `)
+      m.reply(`✅ Se cambió de prefijo a : *nopref* `)
     } else if ((args[0]) === 'onepref') {
       if(Use.onepref) return m.reply(msg.Thison(command.toUpperCase()))
       Use.multi = false
       Use.nopref = false
       Use.onepref = true
-      m.reply(` ✅ Se cambio el prefijo a *${Use.prefix}*`)
+      m.reply(` ✅ Se cambio el prefijo a : *${Use.prefix}*`)
     } else if (!value) {
-    	Fg.send3Button(from, `✳️ Profijos Disponibles\n\n• *multi* _muti prefijo_\n • *nopref* _Sin prefijo_ \n• *onepref* _Solo un prefijo_`, 'Elige lo que quieras', 'Un Prefijo', `${prefix + command} onepref`, 'Sin Prefijo', `${prefix + command} nopref`, 'Multi Prefijo', `${prefix + command} multi`)
+    	Fg.send3Button(from, `✳️ Profijos Disponibles\n\n• *multi* _muti prefijo_\n• *nopref* _Sin prefijo_ \n• *onepref* _Solo un prefijo_`, 'Elige lo que quieras', 'Un Prefijo', `${prefix + command} onepref`, 'Sin Prefijo', `${prefix + command} nopref`, 'Multi Prefijo', `${prefix + command} multi`)
    } 
     break
  
