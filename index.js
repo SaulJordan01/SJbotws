@@ -1108,12 +1108,12 @@ https://chat.whatsapp.com/${linkgp}`
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
 //if (args.length < 1) return reply(`✳️ Para abrir grupo : *${prefix + command}* open\npara cerrar grupo : *${prefix + command}* close`)
 if (args[0] === 'open') {
- reply(msg.open)
+ m.reply(msg.open)
 Fg.groupSettingChange(from, GroupSettingChange.messageSend, false)
 	} else if (args[0] === 'close') {
-reply(msg.close)
+m.reply(msg.close)
 Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
-	} else if (!q) {
+	} else if (!value) {
 		Fg.send2Button(from, `🛡️ Configuración de grupo\nAbrir y cerrar el grupo`, `A continuación elija uno`, 'ABRIR', `${prefix + command} open`, 'CERRAR', `${prefix + command} close`)
 		} 
     
