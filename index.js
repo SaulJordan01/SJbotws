@@ -1345,7 +1345,6 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
    isWelcome = isWelcome ? 'Si' : 'No' 
    creation = moment(groupMetadata.creation * 1000).tz('America/La_Paz').format(`DD-MM-YYYY`)
    //ownergp = groupMetadata.owner.split('@')[0]
- 
    infogpp = `┌──「 *INFO DE GRUPO* 」
 ▢ *🔖Nombre* : ${groupName}
 ▢ *🪀Se creó el* : ${creation}
