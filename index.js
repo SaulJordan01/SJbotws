@@ -133,6 +133,17 @@ const {
   addPoingame,
   addCmd
 } = require('./functions/setting-bot'); // cambiar datos en ./database/setting-bot
+const {
+  Wel,
+  addCustomWelcome,
+  getCustomWelcome,
+  setCustomWelcome,
+  delCustomWelcome,
+  getCustomBye,
+  setCustomBye,
+  delCustomBye
+} = require('./functions/welcome');
+
 const { msgFilter } = require('./functions/antispam')
 const { menu } = require('./functions/menu'); 
 const { espa, ind, eng, } = require('./language/index');
