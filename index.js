@@ -1321,6 +1321,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
    perfil = ` ┌───「 *PERFIL* 」
 ▢ *🔖 Nombre:* ${pushname}
 ▢ *📇 Info:* ${about}
+▢ *🌎 Idioma:* ${cekBahasa(who)}
 ▢ *⚠️ Advertencia* : ${cekWarn(who)}
 ▢ *⭐ Premium* : ${Prema}
 ▢ *🆙 Nivel* : ${cekLevel(who)}
@@ -1343,12 +1344,12 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
    isDetect = isDetect ? 'Si' : 'No' 
    isWelcome = isWelcome ? 'Si' : 'No' 
    creation = moment(groupMetadata.creation * 1000).tz('America/La_Paz').format(`DD-MM-YYYY`)
-   ownergp = groupMetadata.owner.split('@')[0]
+   //ownergp = groupMetadata.owner.split('@')[0]
  
    infogpp = `┌──「 *INFO DE GRUPO* 」
 ▢ *🔖Nombre* : ${groupName}
 ▢ *🪀Se creó el* : ${creation}
-▢ *⭐ Ownergp* : @${ownergp}
+//▢ *⭐ Ownergp* : @${ownergp}
 ▢ *🕵🏻‍♂️Admins* : ${groupAdmins.length}
 ▢ *👥Miembros* : ${groupMembers.length}
 ≡ CONFI
@@ -1360,37 +1361,6 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
 gpp = await getBuffer(ppimg)
 Fg.sendMessage(from, gpp, image, { thumbnail: fakethumb, quoted: mek, caption: infogpp})
 break 
-
-case 'gpf':
-      if(!isGroup) return m.reply(group)
-  try {
-	ppUrl = await Fg.getProfilePicture(from)
-		} catch {
-	ppUrl = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg'
-  	}
-  
-  isAntilink = isAntilink ? 'Si' : 'No' 
-   isAntidelete = isAntidelete ? 'Si' : 'No' 
-   isDetect = isDetect ? 'Si' : 'No' 
-   isWelcome = isWelcome ? 'Si' : 'No' 
-   creation = moment(groupMetadata.creation * 1000).tz('America/La_Paz').format(`DD-MM-YYYY`)
-   ownergp = groupMetadata.owner.split('@')[0]
-   
-infogp = `┌──「 *INFO DE GRUPO* 」
-▢ *🔖Nombre* : ${groupName}
-▢ *🪀Se creó el* : ${creation}
-▢ *⭐ Ownergp* : @${ownergp}
-▢ *🕵🏻‍♂️Admins* : ${groupAdmins.length}
-▢ *👥Miembros* : ${groupMembers.length}
-≡ CONFI
-▢ *📮Bienvenida* : ${isWelcome}
-▢ *🚨Anti Link Wha* : ${isAntilink}
-▢ *🚫 Antidelete* : ${isAntidelete}
-▢ *❕Detected* : ${isDetect}
-▢ *📌Descripción* : \n${groupDesc}`
-buffer = await getBuffer(ppUrl)
-Fg.sendMessage(from, buffer, image, {thumbnail: fakethumb, quoted: mek,caption:infogp })
-break
 
 case 'voting':
 case 'votacion':
