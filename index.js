@@ -1537,7 +1537,7 @@ if (!isOwner) return m.reply(msg.owner)
 gfg = `git remote set-url origin https://github.com/FG98F/dylux-bot.git && git pull `
 exec(`${gfg}`, (err, stdout) => {
 if (err) return reply(err)
-if (stdout) reply(`✅ *Actualizado*\n\nInforme :\n\n*${stdout}*`)
+if (stdout) m.reply(`✅ *Actualizado*\n\nInforme :\n\n*${stdout}*`)
 })
 break
  
