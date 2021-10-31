@@ -1,11 +1,13 @@
-const axios = require('axios');
 const cfonts = require('cfonts');
 const spin = require('spinnies');
 const Crypto = require('crypto');
 const moment = require("moment-timezone");
 const fs = require('fs');
 const { spawn } = require("child_process");
-// -- function
+
+/** -- function
+* detected link
+*/
 const isUrl = (url) => {
        return url.match(
         new RegExp(
@@ -20,7 +22,9 @@ function pickRandom(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
 
-
+/**
+ * format jam
+*/
 const kyun = (s) =>{
     function pad(s) {
         return (s < 10 ? '0' : '') + s;
@@ -32,7 +36,9 @@ const kyun = (s) =>{
 };
 
 
-// -- hari
+/**
+ * Penyebutan hari dan tanggal 
+ */
      let d = new Date();
      let locale = "id";
      let gmt = new Date(0).getTime() - new Date("1 January 1970").getTime();
@@ -52,29 +58,17 @@ const kyun = (s) =>{
     });
      let tanggal = week + " " + weton + ", " + date;
 
-// -- waktu
+/**
+ * Timezone 3 wilayah di Indonesia
+ */
      const time = moment().tz("America/La_Paz").format("HH:mm:ss");
      const WIB = moment().tz("America/La_Paz").format("HH:mm:ss");
-     const WIT = moment().tz("America/Mexico_City").format("HH:mm:ss");
-     const WITA = moment().tz("America/Argentina/Salta").format("HH:mm:ss");
-
-// -- salam
-      if (time < "24:59:00") {
-       ucapanWaktu = "Buenas Medianoche🕛🌜🌚🌑 Hora de dormir";
-    }
-      if (time < "18:00:00") {
-       ucapanWaktu = "Buenas tardes";
-    }
-      if (time < "15:00:00") {
-       ucapanWaktu = "Buenas tardes";
-    }
-      if (time < "11:00:00") {
-       ucapanWaktu = "Buenos días";
-    }
-      if (time < "05:00:00") {
-      ucapanWaktu = "Buenos días";
-    }
+     const WIT = moment().tz("America/La_Paz").format("HH:mm:ss");
+     const WITA = moment().tz("America/La_Paz").format("HH:mm:ss");
     
+/**
+ * Penyebutan bilangan ribuan dan seterusnya
+ */
 const h2k = (number) => {
     var SI_POSTFIXES = ["", " K", " M", " G", " T", " P", " E"];
     var tier = Math.log10(Math.abs(number)) / 3 | 0;
@@ -88,26 +82,9 @@ const h2k = (number) => {
     return formatted + postfix;
 };
 
-const getBuffer = async (url, options) => {
-	try {
-		options ? options : {};
-		const res = await axios({
-			method: "get",
-			url,
-			headers: {
-				'DNT': 1,
-				'Upgrade-Insecure-Request': 1
-			},
-			...options,
-			responseType: 'arraybuffer'
-		});
-		return res.data;
-	} catch (e) {
-		console.log(`Error : ${e}`);
-	}
-};
-
-
+/**
+ * pembuat exif untuk watermark sticker
+*/
 const createExif = (pack, auth) =>{
     const code = [0x00,0x00,0x16,0x00,0x00,0x00];
     const exif = {"sticker-pack-id": "com.client.tech", "sticker-pack-name": pack, "sticker-pack-publisher": auth, "android-app-store-link": "https://play.google.com/store/apps/details?id=com.marsvard.stickermakerforwhatsapp", "ios-app-store-link": "https://itunes.apple.com/app/sticker-maker-studio/id1443326857"};
@@ -174,8 +151,7 @@ const getRandom = (ext) => {
 	return `${Math.floor(Math.random() * 10000)}${ext}`;
 };
 
-module.exports = { 
-  getBuffer, 
+module.exports = {
   createExif,
   modStick,
   h2k,
@@ -189,7 +165,6 @@ module.exports = {
   WIB,
   WITA,
   WIT,
-  ucapanWaktu,
   weton,
   week,
   date,
