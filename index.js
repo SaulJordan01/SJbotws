@@ -1530,6 +1530,7 @@ case 'riddle':  //acertijo
     break
     
     case 'update':
+    case 'actualizar':
 if (!isOwner) return m.reply(msg.owner)
 gfg = `git remote set-url origin https://github.com/FG98F/dylux-bot.git && git pull `
 exec(`${gfg}`, (err, stdout) => {
@@ -1537,6 +1538,71 @@ if (err) return reply(err)
 if (stdout) m.reply(`✅ *Actualizado*\n\nInforme :\n\n${stdout}`)
 })
 break
+
+
+case 'setwelcome':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
+    fungsi = `
+@tag = @${sender.split('@')[0]}
+@nama = ${pushname}
+@about = ${about}
+@tanggal = ${tanggal}
+@group = ${groupName}`
+    if(!value) return m.reply(msg.setwel(fungsi))
+     await setCustomWelcome(from, value)
+     m.reply(msg.setweldone(value, fungsi))
+     break
+
+  case 'setbye':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
+fungsi = `
+@tag = @${sender.split('@')[0]}
+@nama = ${pushname}
+@about = ${about}
+@tanggal = ${tanggal}
+@group = ${groupName}`
+    if(!value) return m.reply(msg.setbye(fungsi))
+    await setCustomBye(from, value)
+    m.reply(msg.setbyedone(value, fungsi))
+    break
+
+case 'delwelcome':
+  case 'delbye':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.owner)
+    if(command.includes('welcome')){
+      await delCustomWelcome(from)
+      m.reply(msg.default('WELCOME'))
+    } else if(command.includes('bye')){
+      await delCustomBye(from)
+      m.reply(msg.default('BYE'))
+    }
+  break
+  
+ case 'simulate':
+ case 'simular':
+   if(!isGroup) return m.reply(msg.group)
+   if(!isAdmins && !isOwner) return m.reply(msg.admin)
+   if(!value) return m.reply('List Simulasi\n\n- Welcome\n-Bye')
+   welc = getCustomWelcome(from)
+   bye = getCustomBye(from)
+   tag = '@'+sender.split('@')[0]
+   about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
+   if(value.toLowerCase() === 'welcome') {
+     capt = welc.replace('@tag', tag).replace('@nama', pushname).replace('@about', about).replace('@tanggal', tanggal).replace('@group', groupName)
+     Fg.adReply(from, capt, text, 'Selamat datang member baru', 'Member ke ' + groupMembers.length + ' Group ' + groupName, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
+     } else if(value.toLowerCase() === 'bye') {
+       capt = bye.replace('@tag', tag).replace('@nama', pushname).replace('@about', about).replace('@tanggal', tanggal).replace('@group', groupName)
+       m.reply(capt)
+     } else {
+       m.reply('List Simulasi\n\n- Welcome\n- Bye')
+     }
+  break
+  
  
    
 //---

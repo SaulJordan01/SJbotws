@@ -10,6 +10,10 @@ const {
   cekAntidelete,
   cekDetect
 } = require('./functions/group');
+const {
+  getCustomWelcome,
+  getCustomBye
+} = require('./functions/welcome')
 const fs = require("fs");
 const thumb = fs.readFileSync('./temp/fg.jpg')
 const { getBuffer, week, time, tanggal} = require("./library/functions");
@@ -54,8 +58,15 @@ async function starts() {
 	      ppimg = await Fg.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`);
 	    } catch {
 	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
-	    }
-	    capt = `Hola @${num.split('@')[0]} \nBienvenido/a al Grupo ${mdata.subject}\n`;
+	    } 
+	 let username = Fg.getName(num)
+      let about = (await Fg.getStatus(num).catch(console.error) || {}).status || ''
+      let member = mdata.participants.length
+      let tag = '@'+num.split('@')[0]
+	    let buff = await getBuffer(ppimg);
+	    let welc = await getCustomWelcome(mdata.id)
+	    capt = welc.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
+	   // capt = `Hola @${num.split('@')[0]} \nBienvenido/a al Grupo ${mdata.subject}\n`;
 	    let buff = await getBuffer(ppimg);
 	    Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
 	      contextInfo: {
@@ -64,7 +75,9 @@ async function starts() {
 	    });
       } else if (anu.action == 'remove') {
         num = anu.participants[0];
-	    capt = `*Adios* @${num.split('@')[0]}`;
+        let bye = await getCustomBye(mdata.id);
+        capt = bye.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
+	   // capt = `*Adios* @${num.split('@')[0]}`;
 	    Fg.sendMessage(mdata.id, capt, MessageType.text, { contextInfo: {"mentionedJid": [num]}});
       }
   }
