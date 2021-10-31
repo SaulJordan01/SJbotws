@@ -95,9 +95,40 @@ return `✳️ *${value}* se desactivo antes`;
 exports.OnorOff = '✳️ Repita agregando on/off';
 exports.antilink = '❎ No permitimos enlaces de otros grupos!\nLo siento seras expulsado';
 
+exports.setwel = (value) => {
+  return `✳️ Ingrese el mensaje de *bienvenida*
+*📌 Ejemplo:*
+/setwelcome Bienvenido @user  a @group
 
+Nombre : @name
+Bio : @bio
+Fecha : @date
+Nombre de Grupo : @group
+
+*Ejemplos para cada función*` + value;
+};
+
+exports.setbye = (value) => {
+  return `✳️ Ingrese el mensaje de *Despedida*
+  
+*📌 Ejemplo:*
+/setbye Adios  @user
+
+*Ejemplos para cada función*` + value;
+};
+
+exports.setweldone = (value, fungsi) => {
+  return `✅ Mensaje de Bienvenida Cambiada\n\n`
++ value + `\n\n*Ejemplos para cada función*` + fungsi;
+};
+
+exports.setbyedone = (value, fungsi) => {
+  return `✅ Mensaje de Depedida Cambiada\n\n`
++ value + `\n\n*Ejemplos para cada función*` + fungsi;
+};
+//--
 exports.default = (value) => {
-  return value + ' Kembali ke pengaturan awal';
+  return value + ' Volver a la configuración inicial';
 };
 
 exports.main = (value) => {
