@@ -67,7 +67,7 @@ async function starts() {
 	    let welc = await getCustomWelcome(mdata.id)
 	    capt = welc.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
 	   // capt = `Hola @${num.split('@')[0]} \nBienvenido/a al Grupo ${mdata.subject}\n`;
-	    let buff = await getBuffer(ppimg);
+	    
 	    Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
 	      contextInfo: {
             mentionedJid: Fg.parseMention(capt)
