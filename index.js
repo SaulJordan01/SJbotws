@@ -1545,7 +1545,7 @@ case 'riddle':  //acertijo
 if (!isOwner) return m.reply(msg.owner)
 gfg = `git remote set-url origin https://github.com/FG98F/dylux-bot.git && git pull `
 exec(`${gfg}`, (err, stdout) => {
-if (err) return reply(err)
+if (err) return m.reply(err)
 if (stdout) m.reply(`✅ *Actualizado*\n\nInforme :\n\n${stdout}`)
 })
 break
@@ -1596,6 +1596,7 @@ case 'delwelcome':
   
  case 'simulate':
  case 'simular':
+case 'simulasi' :
    if(!isGroup) return m.reply(msg.group)
    if(!isAdmins && !isOwner) return m.reply(msg.admin)
    if(!value) return m.reply('List Simulasi\n\n- Welcome\n-Bye')
@@ -1604,10 +1605,10 @@ case 'delwelcome':
    tag = '@'+sender.split('@')[0]
    about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
    if(value.toLowerCase() === 'welcome') {
-     capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
-     Fg.adReply(from, capt, text, 'Bienvenido nuevo miembro', 'Member ke ' + groupMembers.length + ' Group ' + groupName, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
+     capt = welc.replace('@tag', tag).replace('@nama', pushname).replace('@about', about).replace('@tanggal', tanggal).replace('@group', groupName)
+     Fg.adReply(from, capt, text, 'Selamat datang member baru', 'Member ke ' + groupMembers.length + ' Group ' + groupName, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
      } else if(value.toLowerCase() === 'bye') {
-       capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
+       capt = bye.replace('@tag', tag).replace('@nama', pushname).replace('@about', about).replace('@tanggal', tanggal).replace('@group', groupName)
        m.reply(capt)
      } else {
        m.reply('List Simulasi\n\n- Welcome\n- Bye')
