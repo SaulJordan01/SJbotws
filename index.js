@@ -1103,7 +1103,7 @@ https://chat.whatsapp.com/${linkgp}`
     break
     
     case 'group':
-					f(!isGroup) return m.reply(msg.group)
+					if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
 //if (args.length < 1) return reply(`✳️ Para abrir grupo : *${prefix + command}* open\npara cerrar grupo : *${prefix + command}* close`)
@@ -1552,7 +1552,7 @@ if (!isOwner) return m.reply(msg.owner)
 gfg = `git remote set-url origin https://github.com/FG98F/dylux-bot.git && git pull `
 exec(`${gfg}`, (err, stdout) => {
 if (err) return reply(err)
-if (stdout) m.reply(`✅ *Actualizado*\n\nInforme :\n\n*${stdout}*`)
+if (stdout) m.reply(`✅ *Actualizado*\n\nInforme :\n\n${stdout}`)
 })
 break
  
