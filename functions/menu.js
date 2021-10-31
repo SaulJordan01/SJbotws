@@ -8,6 +8,7 @@ exports.menu = (v) => {
 ▢ ${v}owner
 ▢ ${v}join <link>
 └──────────────
+≡
 ┌─⊷ *FUN* 
 ▢ ${v}fake text|@user|text
 ▢ ${v}pregunta
@@ -64,9 +65,13 @@ exports.menu = (v) => {
 ▢ ${v}getav <text>
 ▢ ${v}listmedia
 └──────────────
+┌─⊷ *VOTING* 
+▢ ${v}voting <text>
+▢ ${v}delvote
+▢ ${v}checkvote
+└──────────────
 ┌─⊷ *ADMIN* 
-▢ ${v}open
-▢ ${v}close
+▢ ${v}group <open/close>
 ▢ ${v}resetlink
 ▢ ${v}online
 ▢ ${v}offline
@@ -90,14 +95,19 @@ exports.menu = (v) => {
 ▢ ${v}detect on/off
 ▢ ${v}antilink on/off
 ▢ ${v}link
+▢ ${v}infogp
+▢ ${v}perfil
 └──────────────
 ┌─⊷ *OWNER* 
 ▢ ${v}addpremium @user
 ▢ ${v}delpremium @user
 ▢ ${v}ban @user
 ▢ ${v}unban @user
+▢ ${v}view
+▢ ${v}update
 ▢ ${v}setppbot
 ▢ ${v}setfakethumb
+▢ ${v}setprefix
 ▢ $
 ▢ >
 └──────────────`;
