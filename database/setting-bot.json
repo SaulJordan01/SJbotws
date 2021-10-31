@@ -6,13 +6,6 @@
 	"author": "Dylux",
 	"packname": " @fg98._",
 	"wm": "Sígueme en Instagram\nhttps://www.instagram.com/fg98._",
-	"prefix": "/",
-	"listprefix": [
-		".",
-		"/",
-		"!",
-		"#"
-	],
 	"gameTime": 30000,
 	"poinGame": 100,
 	"poinDefect": 500,
