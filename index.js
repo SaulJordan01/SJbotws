@@ -1381,7 +1381,7 @@ Razón : ${value}
 ✅ : *Si estas de acuerdo*
 ❎ : *Si no estas de acuerdo*`
     Fg.vote[from] = [
-        await Fg.send2Button(from, caption, isWm, '✅ Voto', prefix + 'voto', '❎ No Voto', prefix + 'nvoto', false, { contextInfo:{
+        await Fg.send2Button(from, caption, isWm, '✅', `${prefix}yes`, '❎', `${prefix}no, false, { contextInfo:{
           mentionedJid: Fg.parseMention(caption)
         }}),
         [],
