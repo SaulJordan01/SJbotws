@@ -1116,6 +1116,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
 	} else if (!value) {
 		Fg.send2Button(from, `🛡️ Configuración de grupo\nAbrir y cerrar el grupo`, `A continuación elija uno`, 'ABRIR', `${prefix + command} open`, 'CERRAR', `${prefix + command} close`)
 		} 
+		break
     
     case 'setname':
     if(!isGroup) return m.reply(msg.group)
