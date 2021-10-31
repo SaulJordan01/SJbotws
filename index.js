@@ -1102,6 +1102,21 @@ https://chat.whatsapp.com/${linkgp}`
     m.reply(msg.close)
     break
     
+    case 'group':
+					f(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+//if (args.length < 1) return reply(`✳️ Para abrir grupo : *${prefix + command}* open\npara cerrar grupo : *${prefix + command}* close`)
+if (args[0] === 'open') {
+ reply(msg.open)
+Fg.groupSettingChange(from, GroupSettingChange.messageSend, false)
+	} else if (args[0] === 'close') {
+reply(msg.close)
+Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
+	} else if (!q) {
+		Fg.send2Button(from, `🛡️ Configuración de grupo\nAbrir y cerrar el grupo`, `A continuación elija uno`, 'ABRIR', `${prefix + command} open`, 'CERRAR', `${prefix + command} close`)
+		} 
+    
     case 'setname':
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
