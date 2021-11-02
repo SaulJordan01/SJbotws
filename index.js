@@ -1426,7 +1426,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
    perfil = ` ┌───「 *${msg.pfile}* 」
 ▢ *🔖 ${msg.nme}:* ${pushname}
 ▢ *📇 Info:* ${about}
-▢ *🌎 ${idiom}:* ${cekBahasa(who)}
+▢ *🌎 ${msg.idiom}:* ${cekBahasa(who)}
 ▢ *⚠️ ${msg.wrn}* : ${cekWarn(who)}
 ▢ *⭐ Premium* : ${Prema}
 ▢ *🆙 ${msg.lvl}* : ${cekLevel(who)}
