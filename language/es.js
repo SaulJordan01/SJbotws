@@ -13,6 +13,8 @@ exports.nolink = (value) => {
   return '✳️ Repita agregando un enlace ' + value;
 };
 //--new
+exports.lvl = `Nivel`;
+exports.hi = `Hola`;
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'
