@@ -53,22 +53,20 @@ exports.cekwarn = (warn) => {
 };
 exports.nowarn = `✳️ El usuario no tiene ninguna advertencia`;
 
-exports.Pbahasa = (prefix) => {
-`✳️ Seleccione el idioma que desea utilizar
+exports.Pbahasa = `✳️ Seleccione el idioma que desea utilizar
 
 *Idiomas disponibles*
 - es (Spanish) 
 - id (Indonesia) 
 - en (English)
 
-📌 Ejemplo : *${prefix}language en*`;
+📌 Ejemplo : */language en*`;
 exports.nobahasa = `Idioma no disponible
 
 *Idiomas disponibles*
 - es (Spanish) 
 - id (Indonesia) 
-- en (English)`
-};
+- en (English)`;
 
 exports.online = '✅ Bot activo  en este grupo'
 exports.offline = '✳️ Se desactivo el Bot en este grupo'
