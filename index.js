@@ -259,6 +259,7 @@ module.exports = Fg = async (Fg, mek) => {
      let isPoin = cekPoin(sender);
      let isLevel = cekLevel(sender);
      let isPremium = cekPremium(sender);
+     let isChatbot = cekChatbot(sender);
      let isBanned = cekBanned(sender);
      let isAfk = cekAfk(sender);
      let isAfkTime = cekAfkTime(sender);
@@ -269,6 +270,7 @@ module.exports = Fg = async (Fg, mek) => {
      let isAntilink = cekAntilink(from);
      let isDetect = cekDetect(from);
      let isRegister = cekRegis(sender);
+     let isViewonce = cekViewonce(from);
      let msg = cekBahasa(sender);
      
           // -- Idioma 
@@ -1431,6 +1433,7 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
    isAntidelete = isAntidelete ? 'Si' : 'No' 
    isDetect = isDetect ? 'Si' : 'No' 
    isWelcome = isWelcome ? 'Si' : 'No' 
+   isViewonce = isViewonce ? 'Si' : 'No'
    creation = moment(groupMetadata.creation * 1000).tz('America/La_Paz').format(`DD-MM-YYYY`)
    //ownergp = groupMetadata.owner.split('@')[0]
    
@@ -1443,6 +1446,7 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
 ▢ *📮Bienvenida* : ${isWelcome}
 ▢ *🚨Anti Link Wha* : ${isAntilink}
 ▢ *🚫 Antidelete* : ${isAntidelete}
+▢ *👀ViewOnce* : ${isViewonce}
 ▢ *❕Detected* : ${isDetect}
 ▢ *📌Descripción* : \n${groupDesc}`
 gpp = await getBuffer(ppimg)
