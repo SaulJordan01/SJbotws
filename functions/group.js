@@ -328,6 +328,56 @@ const delAntidelete = (id) => {
   }
 };
 
+/**
+ * Verifique los datos anti viewOnce en la base de datos
+ * @param { string } id 
+ */
+const cekViewonce = (id) => {
+  let position = false;
+  Object.keys(Group).forEach((i) => {
+    if (Group[i].from === id) {
+      position = i;
+    }
+  });
+  if (position !== false) {
+    return Group[position].viewOnce;
+    }
+};
+
+/**
+ * cambiar el estado anti viewOnce a la base de datos
+ * @param { string } id
+*/
+const addViewonce = (id) => {
+  let position = false;
+  Object.keys(Group).forEach((i) => {
+    if (Group[i].from === id) {
+      position = i;
+    }
+  });
+  if (position !== false) {
+    Group[position].viewOnce = true;
+    fs.writeFileSync('./database/group.json', JSON.stringify(Group, null, "\t"));
+  }
+};
+
+/**
+ * cambiar el estado antidelete a la base de datos
+ * @param { string } id
+*/
+const delViewonce = (id) => {
+  let position = false;
+  Object.keys(Group).forEach((i) => {
+    if (Group[i].from === id) {
+      position = i;
+    }
+  });
+  if (position !== false) {
+    Group[position].viewOnce = false;
+    fs.writeFileSync('./database/group.json', JSON.stringify(Group, null, "\t"));
+  }
+};
+
 module.exports = {
   Group,
   addGroup,
@@ -348,5 +398,8 @@ module.exports = {
   cekAntidelete,
   addDetect,
   delDetect,
-  cekDetect
+  cekDetect,
+  addViewonce,
+  delViewonce,
+  cekViewonce
 };
