@@ -408,7 +408,7 @@ switch (command) {
  
  case 'menu': 
  case 'help':
-    capt = `msg.hi *${pushname}* ${ucapanWaktu}
+    capt = `${msg.hi} *${pushname}* ${ucapanWaktu}
     
 ▷ *${msg.lvl}* : ${isLevel}
 ▷ *Total Poin* : ${isPoin}
@@ -417,8 +417,23 @@ switch (command) {
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send2ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`)
+    Fg.send3ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}`, `${prefix}grupos`)
     break
+    
+    case 'grupos': 
+    case 'groups': 
+    case 'dylux': 
+    gps = `
+    ≡  *DyLux  ┃ ᴮᴼᵀ*  GRUPOS
+
+▢ Grupo 1
+https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK
+
+▢ Grupo 2
+https://chat.whatsapp.com/CDUqNRu5Kh5KY5uqQI0BKE
+`
+m.reply(gps)
+break 
     
   case 'restart': 
   case 'reiniciar': 
