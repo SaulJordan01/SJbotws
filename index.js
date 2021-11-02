@@ -442,14 +442,14 @@ case 'bahasa':
 case 'language':
 case 'lenguaje':
     if(!value) return m.reply(msg.Pbahasa)
-    if (value.toLowerCase() === "español") {
-      await addBahasa(sender, "español")
+    if (value.toLowerCase() === "es") {
+      await addBahasa(sender, "es")
       m.reply("✅ Idioma cambiado a Español ")
-    } else if (value.toLowerCase() === "indonesia") {
-      await addBahasa(sender, "indonesia")
+    } else if (value.toLowerCase() === "id") {
+      await addBahasa(sender, "id")
       m.reply("Bahasa Indonesia terpilih\nSekarang bot akan membalas pesanmu dengan bahasa Indonesia")
-    } else if (value.toLowerCase() === "english") {
-      await addBahasa(sender, "english")
+    } else if (value.toLowerCase() === "en") {
+      await addBahasa(sender, "en")
       m.reply("Selected English\nNow the bot will reply to your message in English")
     } else {
       m.reply(msg.nobahasa)
