@@ -274,11 +274,11 @@ module.exports = Fg = async (Fg, mek) => {
      let msg = cekBahasa(sender);
      
           // -- Idioma 
-     if (msg === "español") {
+     if (msg === "es") {
        msg = espa;
-     } else if (msg === "english") {
+     } else if (msg === "en") {
        msg = eng;
-     } else if (msg === "indonesia") {
+     } else if (msg === "id") {
        msg = ind;
      } else {
        msg = espa;
@@ -1748,7 +1748,7 @@ if(!isCmd && isChatbot === true){
  // if(isGroup) return
  // if(!isPremium) return
   if(m.mtype == 'stickerMessage') return
-  result = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=es`, {method: 'get'})
+  result = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=${cekBahasa(who)}`, {method: 'get'})
   m.reply(result.success.replace('simsimi', 'FG98').replace('Simsimi', 'fg').replace('simi', 'Fg').replace('Simi', 'Fg').replace('sim', 'fg'))
 }
 
