@@ -762,6 +762,33 @@ case "s":
    m.reply(report)
    break
    
+   case 'bc':
+case 'tx':
+ if (!isOwner) return m.reply(msg.owner)
+if (args.length < 1) return reply('✳️ Que quieres transmitir?')
+bcc = await Fg.chats.all()
+if (isMedia && !mek.message.imageMessage || isQuotedImage) {
+let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+let media = await Fg.downloadMediaMessage(encmedia)
+for (let i of bcc){
+Fg.sendMessage(i.jid, media, image, {caption: `*TRANSMISIÓN ┃ STAFF*\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n\n${q}`})
+}
+reply(`*✅ Transmision realizada*`)
+} else if (isMedia && !mek.message.videoMessage || isQuotedVideo) {
+const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+bc = await Fg.downloadMediaMessage(encmedia)
+for (let _ of bcc) {
+Fg.sendMessage(_.jid, bc, video, {caption: `*TRANSMISIÓN ┃ STAFF*\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n\n${q}`})
+}
+m.reply('*✅ Transmision realizada* ')
+}	else {
+for (let _ of bcc) {
+sendMess(_.jid, `*TRANSMISIÓN ┃ STAFF*\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n\n${q}`)
+	}
+m.reply(`✅ Transmision realizada *Total chats ${totalchat.length}*`)
+		}
+break
+   
    case 'listmedia':
    listimg = direc.image
    listvid = direc.video
