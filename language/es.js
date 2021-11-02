@@ -56,7 +56,8 @@ exports.setpmt = `Multi prefijo`;
 exports.updatef = `*Actualizado*\n\nInforme`;
 exports.simn = `quieres charlar un rato?\n\nResponde con`;
 exports.simmsg = `(Tu mensaje)\n\n📌 Ejemplo : `;
-
+exports.chatboton = `✅ Anda mengaktifkan *ChatBot* \n Yang berarti kita dapat mengobrol tanpa batas 😊`;
+exports.chatbotoff = `✅ *ChatBot* dinonaktifkan`; 
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'

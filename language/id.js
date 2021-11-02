@@ -56,7 +56,8 @@ exports.setpmt = `Multi prefix`;
 exports.updatef = `*Diperbarui*\n\nLaporan`;
 exports.simn = `apakah kamu ingin mengobrol sebentar?\n\nBalas dengan`;
 exports.simmsg = `(Pesanmu)\n\n📌 Contoh : `;
-
+exports.chatboton = `✅ Activaste *ChatBot* \n Lo que significa que podemos charlar ilimitadamente 😊`;
+exports.chatbotoff = `✅ *ChatBot* desactivado`; 
 
 // -- Saying time
 exports.night = 'Selamat Malam';

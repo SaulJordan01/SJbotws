@@ -56,7 +56,8 @@ exports.setpmt = `Multi prefix`;
 exports.updatef = `*Updated*\n\nchanges`;
 exports.simn = `do you want to chat for a while?\n\nReply with`;
 exports.simmsg = `(Your message)\n\n📌 Example : `;
-
+exports.chatboton = `✅ You activated *ChatBot* \n Which means we can chat unlimitedly 😊`;
+exports.chatbotoff = `✅ *ChatBot* disabled`; 
 
 // -- Saying time
 exports.night = 'Good night'
