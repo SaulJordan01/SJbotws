@@ -1750,6 +1750,25 @@ case 'delwelcome':
         else m.reply(msg.salah)
     } return !0
     
+    //-- chatbot // establece como quieras
+if(!isCmd && isChatbot === true){
+ // if(!mek.isBaileys) return
+ // if(isGroup) return
+ // if(!isPremium) return
+  if(m.mtype == 'stickerMessage') return
+  result = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=es`, {method: 'get'})
+  m.reply(result.success.replace('simsimi', 'FG98').replace('Simsimi', 'fg').replace('simi', 'Fg').replace('Simi', 'Fg').replace('sim', 'fg'))
+}
+
+// antiview once
+if (m.mtype == 'viewOnceMessage' && isViewonce === true){
+  msg = {...mek}
+  msg.message = mek.message.viewOnceMessage.message
+  msg.message[Object.keys(msg.message)[0]].viewOnce = false
+  m.reply('✳️ ViewOnce *Detectado*')
+  Fg.copyNForward(from, msg)
+}
+    
 
 } catch (e) {
   console.log(bgcolor('‣ Alerta :', 'red'), e);
