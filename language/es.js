@@ -14,8 +14,49 @@ exports.nolink = (value) => {
 };
 //--new
 exports.lvl = `Nivel`;
+exports.nme = `Nombre`;
 exports.hi = `Hola`;
-exports.gp = `Grupos`;
+exports.gp = `Grupo`;
+exports.restart = `✅ Reiniciando Bot`;
+exports.pinsp = `Velocidad`;
+exports.pinse = `Segundos`;
+exports.num = `Numero`;
+exports.click = `Click aquí`;
+exports.next2 = `Siguiente`;
+exports.stima = `✳️ Envia una imagen con el comando\n o etiqueta una imagen que se haya enviado, *Videos 1-9 segundos* `;
+exports.resulf = `Resultado`; 
+exports.bugr = `Gracias\nSu reporte ha sido almacenada en la base de datos. `;
+exports.linkgp = `Link del Grupo `;
+exports.linkrevo = `Enlace del grupo anulado`;
+exports.newlink = `Nuevo enlace`;
+exports.gpbt = `🛡️ Configuración de grupo\nAbrir y cerrar el grupo`;
+exports.gpbtt = `A continuación elija uno`;
+exports.gpopenb = `ABRIR`;
+exports.gpcloseb = `CERRAR`;
+exports.idiom = `Idioma`;
+exports.wrn = `Advertencia`;
+exports.pfile = `PERFIL`;
+exports.crtio = `Se creó el`;
+exports.mbr = `Miembros`;
+exports.wlme = `Bienvenida`;
+exports.vtc = `VOTACION`;
+exports.rzon = `Razon`;
+exports.vyes = `Si estas de acuerdo`;
+exports.vno = `Si no estas de acuerdo`;
+exports.vrvt = `Ver Votaciones`;
+exports.rtvt = `RESULTADOS DE VOTACION`;
+exports.dlte = `Eliminar`;
+exports.setpmulti = `✅ Se cambio el prefijo a : *multiprefijo*`;
+exports.setpnopre = `✅ Se cambió de prefijo a : *nopref*`;
+exports.setponepre = `✅ Se cambio el prefijo a :`;
+exports.setpall = `Prefijos Disponibles`;
+exports.setpnp = `Sin prefijo`;
+exports.setpop = `Un prefijo`;
+exports.setpmt = `Multi prefijo`;
+exports.updatef = `*Actualizado*\n\nInforme`;
+exports.simn = `quieres charlar un rato?\n\nResponde con`;
+exports.simmsg = `(Tu mensaje)\n\n📌 Ejemplo : `;
+
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'

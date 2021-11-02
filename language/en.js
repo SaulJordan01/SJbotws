@@ -13,6 +13,50 @@ exports.nolink = (value) => {
   return '✳️ Please repeat by adding a link ' + value;
 };
 //--new
+exports.lvl = `Level`;
+exports.nme = `Name`;
+exports.hi = `Hi`;
+exports.gp = `Group`;
+exports.restart = `✅ Restarting Bot`;
+exports.pinsp = `Speed`;
+exports.pinse = `Seconds`;
+exports.num = `Number`;
+exports.click = `Click here`;
+exports.next2 = `Next`;
+exports.stima = `✳️ Send an image with the command\n or tag an image that has been submitted, *Videos 1-9 seconds* `;
+exports.resulf = `Result`; 
+exports.bugr = `Thank you \nYour report has been stored in the database.`;
+exports.linkgp = `Group Link`;
+exports.linkrevo = `Group link canceled`;
+exports.newlink = `New link`;
+exports.gpbt = `🛡️ Group settings\nOpen and close the group`;
+exports.gpbtt = `Choose one below`;
+exports.gpopenb = `OPEN`;
+exports.gpcloseb = `CLOSE`;
+exports.idiom = `language`;
+exports.wrn = `Warning`;
+exports.pfile = `PROFILE`;
+exports.crtio = `The`;
+exports.mbr = `Members`;
+exports.wlme = `Welcome`;
+exports.vtc = `VOTING`;
+exports.rzon = `Reason`;
+exports.vyes = `If you agree`;
+exports.vno = `If you do not agree`;
+exports.vrvt = `See Voting`;
+exports.rtvt = `VOTING RESULTS`;
+exports.dlte = `Delete`;
+exports.setpmulti = `✅ The prefix was changed to : *multiprefix*`;
+exports.setpnopre = `✅ The prefix was changed to : *nopref*`;
+exports.setponepre = `✅ The prefix was changed to :`;
+exports.setpall = `Available Prefixes`;
+exports.setpnp = `No prefix`;
+exports.setpop = `One prefix`;
+exports.setpmt = `Multi prefix`;
+exports.updatef = `*Updated*\n\nchanges`;
+exports.simn = `do you want to chat for a while?\n\nReply with`;
+exports.simmsg = `(Your message)\n\n📌 Example : `;
+
 
 // -- Saying time
 exports.night = 'Good night'

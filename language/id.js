@@ -13,6 +13,50 @@ exports.nolink = (value) => {
   return '✳️ Link tidak tersedia! silahkan masukan perintah dengan menambahkan link ' + value;
 };
 //--new
+exports.lvl = `Tingkat`; 
+exports.nme = `Nama`;
+exports.hi = `Halo`;
+exports.gp = `Grup`;
+exports.restart = `✅ Memulai ulang Bot`;
+exports.pinsp = `Kecepatan`;
+exports.pinse = `Detik`;
+exports.num = `Nomor`;
+exports.click = `Klik disini`;
+exports.next2 = `Lanjut`;
+exports.stima = `✳️ Kirim gambar dengan perintah\n atau tag gambar yang telah dikirimkan, *Video 1-9 detik* `;
+exports.resulf = `Hasil`; 
+exports.bugr = `Terima kasih \nLaporan Anda telah disimpan di database.`;
+exports.linkgp = `Tautan Grup `;
+exports.linkrevo = `Tautan grup dibatalkan`;
+exports.newlink = `Tautan baru`;
+exports.gpbt = `🛡️ Pengaturan grup\nBuka dan tutup grup`;
+exports.gpbtt = `Pilih salah satu di bawah ini`;
+exports.gpopenb = `MEMBUKA`;
+exports.gpcloseb = `UNTUK MENUTUP`;
+exports.idiom = `Bahasa`;
+exports.wrn = `Peringatan`;
+exports.pfile = `PROFIL`;
+exports.crtio = `Diciptakan`;
+exports.mbr = `Anggota`;
+exports.wlme = `Selamat datang`;
+exports.vtc = `PILIH`;
+exports.rzon = `Alasan`;
+exports.vyes = `Jika kamu setuju`;
+exports.vno = `Jika Anda tidak setuju`;
+exports.vrvt = `Lihat Pemungutan Suara`;
+exports.rtvt = `HASIL PEMILIHAN`;
+exports.dlte = `Menghapus`;
+exports.setpmulti = `✅ Awalan diubah menjadi : *multiprefijo*`;
+exports.setpnopre = `✅ Awalan diubah menjadi : *nopref*`;
+exports.setponepre = `✅ Awalan diubah menjadi :`;
+exports.setpall = `Available Prefixes`;
+exports.setpnp = `No prefix`;
+exports.setpop = `One prefix`;
+exports.setpmt = `Multi prefix`;
+exports.updatef = `*Diperbarui*\n\nLaporan`;
+exports.simn = `apakah kamu ingin mengobrol sebentar?\n\nBalas dengan`;
+exports.simmsg = `(Pesanmu)\n\n📌 Contoh : `;
+
 
 // -- Saying time
 exports.night = 'Selamat Malam';
