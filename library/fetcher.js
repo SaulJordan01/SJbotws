@@ -43,7 +43,7 @@ exports.fetchJson = fetchJson = (url, options) => new Promise(async (resolve, re
         })
 })
 
-
+//
 exports.fetchText = fetchText = (url, options) => new Promise(async (resolve, reject) => {
     fetch(url, options)
         .then(response => response.text())
@@ -56,4 +56,4 @@ exports.fetchText = fetchText = (url, options) => new Promise(async (resolve, re
         })
 })
 
-//exports.getBase64 = getBase64;
+//exports.getBase64 = getBase64; 
