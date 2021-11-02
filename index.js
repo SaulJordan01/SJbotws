@@ -89,6 +89,9 @@ const {
   cekPremium,
   addPremium,
   delPremium,
+  addChatbot,
+  delChatbot,
+  cekChatbot,
   addAfk,
   delAfk,
   cekAfk,
@@ -121,7 +124,10 @@ const {
   cekAntidelete,
   addDetect,
   delDetect,
-  cekDetect
+  cekDetect, 
+  addViewonce,
+  delViewonce,
+  cekViewonce
 } = require('./functions/group'); // cambiar y recuperar datos en ./database/group
 
 const {
@@ -748,7 +754,7 @@ case "s":
    if (!value) return m.reply(msg.notext)
    await addReport(sender, value)
    
-   m.reply(`✅ Gracias *${pushname}*, Su solicitud ha sido almacenada en la base de datos.`)
+   m.reply(`✅ Gracias *${pushname}*\nSu reporte ha sido almacenada en la base de datos.`)
    break
 
  case 'listreport':
@@ -1341,6 +1347,39 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
       m.reply(msg.OnorOff)
     }
     break
+    
+    case 'antiviewonce':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!value) return m.reply(msg.OnorOff)
+    if (value.toLowerCase() === "on") {
+      if(isViewonce === true ) return m.reply(msg.Thison(command.toUpperCase()))
+      await addViewonce(from)
+      m.reply(msg.On(command.toUpperCase()))
+    } else if (value.toLowerCase() === "off") {
+      if(isViewonce === false ) return m.reply(msg.Thisoff(command.toUpperCase()))
+      await delViewonce(from)
+      m.reply(msg.Off(command.toUpperCase()))
+    } else {
+      m.reply(msg.OnorOff)
+    }
+    break
+    
+    case 'chatbot': 
+    if(!value) return m.reply(msg.OnorOff)
+    if (value.toLowerCase() === "on") {
+      if(isChatbot === true ) return m.reply('Chatbot On')
+      await addChatbot(sender)
+      m.reply(msg.done)
+    } else if (value.toLowerCase() === "off") {
+      if(isChatbot === false ) return m.reply('Chatbot off')
+      await delChatbot(sender)
+      m.reply(msg.done)
+    } else {
+      m.reply(msg.OnorOff)
+    }
+    break 
     
 
   case 'q': 
