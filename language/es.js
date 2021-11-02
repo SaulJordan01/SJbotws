@@ -12,6 +12,7 @@ exports.getlist = '✳️ Use el comando getimg/getvid/getav/getstik para enviar
 exports.nolink = (value) => {
   return '✳️ Repita agregando un enlace ' + value;
 };
+//--new
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'
@@ -66,10 +67,12 @@ exports.nobahasa = `Idioma no disponible
 *Idiomas disponibles*
 - es (Spanish) 
 - id (Indonesia) 
-- en (English)`;
+- en (English)
+
+📌 Ejemplo : */language en*`;
 
 exports.online = '✅ Bot activo  en este grupo'
-exports.offline = '✳️ Se desactivo el Bot en este grupo'
+exports.offline = '✅ Se desactivo el Bot en este grupo'
 
 // -- grupo
 exports.onwa = '✳️ El usuario ya está en el grupo';
@@ -111,7 +114,7 @@ exports.setwel = (value) => {
   return `✳️ Ingrese el mensaje de *bienvenida*
 *📌 Ejemplo:*
 /setwelcome Bienvenido @user  a @group
-
+ 
 Nombre : @name
 Bio : @bio
 Fecha : @date
