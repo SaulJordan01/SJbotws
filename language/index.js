@@ -1,3 +1,3 @@
-exports.espa = require('./es')
-exports.ind = require('./id')
-exports.eng = require('./en')
+exports.es = require('./es')
+exports.id = require('./id')
+exports.en = require('./en')
