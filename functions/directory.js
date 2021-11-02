@@ -57,5 +57,6 @@ module.exports = {
   addVideo,
   addStiker,
   addAudio, 
-  addReport 
+  addReport, 
+  addReport
 };
