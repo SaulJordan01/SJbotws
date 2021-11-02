@@ -15,6 +15,7 @@ exports.nolink = (value) => {
 //--new
 exports.lvl = `Nivel`;
 exports.hi = `Hola`;
+exports.gp = `Grupos`;
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'
