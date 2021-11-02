@@ -1696,6 +1696,13 @@ case 'delwelcome':
      }
   break
   
+  case 'attp':
+	          if(!value) return m.reply(msg.notext)
+		      m.reply(msg.wait)
+					var teks = encodeURIComponent(args.join(' '))
+					const attp = await getBuffer(`https://api.xteam.xyz/attp?file&text=${teks}`)
+					Fg.sendMessage(from, attp, sticker, {quoted: mek})
+					  break 
  
    
 //---
