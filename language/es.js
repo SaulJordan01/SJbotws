@@ -67,7 +67,7 @@ exports.nobahasa = `Idioma no disponible
 *Idiomas disponibles*
 - es (Spanish) 
 - id (Indonesia) 
-- en (English)`;
+- en (English)`
 };
 
 exports.online = '✅ Bot activo  en este grupo'
