@@ -68,6 +68,7 @@ const {
   addImage,
   addVideo,
   addStiker,
+  addReport, 
   addAudio
 } = require('./functions/directory');
 
@@ -740,6 +741,25 @@ case "s":
    q = m.quoted ? m.quoted : m 
    vn = await q.download()
   Fg.sendMessage(from, vn, audio, {ptt: true, quoted: mek})
+   break
+   
+   case 'report':
+ case 'bug':
+   if (!value) return m.reply(msg.notext)
+   await addReport(sender, value)
+   capt = 'Informe de @' + sender.split('@')[0]
+   capt += '\n' + value
+   m.reply(msg.done + '\n' + capt)
+   break
+
+ case 'listreport':
+   if (!isOwner) return m.reply(msg.owner)
+   report = '*LIST REPORT*'
+   for (var R of direc.report){
+     report += `\n\n▢ Id : @` + R.id.split('@')[0]
+     report += `\n▢ Report : ` + R.report
+   }
+   m.reply(report)
    break
    
    case 'listmedia':
