@@ -755,7 +755,6 @@ case "s":
    if (!isOwner) return m.reply(msg.owner)
    report = '*LIST REPORT*'
    for (var R of direc.report){
-   	report += ` ───────────`
      report += `\n\n▢ Id : @` + R.id.split('@')[0]
      report += `\n▢ Report : ` + R.report
    }
