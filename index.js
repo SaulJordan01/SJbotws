@@ -1748,7 +1748,7 @@ if(!isCmd && isChatbot === true){
  // if(isGroup) return
  // if(!isPremium) return
   if(m.mtype == 'stickerMessage') return
-  result = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=${cekBahasa(who}`, {method: 'get'})
+  result = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=${cekBahasa(who)}`, {method: 'get'})
   m.reply(result.success.replace('simsimi', 'FG98').replace('Simsimi', 'fg').replace('simi', 'Fg').replace('Simi', 'Fg').replace('sim', 'fg'))
 }
 
