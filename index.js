@@ -408,9 +408,9 @@ switch (command) {
  
  case 'menu': 
  case 'help':
-    capt = `Hola *${pushname}* ${ucapanWaktu}
+    capt = `msg.hi *${pushname}* ${ucapanWaktu}
     
-▷ *Nivel* : ${isLevel}
+▷ *${msg.lvl}* : ${isLevel}
 ▷ *Total Poin* : ${isPoin}
 ▷ *Premium* : ${prem}
 ▷ *Prefix* : ${modepref}
