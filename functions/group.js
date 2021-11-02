@@ -376,7 +376,7 @@ const delViewonce = (id) => {
     Group[position].viewOnce = false;
     fs.writeFileSync('./database/group.json', JSON.stringify(Group, null, "\t"));
   }
-};
+}; 
 
 module.exports = {
   Group,
