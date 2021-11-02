@@ -277,7 +277,7 @@ module.exports = Fg = async (Fg, mek) => {
      
      //--- Decir la hora según la zona horaria 
      
-     if (time < "24:59:00") {
+     /*if (time < "24:59:00") {
        ucapanWaktu = msg.night;
      }
      if (time < "18:00:00") {
@@ -291,7 +291,7 @@ module.exports = Fg = async (Fg, mek) => {
      }
      if (time < "05:00:00") {
        ucapanWaktu = msg.night;
-     }
+     }*/
  //-- prefijo
      if (Use.multi) {
         modepref = 'Multi Prefijo'
@@ -408,7 +408,7 @@ switch (command) {
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send2ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`)
+    Fg.send2ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : \n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`)
     break
     
   case 'restart': 
