@@ -1,7 +1,8 @@
 exports.menu = (v) => {
   return `
-┌─⊷ *ACERCA DE* 
+┌─⊷ *MAIN* 
 ▢ ${v}chatbot on/off
+▢ ${v}bot <text>
 ▢ ${v}info
 ▢ ${v}language
 ▢ ${v}ping
@@ -14,7 +15,7 @@ exports.menu = (v) => {
 ▢ ${v}fake text|@user|text
 ▢ ${v}pregunta
 └──────────────
-┌─⊷ *JUEGOS* 
+┌─⊷ *GAMES* 
 ▢ ${v}verdad
 ▢ ${v}reto
 └──────────────
@@ -22,6 +23,7 @@ exports.menu = (v) => {
 ▢ ${v}sticker <nombre>|<autor>
 ▢ ${v}take <nombre>|<autor>
 ▢ ${v}toimg
+▢ ${v}attp
 └──────────────
 ┌─⊷ *PICTURE* 
 ▢ ${v}pinterest
@@ -42,7 +44,7 @@ exports.menu = (v) => {
 ┌─⊷ *BUSQUEDA* ❳
 ▢ ${v}playstore 
 └──────────────
-┌─⊷ *DESCARGAS* 
+┌─⊷ *DOWNLOAD* 
 ▢ ${v}igdl <link>
 ▢ ${v}tiktok <link>
 ▢ ${v}tiktoknowm <link>
