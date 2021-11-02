@@ -298,7 +298,7 @@ module.exports = Fg = async (Fg, mek) => {
       } else if (Use.nopref) {
         modepref = 'Sin Prefijo'
       } else if (Use.onepref) {
-        modepref = 'Prefijo ' + Use.prefix
+        modepref = `*${Use.prefix}*`
       }
      
      // funciones de mención de usuario premium
