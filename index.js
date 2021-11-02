@@ -274,6 +274,24 @@ module.exports = Fg = async (Fg, mek) => {
      } else {
        msg = espa;
      }
+     
+     //--- Decir la hora según la zona horaria 
+     
+     if (time < "24:59:00") {
+       ucapanWaktu = msg.night;
+     }
+     if (time < "18:00:00") {
+       ucapanWaktu = msg.evening;
+     }
+     if (time < "15:00:00") {
+       ucapanWaktu = msg.day;
+     }
+     if (time < "11:00:00") {
+       ucapanWaktu = msg.morning;
+     }
+     if (time < "05:00:00") {
+       ucapanWaktu = msg.night;
+     }
  //-- prefijo
      if (Use.multi) {
         modepref = 'Multi Prefijo'
@@ -301,12 +319,12 @@ Fg.on('CB:action,,battery', json => {
 // detect quoted 
      const isMedia = type === "imageMessage" || type === "videoMessage";
      const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage');
- 	 	 const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage');
-		 const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage');
-		 const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage');
-		 const isQuotedDocument = type === 'extendedTextMessage' && content.includes('documentMessage');
-	   const isQuotedLocation = type === 'extendedTextMessage' && content.includes('locationMessage');
-		 const isQuotedextendedText = type === 'extendedTextMessage' && content.includes('extendedTextMessage');
+ 	const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage');
+     const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage');
+	 const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage');
+     const isQuotedDocument = type === 'extendedTextMessage' && content.includes('documentMessage');
+	 const isQuotedLocation = type === 'extendedTextMessage' && content.includes('locationMessage');
+     const isQuotedextendedText = type === 'extendedTextMessage' && content.includes('extendedTextMessage');
 
 
 // comando de registro de la consola cuando está en un chat privado
@@ -383,14 +401,14 @@ switch (command) {
  case 'help':
     capt = `Hola *${pushname}*
     
-*Nivel* : ${isLevel}
-*Total Poin* : ${isPoin}
-*Premium* : ${prem}
-*Runtime* : ${kyun(process.uptime())}
+▷ *Nivel* : ${isLevel}
+▷ *Total Poin* : ${isPoin}
+▷ *Premium* : ${prem}
+▷ *Prefijo* : ${modepref}
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send2ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`)
+    Fg.send2ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`)
     break
     
   case 'restart': 
