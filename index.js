@@ -1782,8 +1782,8 @@ if (m.mtype == 'viewOnceMessage' && isViewonce === true){
 };
 
 /**
- *  WhatsApp bot  baileys 
- * 
+ *  WhatsApp bot  baileys  - 
+ *
  * Thank to 
  - https://github.com/MhankBarBar/weabot
  - https://github.com/Nurutomo/wabot-aq
