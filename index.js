@@ -441,7 +441,7 @@ try {
 case 'bahasa':
 case 'language':
 case 'lenguaje':
-    if(!value) return m.reply(msg.Pbahasa(prefix))
+    if(!value) return m.reply(msg.Pbahasa)
     if (value.toLowerCase() === "es") {
       await addBahasa(sender, "es")
       m.reply("✅ Idioma cambiado a Español ")
