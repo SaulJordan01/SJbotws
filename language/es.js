@@ -53,7 +53,7 @@ exports.cekwarn = (warn) => {
 };
 exports.nowarn = `✳️ El usuario no tiene ninguna advertencia`;
 
-exports.Pbahasa = (prefix, command) => {
+exports.Pbahasa = (prefix) => {
 `✳️ Seleccione el idioma que desea utilizar
 
 *Idiomas disponibles*
@@ -61,7 +61,7 @@ exports.Pbahasa = (prefix, command) => {
 - id (Indonesia) 
 - en (English)
 
-📌 Ejemplo : *${prefix + command} en*`;
+📌 Ejemplo : *${prefix}language en*`;
 exports.nobahasa = `Idioma no disponible
 
 *Idiomas disponibles*
