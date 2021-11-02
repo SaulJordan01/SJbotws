@@ -1370,17 +1370,15 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     
     //-- auto Simsimi 
     case 'chatbot': 
-     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
     if(!value) return m.reply(msg.OnorOff)
     if (value.toLowerCase() === "on") {
       if(isChatbot === true ) return m.reply(msg.Thison(command.toUpperCase()))
       await addChatbot(sender)
-      m.reply(msg.On(command.toUpperCase()))
+      m.reply(`✅ Activaste *ChatBot* \n Lo que significa que podemos charlar ilimitadamente 😊`)
     } else if (value.toLowerCase() === "off") {
       if(isChatbot === false ) return m.reply(msg.Thisoff(command.toUpperCase()))
       await delChatbot(sender)
-      m.reply(msg.Off(command.toUpperCase()))
+      m.reply(`✅ *ChatBot* desactivado`)
     } else {
       m.reply(msg.OnorOff)
     }
