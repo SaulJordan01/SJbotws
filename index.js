@@ -417,7 +417,7 @@ switch (command) {
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send3ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}`, `${prefix}grupos`)
+    Fg.send3ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
     break
     
     case 'grupos': 
@@ -426,10 +426,10 @@ ${menu(prefix)}
     gps = `
     ≡  *DyLux  ┃ ᴮᴼᵀ*  GRUPOS
 
-▢ Grupo 1
+▢ ${msg.gp} 1
 https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK
 
-▢ Grupo 2
+▢ ${msg.gp} 2
 https://chat.whatsapp.com/CDUqNRu5Kh5KY5uqQI0BKE
 `
 m.reply(gps)
@@ -438,7 +438,7 @@ break
   case 'restart': 
   case 'reiniciar': 
     if(!isOwner) return m.reply(msg.owner)
-    m.reply('Reiniciando bot')
+    m.reply(msg.restart)
 try {
   process.send('reset')
 } catch (e) {
@@ -449,23 +449,24 @@ try {
   case 'ping':
     const timestamp = speed();
     const latensi = speed() - timestamp 
-    m.reply(`🟢 *Velocidad* : ${latensi.toFixed(3)} _Segundos_`)
+    m.reply(`🟢 *${msg.pinsp}* : ${latensi.toFixed(3)} _${msg.pinse}_`)
   break 
   
   case 'idioma':
 case 'bahasa':
 case 'language':
 case 'lenguaje':
+case 'lang':
     if(!value) return m.reply(msg.Pbahasa)
     if (value.toLowerCase() === "es") {
       await addBahasa(sender, "es")
       m.reply("✅ Idioma cambiado a Español ")
     } else if (value.toLowerCase() === "id") {
       await addBahasa(sender, "id")
-      m.reply("Bahasa Indonesia terpilih\nSekarang bot akan membalas pesanmu dengan bahasa Indonesia")
+      m.reply("✅ Bahasa Indonesia terpilih\nSekarang bot akan membalas pesanmu dengan bahasa Indonesia")
     } else if (value.toLowerCase() === "en") {
       await addBahasa(sender, "en")
-      m.reply("Selected English\nNow the bot will reply to your message in English")
+      m.reply("✅ Selected English\nNow the bot will reply to your message in English")
     } else {
       m.reply(msg.nobahasa)
     }
@@ -476,9 +477,9 @@ case 'creator':
 case 'creador': 
 case 'developer':
 number = '59172945992@s.whatsapp.net'
-    capt = `▢ Numero : @${number.split('@')[0]}\n\n`
+    capt = `▢ ${msg.num} : @${number.split('@')[0]}\n\n`
     capt += '▢ Instagram : https://www.instagram.com/fg98._'
-    await Fg.fakeLink(from, capt, thumb, 'Click aquí', 'https://www.instagram.com/fg98._', mek)
+    await Fg.fakeLink(from, capt, thumb, `${msg.click}`, 'https://www.instagram.com/fg98._', mek)
    /* Fg.sendContact(from, '59172945992', 'owner', {
 	 key: {
           fromMe: false,
@@ -550,7 +551,7 @@ number = '59172945992@s.whatsapp.net'
       hasil = fgx.reto()
       }
     capt = `‣ *${command.toUpperCase()}* \n\n${hasil}`
-    Fg.sendButton(from, capt, msg.next(command), '▷▷ Siguiente', prefix+command)
+    Fg.sendButton(from, capt, msg.next(command), `▷▷ ${msg.next2}`, prefix+command)
     break
     
     case 'fake':
@@ -588,7 +589,7 @@ case "s":
           ffmpeg(media) 
           .on("error", (e) => { 
             console.log(e); 
-            Fg.sendMessage(from, "⚠️ Hay un error", "conversation", { quoted: mek }); 
+            Fg.sendMessage(from, "⚠️ Error", "conversation", { quoted: mek }); 
             fs.unlinkSync(media); 
             })
             .on("end", () => { 
@@ -636,7 +637,7 @@ case "s":
           ffmpeg(media)
             .on("error", (e) => {
               console.log(e);
-              Fg.sendMessage(from, "⚠️ Hay un error", "conversation", {
+              Fg.sendMessage(from, "⚠️ Error", "conversation", {
                 quoted: mek,
               });
               fs.unlinkSync(media);
@@ -671,9 +672,7 @@ case "s":
             .toFormat("webp")
             .save(out);
         } else {
-          m.reply(
-            `✳️ Envia una imagen con *${prefix + command}* Nombre|Autor \n o etiqueta una imagen que se haya enviado, *Videos 1-9 segundos*`
-          );
+          m.reply(msg.stima);
         }
         break
 
@@ -699,7 +698,7 @@ case "s":
         ran = getRandom(".png");
         exec(`ffmpeg -i ${media} ${ran}`, (err) => {
           fs.unlinkSync(media);
-          if (err) return m.reply("⚠️ Error, inténtelo de nuevo ");
+          if (err) return m.reply("⚠️ Error");
           buffer = fs.readFileSync(ran);
           Fg.sendMessage(from, buffer, image, {thumbnail: fakethumb, quoted: mek, caption: msg.done})
           fs.unlinkSync(ran);
@@ -714,7 +713,7 @@ case "s":
     go = await fgx.pinterest(value)
     pin = pickRandom(go)
     if(!pin) return m.reply('Error')
-    Fg.sendMessage(from, await getBuffer(pin), image, { quoted: mek, caption: '✅ *Resultado*\n', thumbnail: fakethumb })
+    Fg.sendMessage(from, await getBuffer(pin), image, { quoted: mek, caption: `✅ *${msg.resulf}*\n`, thumbnail: fakethumb })
  break 
 
   case 'man':
@@ -724,7 +723,7 @@ case "s":
     go = await fgx.pinterest(push)
     pin = pickRandom(go)
     if(!pin) return m.reply('Error')
-    Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n', msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
+    Fg.sendButtonImg(from, await getBuffer(pin), `✅ *${msg.resulf}*\n`, msg.next(command), `▷▷ ${msg.next2}`, `${prefix + command}`, mek)
  break
 
   case 'girl':
@@ -734,7 +733,7 @@ case "s":
     go = await fgx.pinterest(push)
     pin = pickRandom(go)
     if(!pin) return m.reply('Error')
-    Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n', msg.next(command), '▷▷ Siguiente', `${prefix + command}`, mek)
+    Fg.sendButtonImg(from, await getBuffer(pin), `✅ *${msg.resulf}*\n`, msg.next(command), `▷▷ ${msg.next2}`, `${prefix + command}`, mek)
  break
  
  case 'wallpaper':
@@ -744,7 +743,7 @@ case "s":
     go = await fgx.pinterest(`Wallpaper hd ${value}`)
     pin = pickRandom(go)
     if(!pin) return m.reply('⚠️ Error')
-    Fg.sendButtonImg(from, await getBuffer(pin), '*✅ Resultado*\n', msg.next(command), '▷▷ Siguiente', `${prefix + command} ${value}`, mek)
+    Fg.sendButtonImg(from, await getBuffer(pin), `✅ *${msg.resulf}*\n`, msg.next(command), `▷▷ ${msg.next2}`, `${prefix + command} ${value}`, mek)
  break
  
  case 'tomp3':
@@ -771,7 +770,7 @@ case "s":
    if (!value) return m.reply(msg.notext)
    await addReport(sender, value)
    
-   m.reply(`✅ Gracias *${pushname}*\nSu reporte ha sido almacenada en la base de datos.`)
+   m.reply(`✅  *${pushname}* ${msg.bugr}`)
    break
 
  case 'listreport':
@@ -834,7 +833,7 @@ case "s":
  case 'getimg':
    try { 
      mage = fs.readFileSync(`./database/media/image/${value.toLowerCase()}.jpeg`) 
-     Fg.sendMessage(from, mage, image, { quoted: mek, caption: '✅ Resultado : database image', thumbnail: fakethumb })
+     Fg.sendMessage(from, mage, image, { quoted: mek, caption: `✅ ${msg.resulf} : database image`, thumbnail: fakethumb })
      } catch {
        m.reply(msg.packoff)
      }
@@ -961,7 +960,7 @@ break
      let play = await fgx.playstore(value); 
      store = '          *PLAY STORE*\n\n────────────────\n'
      for (let i of play) {
-       store += `▢ *📌Nombre* : ${i.name}
+       store += `▢ *📌${msg.nme}* : ${i.name}
 ▢ *🔗 Link* : ${i.link}
 ▢ *👨🏻‍💻 Dev* : ${i.developer}
 ▢ *🔗 Link Dev* : ${i.link_dev}
@@ -1056,7 +1055,7 @@ break
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     code = await Fg.groupInviteCode(from)
-    fglink = `Link del Grupo *${groupName}*\n\nhttps://chat.whatsapp.com/${code}`
+    fglink = `${msg.linkgp} *${groupName}*\n\nhttps://chat.whatsapp.com/${code}`
     m.reply(fglink)
     break
     
@@ -1068,9 +1067,9 @@ case 'anularlink':
     if(!isBotAdmins) return m.reply(msg.botadmin)
     Fg.query({ json: ['action', 'inviteReset', from], expect200: true })
 linkgp = await Fg.groupInviteCode(from)
-fgxd = `✅ Enlace del grupo anulado
+fgxd = `✅ ${msg.linkrevo}
 
-📌 Nuevo enlace : 
+📌 ${msg.newlink} : 
 https://chat.whatsapp.com/${linkgp}`
     m.reply(fgxd)
     break
@@ -1167,7 +1166,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, false)
 m.reply(msg.close)
 Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
 	} else if (!value) {
-		Fg.send2Button(from, `🛡️ Configuración de grupo\nAbrir y cerrar el grupo`, `A continuación elija uno`, 'ABRIR', `${prefix + command} open`, 'CERRAR', `${prefix + command} close`)
+		Fg.send2Button(from, `${msg.gpbt}`, `${msg.gpbtt}`, `${msg.gpopenb}`, `${prefix + command} open`, `${msg.gpcloseb}`, `${prefix + command} close`)
 		} 
 		break
     
@@ -1424,13 +1423,13 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
 	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
 	    }
 	 Prema = cekPremium(who) ? 'Si' : 'No'
-   perfil = ` ┌───「 *PERFIL* 」
-▢ *🔖 Nombre:* ${pushname}
+   perfil = ` ┌───「 *${msg.pfile}* 」
+▢ *🔖 ${msg.nme}:* ${pushname}
 ▢ *📇 Info:* ${about}
-▢ *🌎 Idioma:* ${cekBahasa(who)}
-▢ *⚠️ Advertencia* : ${cekWarn(who)}
+▢ *🌎 ${idiom}:* ${cekBahasa(who)}
+▢ *⚠️ ${msg.wrn}* : ${cekWarn(who)}
 ▢ *⭐ Premium* : ${Prema}
-▢ *🆙 Nivel* : ${cekLevel(who)}
+▢ *🆙 ${msg.lvl}* : ${cekLevel(who)}
 ▢ *Point* : ${cekPoin(who)} 
 └──────────────`
 prof = await getBuffer(ppimg)
@@ -1454,12 +1453,12 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
    //ownergp = groupMetadata.owner.split('@')[0]
    
    infogpp = `┌──「 *INFO DE GRUPO* 」
-▢ *🔖Nombre* : ${groupName}
-▢ *🪀Se creó el* : ${creation}
+▢ *🔖${msg.nme}* : ${groupName}
+▢ *🪀${msg.crtio}* : ${creation}
 ▢ *🕵🏻‍♂️Admins* : ${groupAdmins.length}
-▢ *👥Miembros* : ${groupMembers.length}
+▢ *👥${msg.mbr}* : ${groupMembers.length}
 ≡ CONFI
-▢ *📮Bienvenida* : ${isWelcome}
+▢ *📮${msg.wlme}* : ${isWelcome}
 ▢ *🚨Anti Link Wha* : ${isAntilink}
 ▢ *🚫 Antidelete* : ${isAntidelete}
 ▢ *👀ViewOnce* : ${isViewonce}
@@ -1476,17 +1475,17 @@ case 'votacion':
    if(!value) return m.reply(msg.notext)
    Fg.vote = Fg.vote ? Fg.vote : {}
     if (from in Fg.vote) {
-        await m.reply(msg.main('Votacion'))
+        await m.reply(msg.main(msg.vtc))
         return false
     }
-    caption = `≡ *VOTACIÓN*
+    caption = `≡ *${msg.vtc}*
 
-Razón : ${value}
+${msg.rzon} : ${value}
 
-✅ : *Si estas de acuerdo*
-❎ : *Si no estas de acuerdo*`
+✅ : *${msg.vyes}*
+❌ : *${msg.vno}*`
     Fg.vote[from] = [
-        await Fg.send2Button(from, caption, isWm, '✅', `${prefix}yes`, '❎', `${prefix}no`, false, { contextInfo:{
+        await Fg.send2Button(from, caption, isWm, '✅', `${prefix}yes`, '❌', `${prefix}no`, false, { contextInfo:{
           mentionedJid: Fg.parseMention(caption)
         }}),
         [],
@@ -1500,17 +1499,17 @@ Razón : ${value}
    if(!isGroup) return m.reply(msg.group)
    if(!isAdmins) return m.reply(msg.admin)
     if (!(from in Fg.vote)) {
-        await m.reply(msg.nomain('Votacion'))
+        await m.reply(msg.nomain(msg.vtc))
         return false
     }
     delete Fg.vote[from]
-    m.reply(msg.hapus('Votacion'))
+    m.reply(msg.hapus(msg.vtc))
     break
 
  case 'yes':
    if(!isGroup) return m.reply(msg.group)
    if (!(from in Fg.vote)) {
-       m.reply(msg.nomain('Votación'))
+       m.reply(msg.nomain(msg.vtc))
        return false
     }
     vote = Fg.vote[from][1]
@@ -1518,26 +1517,26 @@ Razón : ${value}
     inVote = vote.includes(sender)
     inDevote = devote.includes(sender)
     if (inVote) return m.reply(msg.inmain('✅'))
-    if (inDevote) return m.reply(msg.inmain('❎'))
+    if (inDevote) return m.reply(msg.inmain('❌'))
     vote.push(sender)
     listVote = vote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
     listDevote = devote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
-        caption = `*VOTACION*
+        caption = `*${msg.vtc}*
 
-RAZON : ${Fg.vote[from][3]}
+${msg.rzon} : ${Fg.vote[from][3]}
 
 ✅ : ${vote.length} *Total*
 ${listVote}
 
-❎ : ${devote.length} *Total*
+❌ : ${devote.length} *Total*
 ${listDevote}`.trim()
-    await Fg.send3Button(from, caption, isWm, '✅', `${prefix}yes`, '❎', `${prefix}no`, '📈 Ver Votaciones', `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    await Fg.send3Button(from, caption, isWm, '✅', `${prefix}yes`, '❌', `${prefix}no`, `📈 ${msg.vrvt}`, `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
     break
 
  case 'no':
    if(!isGroup) return m.reply(msg.group)
    if (!(from in Fg.vote)) {
-       m.reply(msg.nomain('Votacion'))
+       m.reply(msg.nomain(msg.vtc))
        return false
     }
     vote = Fg.vote[from][1]
@@ -1545,20 +1544,20 @@ ${listDevote}`.trim()
     inVote = vote.includes(sender)
     inDevote = devote.includes(sender)
     if (inVote) return m.reply(msg.inmain('✅'))
-    if (inDevote) return m.reply(msg.inmain('❎'))
+    if (inDevote) return m.reply(msg.inmain('❌'))
     devote.push(sender)
     listVote = vote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
     listDevote = devote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
-        caption = `*VOTACION*
+        caption = `*${msg.vtc}*
 
-RAZON : ${Fg.vote[from][3]}
+${msg.rzon} : ${Fg.vote[from][3]}
 
 ✅ : ${vote.length} *Total*
 ${listVote}
 
 ❎ : ${devote.length} *Total*
 ${listDevote}`.trim()
-    await Fg.send3Button(from, caption, isWm, '✅', `${prefix}yes`, '❎', `${prefix}no`, '📈 Ver Votaciones', `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    await Fg.send3Button(from, caption, isWm, '✅', `${prefix}yes`, '❌', `${prefix}no`, `📈 ${msg.vrvt}`, `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
     break
 
 
@@ -1566,23 +1565,23 @@ ${listDevote}`.trim()
    if(!isGroup) return m.reply(msg.group)
   // if(!isAdmins) return m.reply(msg.admin)
    if (!(from in Fg.vote)) {
-        await m.reply(msg.nomain('Votacion'))
+        await m.reply(msg.nomain(msg.vtc))
         throw false
     }
     vote = Fg.vote[from][1]
     devote = Fg.vote[from][2]
     listVote = vote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
     listDevote = devote.map((v, i) => `${i + 1}.  @${v.split`@`[0]}`).join('\n')
-    caption = `≡ *RESULTADOS DE VOTACION*
+    caption = `≡ *${msg.rtvt}*
 
-RAZON: ${Fg.vote[from][3]}
+${msg.rzon} : ${Fg.vote[from][3]}
 
 ✅ : ${vote.length} *Total*
 ${listVote}
 
-❎ : ${devote.length} *Total*
+❌ : ${devote.length} *Total*
 ${listDevote}`.trim()
-    await Fg.sendButton(from, caption, isWm, '🚫 Eliminar', `${prefix}delvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    await Fg.sendButton(from, caption, isWm, `🚫 ${msg.dlte}`, `${prefix}delvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
 break
 
 case 'riddle':  //acertijo
@@ -1619,21 +1618,21 @@ case 'riddle':  //acertijo
       Use.multi = true
       Use.nopref = false
       Use.onepref = false
-      m.reply(`✅ Se cambio el prefijo a : *multiprefijo*`)
+      m.reply(msg.setpmulti)
   } else if ((args[0]) == 'nopref'){
       if(Use.nopref) return m.reply(msg.Thison(command.toUpperCase()))
       Use.multi = false
       Use.onepref = false
       Use.nopref = true
-      m.reply(`✅ Se cambió de prefijo a : *nopref* `)
+      m.reply(msg.setpnopre)
     } else if ((args[0]) === 'onepref') {
       if(Use.onepref) return m.reply(msg.Thison(command.toUpperCase()))
       Use.multi = false
       Use.nopref = false
       Use.onepref = true
-      m.reply(` ✅ Se cambio el prefijo a : *${Use.prefix}*`)
+      m.reply(`${msg.setponepre} *${Use.prefix}*`)
     } else if (!value) {
-    	Fg.send3Button(from, `✳️ Profijos Disponibles\n\n• *multi* _muti prefijo_\n• *nopref* _Sin prefijo_ \n• *onepref* _Solo un prefijo_`, 'Elige lo que quieras', 'Un Prefijo', `${prefix + command} onepref`, 'Sin Prefijo', `${prefix + command} nopref`, 'Multi Prefijo', `${prefix + command} multi`)
+    	Fg.send3Button(from, `✳️ ${msg.setpall}\n\n• *multi* _${msg.setpmt}_\n• *nopref* _${msg.setpnp}_ \n• *onepref* _${msg.setpop}_`, `${msg.gpbtt}`, `${msg.setpop}`, `${prefix + command} onepref`, `${msg.setpnp}`, `${prefix + command} nopref`, `${msg.setpmt}`, `${prefix + command} multi`)
    } 
     break
     
@@ -1642,8 +1641,8 @@ case 'riddle':  //acertijo
 if (!isOwner) return m.reply(msg.owner)
 gfg = `git remote set-url origin https://github.com/FG98F/dylux-bot.git && git pull `
 exec(`${gfg}`, (err, stdout) => {
-if (err) return m.reply(err)
-if (stdout) m.reply(`✅ *Actualizado*\n\nInforme :\n\n${stdout}`)
+if (err) return m.reply(err) 
+if (stdout) m.reply(`✅ ${msg.updatef} :\n\n${stdout}`)
 })
 break
 
@@ -1718,6 +1717,14 @@ case 'delwelcome':
 					const attp = await getBuffer(`https://api.xteam.xyz/attp?file&text=${teks}`)
 					Fg.sendMessage(from, attp, sticker, {quoted: mek})
 					  break 
+					
+case 'simi':
+case 'bot':
+		 if (args.length < 1) return reply(`${msg.hi} _*${pushname}*_ ${msg.simn} *${prefix + command}* ${msg.simmsg} ${prefix + command} ${msg.hi} bot`)
+		anu = await fetchJson(`https://api.simsimi.net/v2/?text=${value}&lc=${cekBahasa(who)}`)
+                     simfg = (`${anu.success}`)      
+                     m.reply(simfg)
+                     break
  
    
 //---
