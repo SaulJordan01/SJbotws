@@ -1,7 +1,7 @@
-// -- enviar mensaje
+// -- enviar mensaje 
 exports.wait = `*⌛ _Cargando..._ ▬▬▬▭*`;
 exports.bye = `Adios...`;
-exports.done = `✅ Finalizado`;
+exports.done = `✅ Hecho`;
 exports.next = (value) => {
   return `Haga click en siguiente para *${value}* `;
 };
@@ -12,7 +12,15 @@ exports.getlist = '✳️ Use el comando getimg/getvid/getav/getstik para enviar
 exports.nolink = (value) => {
   return '✳️ Repita agregando un enlace ' + value;
 };
-// -- message only
+
+// -- Decir tiempo
+exports.night = 'Buenas noches'
+exports.evening = 'Buenas tardes'
+exports.day = 'Buen día'
+exports.morning = 'Buenos dias'
+
+
+// -- mensaje solo 
 exports.admin = '✳️ Este comando es solo para *Admins* del grupo';
 exports.group = '✳️ ¡Este comando solo se puede usar en grupos!';
 exports.premium = '✳️ Este comando es solo para miembros *Premium*';
@@ -36,26 +44,32 @@ exports.replyVn = '✳️ Responde a un audio...';
 exports.replyImg = '✳️ Responde a una imagen...';
 exports.noreply = '✳️ El mensaje al que respondió no contenía una respuesta';
 exports.nolink = (value) => {
-  return '✳️ Repita agregando un enlace ' + value;
+  return `✳️ Repita agregando un enlace de *${value}*`;
 };
 exports.addwarn = `⚠️ Advertencia\nusted obtiene 1 advertencia`;
 exports.delwarn = `⚠️ Advertencia\n Se redujo 1 advertencia`;
 exports.cekwarn = (warn) => {
-  return `✳️ El usuario tiene una advertencia total : *${warn}*`;
+  return `≡ ADVERTENCIAS \n\n▢ Total  : *${warn}*`;
 };
 exports.nowarn = `✳️ El usuario no tiene ninguna advertencia`;
-exports.Pbahasa = `✳️ Seleccione el idioma que desea utilizar
+
+exports.Pbahasa = (prefix, command) => {
+`✳️ Seleccione el idioma que desea utilizar
 
 *Idiomas disponibles*
 - es (Spanish) 
 - id (Indonesia) 
-- en (English)`;
+- en (English)
+
+📌 Ejemplo : *${prefix + command} en*`;
 exports.nobahasa = `Idioma no disponible
 
 *Idiomas disponibles*
 - es (Spanish) 
 - id (Indonesia) 
 - en (English)`;
+};
+
 exports.online = '✅ Bot activo  en este grupo'
 exports.offline = '✳️ Se desactivo el Bot en este grupo'
 
