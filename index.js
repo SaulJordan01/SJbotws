@@ -1738,23 +1738,8 @@ case 'delwelcome':
         }
       }
     }
-
-// respuestas del juego
-   if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !m.quoted.text) return 
-   if (!Fg.game) return
-    if (m.quoted.from == Fg.game[from][0].from) {
-        let json = JSON.parse(JSON.stringify(Fg.game[from][1]))
-        if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
-            m.reply(msg.benar(json.jawaban.toUpperCase(), isPoingame))
-            await addPoin(sender, isPoingame)
-            clearTimeout(Fg.game[from][3])
-            clearTimeout(Fg.game[from][4])
-            delete Fg.game[from]
-        } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold) m.reply(msg.hampir)
-        else m.reply(msg.salah)
-    } return !0
     
-    //-- chatbot // establece como quieras
+        //-- chatbot // establece como quieras
 if(!isCmd && isChatbot === true){
  // if(!mek.isBaileys) return
  // if(isGroup) return
@@ -1769,10 +1754,24 @@ if (m.mtype == 'viewOnceMessage' && isViewonce === true){
   msg = {...mek}
   msg.message = mek.message.viewOnceMessage.message
   msg.message[Object.keys(msg.message)[0]].viewOnce = false
-  m.reply('✳️ ViewOnce *Detectado*')
+  m.reply('ViewOnce *Detectado*')
   Fg.copyNForward(from, msg)
-}
-    
+} 
+
+// respuestas del juego
+   if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !m.quoted.text) return 
+   if (!Fg.game) return
+    if (m.quoted.from == Fg.game[from][0].from) {
+        let json = JSON.parse(JSON.stringify(Fg.game[from][1]))
+        if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
+            m.reply(msg.benar(json.jawaban.toUpperCase(), isPoingame))
+            await addPoin(sender, isPoingame)
+            clearTimeout(Fg.game[from][3])
+            clearTimeout(Fg.game[from][4])
+            delete Fg.game[from]
+        } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold) m.reply(msg.hampir)
+        else m.reply(msg.salah)
+    } return !0   
 
 } catch (e) {
   console.log(bgcolor('‣ Alerta :', 'red'), e);
