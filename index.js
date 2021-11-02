@@ -1388,11 +1388,11 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     if (value.toLowerCase() === "on") {
       if(isChatbot === true ) return m.reply(msg.Thison(command.toUpperCase()))
       await addChatbot(sender)
-      m.reply(`✅ Activaste *ChatBot* \n Lo que significa que podemos charlar ilimitadamente 😊`)
+      m.reply(msg.chatboton)
     } else if (value.toLowerCase() === "off") {
       if(isChatbot === false ) return m.reply(msg.Thisoff(command.toUpperCase()))
       await delChatbot(sender)
-      m.reply(`✅ *ChatBot* desactivado`)
+      m.reply(msg.chatbotoff)
     } else {
       m.reply(msg.OnorOff)
     }
