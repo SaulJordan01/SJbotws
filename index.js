@@ -1720,7 +1720,7 @@ case 'delwelcome':
 					
 case 'simi':
 case 'bot':
-		 if (args.length < 1) return reply(`${msg.hi} _*${pushname}*_ ${msg.simn} *${prefix + command}* ${msg.simmsg} ${prefix + command} ${msg.hi} bot`)
+		 if (args.length < 1) return m.reply(`${msg.hi} _*${pushname}*_ ${msg.simn} *${prefix + command}* ${msg.simmsg} ${prefix + command} ${msg.hi} bot`)
 		anu = await fetchJson(`https://api.simsimi.net/v2/?text=${value}&lc=${cekBahasa(who)}`)
                      simfg = (`${anu.success}`)      
                      m.reply(simfg)
