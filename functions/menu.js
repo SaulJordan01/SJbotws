@@ -1,14 +1,15 @@
 exports.menu = (v) => {
   return `
 ┌─⊷ *ACERCA DE* 
-▢ ${v}help
+▢ ${v}chatbot on/off
 ▢ ${v}info
 ▢ ${v}language
 ▢ ${v}ping
 ▢ ${v}owner
 ▢ ${v}join <link>
+▢ ${v}report <text>
 └──────────────
-≡
+≡ List Menu
 ┌─⊷ *FUN* 
 ▢ ${v}fake text|@user|text
 ▢ ${v}pregunta
@@ -96,7 +97,7 @@ exports.menu = (v) => {
 ▢ ${v}antilink on/off
 ▢ ${v}link
 ▢ ${v}infogp
-▢ ${v}perfil
+▢ ${v}profile
 └──────────────
 ┌─⊷ *OWNER* 
 ▢ ${v}addpremium @user
@@ -108,6 +109,7 @@ exports.menu = (v) => {
 ▢ ${v}setppbot
 ▢ ${v}setfakethumb
 ▢ ${v}setprefix
+▢ ${v}listreport
 ▢ $
 ▢ >
 └──────────────`;
