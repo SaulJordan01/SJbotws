@@ -58,6 +58,12 @@ exports.simn = `apakah kamu ingin mengobrol sebentar?\n\nBalas dengan`;
 exports.simmsg = `(Pesanmu)\n\n📌 Contoh : `;
 exports.chatboton = `✅ Anda mengaktifkan *ChatBot* \n Yang berarti kita dapat mengobrol tanpa batas 😊`;
 exports.chatbotoff = `✅ *ChatBot* dinonaktifkan`; 
+exports.pptt = `Silahkan pilih`;
+exports.exple = `Contoh`;
+exports.emt = `Mengikat`;
+exports.gst = `Won`;
+exports.pdt = `Kamu kalah`;
+exports.pptuser = `Anda`;
 
 // -- Saying time
 exports.night = 'Selamat Malam';

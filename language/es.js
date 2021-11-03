@@ -58,6 +58,12 @@ exports.simn = `quieres charlar un rato?\n\nResponde con`;
 exports.simmsg = `(Tu mensaje)\n\n📌 Ejemplo : `;
 exports.chatboton = `✅ Activaste *ChatBot* \n Lo que significa que podemos charlar ilimitadamente 😊`;
 exports.chatbotoff = `✅ *ChatBot* desactivado`; 
+exports.pptt = `Seleccione`;
+exports.exple = `Ejemplo`;
+exports.emt = `Empate`;
+exports.gst = `Ganaste`;
+exports.pdt = `Perdiste`;
+exports.pptuser = `Tú`;
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'
