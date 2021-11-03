@@ -1727,6 +1727,7 @@ case 'bot':
                      m.reply(simfg)
                      break
  case 'suit':
+ case 'ppt':
     salah = `✳️ ${msg.pptt} piedra/papel/tijera\n\n${msg.exple} : *${prefix + command}* papel\n`
     poin = 200
     if (!value) return m.reply(salah)
