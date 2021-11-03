@@ -1794,7 +1794,11 @@ m.reply(msg.wait)
   Fg.sendMessage(from, thumb, image, {quoted: mek, caption: capt})
   mp3 = await getBuffer(lagu)
   Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.mp3`, quoted: mek})
-  break
+  break 
+  case 'say':
+    if(!value) return m.reply(msg.notext)
+    Fg.sendMessage(from, value, text)
+    break 
    
 //---
   default:
