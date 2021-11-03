@@ -1771,6 +1771,26 @@ case 'bot':
        m.reply(salah)
     }
     break
+    
+    case 'play':
+if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
+m.reply(msg.wait)
+  pl = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?apikey=WRhywqyYC0doYNeqTZymcB2SjrT&q=${q}`)
+  judul = pl.result.title
+  lagu = pl.result.url_audio
+  size = pl.result.size
+  foto = pl.result.thumbnail
+  durasi = pl.result.duration
+  capt = `≡ *PLAY*
+▢ *Título* : ${judul}
+▢ *Peso* : ${size}
+▢ *Duracion* : ${durasi}`
+  if(Number(size.split(' MB')[0]) >= 99.00) return reply(`✳️ El archivo es demasiado grande, la reproducción de música se canceló, el tamaño máximo del archivo es de 99 mb`)
+  thumb = await getBuffer(foto)
+  Fg.sendMessage(from, thumb, image, {quoted: mek, caption: capt})
+  mp3 = await getBuffer(lagu)
+  Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.mp3`, quoted: mek})
+  break
    
 //---
   default:
