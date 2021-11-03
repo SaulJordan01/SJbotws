@@ -510,7 +510,7 @@ number = '59172945992@s.whatsapp.net'
 					}
 				}
    uptime = process.uptime()
-   teks = `*INFO BOT*
+   teks = `_*INFO BOT*_
    
 *≡ ESTADO*
 ▢ Contactos : ${Object.keys(Fg.contacts).length}
