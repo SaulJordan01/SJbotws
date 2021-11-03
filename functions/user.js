@@ -253,6 +253,26 @@ const addPoin = (id, value) => {
   }
 };
 
+/**
+ * reducir poin
+ * @param { string } id
+*/
+const delPoin = (id, value) => {
+  let position = false;
+  if(!value) {
+    value = 1;
+  }
+  Object.keys(User).forEach((i) => {
+    if (User[i].id === id) {
+      position = i;
+    }
+  });
+  if (position !== false) {
+    User[position].poin -= value;
+    fs.writeFileSync('./database/user.json', JSON.stringify(User, null, "\t"));
+  }
+};
+
 
 /**
  * Verifique los datos de nivel de usuario en la base de datos
@@ -500,6 +520,7 @@ module.exports = {
   cekUser,
   cekPoin, 
   addPoin, 
+  delPoin, 
   addLevel,
   cekLevel,
   cekBanned, 
