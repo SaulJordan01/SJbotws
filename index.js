@@ -1743,7 +1743,7 @@ case 'bot':
     if (value == ppt) {
       await addPoin(sender, 100)
         m.reply(`▢ *${msg.emt}*\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n🎁  (±)100 Coins`)
-    } else if (value == `${msg.piedra`) {
+    } else if (value == `${msg.piedra}`) {
         if (ppt == `${msg.tijera}`) {
           await addPoin(sender, poin)
             m.reply(`▢ *${msg.gst}* 🎊\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n🎁  *+${poin} Coins*`)
@@ -1760,7 +1760,7 @@ case 'bot':
             m.reply(`▢ *${msg.pdt}*\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n  *-${poin} Coins*`)
         }
     } else if (value == `${msg.papel}`) {
-        if (ppt == `${msg.piedra`) {
+        if (ppt == `${msg.piedra}`) {
           await addPoin(sender, poin)
             m.reply(`▢ *${msg.gst}* 🎊\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n🎁  *+${poin} Coins*`)
         } else {
