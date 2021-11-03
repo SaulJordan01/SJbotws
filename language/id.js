@@ -68,6 +68,8 @@ exports.papel = `kertas`;
 exports.tijera = `gunting`;
 exports.piedra = `batu`;
 exports.foll = `Ikuti saya di Instagram \nhttps://www.instagram.com/fg98._`;
+exports.plays = `Masukkan judul lagu`;
+exports.playm = `File terlalu besar, pemutaran musik dibatalkan, ukuran file maksimum adalah`;
 
 // -- Saying time
 exports.night = 'Selamat Malam';
