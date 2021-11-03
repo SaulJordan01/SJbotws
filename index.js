@@ -1775,7 +1775,7 @@ case 'bot':
     case 'play':
 if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
 m.reply(msg.wait)
-  pl = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?apikey=WRhywqyYC0doYNeqTZymcB2SjrT&q=${q}`)
+  pl = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?apikey=WRhywqyYC0doYNeqTZymcB2SjrT&q=${value}`)
   judul = pl.result.title
   lagu = pl.result.url_audio
   size = pl.result.size
