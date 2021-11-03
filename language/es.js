@@ -64,6 +64,9 @@ exports.emt = `Empate`;
 exports.gst = `Ganaste`;
 exports.pdt = `Perdiste`;
 exports.pptuser = `Tú`;
+exports.papel = `papel`;
+exports.tijera = `tijera`;
+exports.piedra = `piedra`;
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'

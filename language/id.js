@@ -64,6 +64,9 @@ exports.emt = `Mengikat`;
 exports.gst = `Won`;
 exports.pdt = `Kamu kalah`;
 exports.pptuser = `Anda`;
+exports.papel = `kertas`;
+exports.tijera = `gunting`;
+exports.piedra = `batu`;
 
 // -- Saying time
 exports.night = 'Selamat Malam';

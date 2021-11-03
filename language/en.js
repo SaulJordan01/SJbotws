@@ -64,6 +64,9 @@ exports.emt = `Tie`;
 exports.gst = `Won`;
 exports.pdt = `You lost`;
 exports.pptuser = `You`;
+exports.papel = `paper`;
+exports.tijera = `scissor`;
+exports.piedra = `stone`;
 
 // -- Saying time
 exports.night = 'Good night'
