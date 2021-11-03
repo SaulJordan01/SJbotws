@@ -18,6 +18,7 @@ exports.menu = (v) => {
 ┌─⊷ *GAMES* 
 ▢ ${v}verdad
 ▢ ${v}reto
+▢ ${v}ppt
 └──────────────
 ┌─⊷ *STICKER* 
 ▢ ${v}sticker <nombre>|<autor>
@@ -45,6 +46,7 @@ exports.menu = (v) => {
 ▢ ${v}playstore 
 └──────────────
 ┌─⊷ *DOWNLOAD* 
+▢ ${v}play
 ▢ ${v}igdl <link>
 ▢ ${v}tiktok <link>
 ▢ ${v}tiktoknowm <link>
