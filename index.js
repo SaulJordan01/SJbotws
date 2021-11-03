@@ -1486,7 +1486,7 @@ ${msg.rzon} : ${value}
 ✅ : *${msg.vyes}*
 ❌ : *${msg.vno}*`
     Fg.vote[from] = [
-        await Fg.send2Button(from, caption, isWm, '✅', `${prefix}yes`, '❌', `${prefix}no`, false, { contextInfo:{
+        await Fg.send2Button(from, caption, `${msg.foll}`, '✅', `${prefix}yes`, '❌', `${prefix}no`, false, { contextInfo:{
           mentionedJid: Fg.parseMention(caption)
         }}),
         [],
@@ -1531,7 +1531,7 @@ ${listVote}
 
 ❌ : ${devote.length} *Total*
 ${listDevote}`.trim()
-    await Fg.send3Button(from, caption, isWm, '✅', `${prefix}yes`, '❌', `${prefix}no`, `📈 ${msg.vrvt}`, `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    await Fg.send3Button(from, caption, `${msg.foll}`, '✅', `${prefix}yes`, '❌', `${prefix}no`, `📈 ${msg.vrvt}`, `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
     break
 
  case 'no':
@@ -1558,7 +1558,7 @@ ${listVote}
 
 ❎ : ${devote.length} *Total*
 ${listDevote}`.trim()
-    await Fg.send3Button(from, caption, isWm, '✅', `${prefix}yes`, '❌', `${prefix}no`, `📈 ${msg.vrvt}`, `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    await Fg.send3Button(from, caption, `${msg.foll}`, '✅', `${prefix}yes`, '❌', `${prefix}no`, `📈 ${msg.vrvt}`, `${prefix}checkvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
     break
 
 
@@ -1582,7 +1582,7 @@ ${listVote}
 
 ❌ : ${devote.length} *Total*
 ${listDevote}`.trim()
-    await Fg.sendButton(from, caption, isWm, `🚫 ${msg.dlte}`, `${prefix}delvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
+    await Fg.sendButton(from, caption, `${msg.foll}`, `🚫 ${msg.dlte}`, `${prefix}delvote`, false, { contextInfo: { mentionedJid: Fg.parseMention(caption) } })
 break
 
 case 'riddle':  //acertijo
