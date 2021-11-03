@@ -418,14 +418,14 @@ switch (command) {
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send3ButtonLoc(from, thumb, capt, `▢ Thank to ©Mrf_vfx-/\n▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${msg.foll}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
+    Fg.send3ButtonLoc(from, thumb, capt, `▢ Thank to ©Nurutomo\n▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${msg.foll}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
     break
     
     case 'grupos': 
     case 'groups': 
     case 'dylux': 
     gps = `
-    ≡  *DyLux  ┃ ᴮᴼᵀ*  GRUPOS
+≡  *DyLux  ┃ ᴮᴼᵀ*  GRUPOS
 
 ▢ ${msg.gp} 1
 https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK
@@ -1773,7 +1773,7 @@ case 'bot':
     break
     
     case 'play':
-if (args.length < 1) return reply(`✳️ *Ingresa el título de una canción*\n\n📌Ejemplo *${prefix + command}* Lil Peep broken smile`)
+if (args.length < 1) return m.reply(`✳️ *${msg.plays}*\n\n📌${msg.exple} *${prefix + command}* Lil Peep broken smile`)
 m.reply(msg.wait)
   pl = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?apikey=WRhywqyYC0doYNeqTZymcB2SjrT&q=${value}`)
   judul = pl.result.title
@@ -1785,7 +1785,7 @@ m.reply(msg.wait)
 ▢ *Título* : ${judul}
 ▢ *Peso* : ${size}
 ▢ *Duracion* : ${durasi}`
-  if(Number(size.split(' MB')[0]) >= 99.00) return reply(`✳️ El archivo es demasiado grande, la reproducción de música se canceló, el tamaño máximo del archivo es de 99 mb`)
+  if(Number(size.split(' MB')[0]) >= 99.00) return reply(`✳️ ${msg.playm} 99 mb`)
   thumb = await getBuffer(foto)
   Fg.sendMessage(from, thumb, image, {quoted: mek, caption: capt})
   mp3 = await getBuffer(lagu)
