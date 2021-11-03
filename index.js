@@ -418,7 +418,7 @@ switch (command) {
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send3ButtonLoc(from, thumb, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
+    Fg.send3ButtonLoc(from, thumb, capt, `▢ Thank to ©Mrf_vfx-/\n▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${isWm}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
     break
     
     case 'grupos': 
@@ -1728,39 +1728,39 @@ case 'bot':
                      break
  case 'suit':
  case 'ppt':
-    salah = `✳️ ${msg.pptt} piedra/papel/tijera\n\n${msg.exple} : *${prefix + command}* papel\n`
+    salah = `✳️ ${msg.pptt} ${msg.piedra}/${msg.papel}/${msg.tijera}\n\n${msg.exple} : *${prefix + command}* ${msg.papel}\n`
     poin = 200
     if (!value) return m.reply(salah)
     var ppt = Math.random()
-    if (suit < 0.34) {
-        ppt = 'piedra'
+    if (ppt < 0.34) {
+        ppt = `${msg.piedra}`
     } else if (ppt > 0.34 && ppt < 0.67) {
-        ppt = 'tijera'
+        ppt = `${msg.tijera}`
     } else {
-        ppt = 'kertas'
+        ppt = `${msg.tijera}`
     }
     //determinar las reglas
-    if (value == suit) {
+    if (value == ppt) {
       await addPoin(sender, 100)
         m.reply(`▢ *${msg.emt}*\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n🎁  (±)100 Coins`)
-    } else if (value == 'piedra') {
-        if (suit == 'tijera') {
+    } else if (value == `${msg.piedra`) {
+        if (ppt == `${msg.tijera}`) {
           await addPoin(sender, poin)
             m.reply(`▢ *${msg.gst}* 🎊\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n🎁  *+${poin} Coins*`)
         } else {
           await delPoin(sender, poin)
             m.reply(`▢ *${msg.pdt}*\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n  *-${poin} Coins*`)
         }
-    } else if (value == 'tijera') {
-        if (suit == 'papel') {
+    } else if (value == `${msg.tijera}`) {
+        if (ppt == `${msg.papel}`) {
           await addPoin(sender, poin)
             m.reply(`▢ *${msg.gst}* 🎊\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n🎁  *+${poin} Coins*`)
         } else {
           await delPoin(sender, poin)
             m.reply(`▢ *${msg.pdt}*\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n  *-${poin} Coins*`)
         }
-    } else if (value == 'papel') {
-        if (suit == 'piedra') {
+    } else if (value == `${msg.papel}`) {
+        if (ppt == `${msg.piedra`) {
           await addPoin(sender, poin)
             m.reply(`▢ *${msg.gst}* 🎊\n\n‣ ${msg.pptuser} : ${value}\n‣ DyLux : ${ppt}\n\n🎁  *+${poin} Coins*`)
         } else {
