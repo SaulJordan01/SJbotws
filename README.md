@@ -36,7 +36,9 @@ Para resultados perfectos debes tener la versión original de la aplicación Wha
 ### Ejemplo 
 En caso de duda, antes de instalar dylux-bot, pruebe el bot aquí primero
 
-<a href="https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK" target="blank"><img src="https://img.shields.io/badge/DyLux Bot-30302f?style=social&logo=whatsapp" /></a>
+<p>
+<a href="https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK" target="blank"><img src="https://img.shields.io/badge/DyLux Bot-30302f?style=flat&logo=whatsapp" /></a>
+</p>
 
 Multi-idioma para cada usuario, lo que significa que el usuario puede elegir el idioma que quiere usar
 
@@ -45,44 +47,22 @@ Multi-idioma para cada usuario, lo que significa que el usuario puede elegir el 
 - [x] English
 - [ ] Idiomas que vendrán después
 
-Puedes abrir el idioma  [In here](https://github.com/FG98F/dylux-bot/tree/main/language)
+Puedes abrir el idioma  [Aqui](https://github.com/FG98F/dylux-bot/tree/main/language)
 ***
 
-### Install
-Make sure everything is in good condition
+### Instalar con Termux
+La instalación es bastante simple, siga los pasos a continuación en la Aplicación **Termux**
 
-Primero, instale
 ```bash
 • pkg install git
 • pkg install ffmpeg
 • pkg install nodejs
-```
-
-Para todas las preguntas sobre la instalación, simplemente seleccione y
-
-Si se ha confirmado que todo está seguro e instalado, continúe con el repositorio de clonación
-```bash
 • git clone https://github.com/FG98F/dylux-bot
 • cd dylux-bot
-• npm i
-```
-Para todas las preguntas sobre la instalación, simplemente seleccione y
-
-Cuando todo esté hecho, establezca el número de propietario en ```database/setting-bot.json``` o click [in here](https://github.com/FG98F/dylux-bot/blob/3c92f24ea3b01f9af3e736795c9ccea7d76279ea/database/setting-bot.json#L3)
-
-Por defecto:
-```
-{
-	"ownerNumber": [
-	"59172945992@s.whatsapp.net"
-	]
-}
-```
-Guarde la configuración y pase a la última etapa
-```bash
+• bash install.sh
 • npm start
 ```
-Cuando aparezca el QR, escanéelo usando la aplicación WhatsApp que se usará para bot y hecho
+Cuando aparezca el QR, escanéelo usando la aplicación WhatsApp que se usará para bot
 
 ***
 
@@ -104,16 +84,16 @@ Puedes abrir el menú [aquí](https://github.com/FG98F/dylux-bot/blob/main/funct
 ### Grupo de WhatsApp 
 
 <p>
-<a href="https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK" target="blank"><img src="https://img.shields.io/badge/DyLux Bot Group-30302f?style=social&logo=whatsapp" /></a>
+<a href="https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK" target="blank"><img src="https://img.shields.io/badge/DyLux Bot-30302f?style=flat&logo=whatsapp" /></a>
 </p>
 
-### Contactos
-Para obtener información más detallada, comuníquese conmigo a través de las redes sociales a continuación:
+### Mis Contactos
+Para obtener información más detallada, comuníquese conmigo a través de las redes sociales a continuación. :
 
 <p>
-<a href="http://wa.me/59172945992" target="blank"><img src="https://img.shields.io/badge/Whatsapp-30302f?style=social&logo=whatsapp" /></a>
-<a href="http://www.instagram.com/fg98._" target="blank"><img src="https://img.shields.io/badge/Instagram-30302f?style=social&logo=instagram" /></a>
-<a href="https://www.facebook.com/fg98ff" target="blank"><img src="https://img.shields.io/badge/Facebook-30302f?style=social&logo=facebook" /></a>
+<a href="http://wa.me/59172945992" target="blank"><img src="https://img.shields.io/badge/Whatsapp-30302f?style=flat&logo=whatsapp" /></a>
+<a href="http://www.instagram.com/fg98._/" target="blank"><img src="https://img.shields.io/badge/Instagram-30302f?style=flat&logo=instagram" /></a>
+<a href="https://m.facebook.com/fg98ff" target="blank"><img src="https://img.shields.io/badge/Facebook-30302f?style=flat&logo=facebook" /></a>
 </p>
 
 ***
@@ -123,9 +103,8 @@ Para obtener información más detallada, comuníquese conmigo a través de las 
 
 ### Github Stats
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=FG98F&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true" />
-
-
+![github stats](https://github-readme-stats.vercel.app/api?username=FG98F&show_icons=true&theme=chartreuse-dark)
+![github toplang](https://github-readme-stats.vercel.app/api/top-langs/?username=FG98F&layout=compact&theme=chartreuse-dark)
 ### Lenguaje y herramientas
 <a href="https://github.com/FG98F"><img src="https://img.shields.io/badge/-JavaScript-eed718?style=flat&logo=javascript&logoColor=ffffff"></a>
 <a href="https://github.com/FG98F"><img
@@ -134,7 +113,3 @@ src="https://img.shields.io/badge/-Node.js-3C873A?style=flat&logo=Node.js&logoCo
 <a href="https://github.com/FG98F"><img src="http://img.shields.io/badge/-Github-000000?style=flat&logo=github&logoColor=FFFFFF"></a>
 
 
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FFG98F%2Fdylux-bot.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2FFG98F%2Fdylux-bot?ref=badge_small)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FFG98F%2Fdylux-bot.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FFG98F%2Fdylux-bot?ref=badge_large)
- 
