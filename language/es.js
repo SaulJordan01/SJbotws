@@ -67,6 +67,7 @@ exports.pptuser = `Tú`;
 exports.papel = `papel`;
 exports.tijera = `tijera`;
 exports.piedra = `piedra`;
+exports.foll = `Sígueme en Instagram \nhttps://www.instagram.com/fg98._`;
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'

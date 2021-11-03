@@ -67,6 +67,7 @@ exports.pptuser = `Anda`;
 exports.papel = `kertas`;
 exports.tijera = `gunting`;
 exports.piedra = `batu`;
+exports.foll = `Ikuti saya di Instagram \nhttps://www.instagram.com/fg98._`;
 
 // -- Saying time
 exports.night = 'Selamat Malam';

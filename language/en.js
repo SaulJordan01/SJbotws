@@ -67,6 +67,7 @@ exports.pptuser = `You`;
 exports.papel = `paper`;
 exports.tijera = `scissor`;
 exports.piedra = `stone`;
+exports.foll = `Follow me in Instagram \nhttps://www.instagram.com/fg98._ `;
 
 // -- Saying time
 exports.night = 'Good night'
