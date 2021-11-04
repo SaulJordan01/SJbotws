@@ -973,10 +973,12 @@ break
 		    		ytresult += '「 *YOUTUBE SEARCH* 」'
 		    		ytresult += '\n________________________\n\n'
 		   			aramas.all.map((video) => {
-		        	ytresult += '📌 *Título :* ' + video.title + '\n'
-		            ytresult += '*🔗 Link* : ' + video.url + '\n'
-		            ytresult += '*⏳ Duración* : ' + video.timestamp + '\n'
-		            ytresult += '*📤 Publicado* : ' + video.ago + '\n________________________\n\n'
+		        	ytresult = `
+📌 *Título :* ${video.title}           
+*🔗 Link* : ${video.url}          
+ *⏳ Duración* : ${video.timestamp}             
+📤 Publicado* : ${video.ago} 
+________________________\n\n`
 		    		});
 		    		ytresult += '─── DyLux ┃ ᴮᴼᵀ ───'
 		    		 Fg.sendMessage(from, tbuff, image, {thumbnail:fakethumb , quoted: mek, caption: ytresult})
