@@ -82,7 +82,7 @@ async function starts() {
         let tag = '@'+num.split('@')[0]
         let bye = await getCustomBye(mdata.id);
         
-        capt = bye.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
+        capt = bye.replace('@tag', tag).replace('@nama', username).replace('@about', about).replace('@tanggal', tanggal).replace('@group', mdata.subject);
 	  //capt = `*Adios* @${num.split('@')[0]}`;
 	    Fg.sendMessage(mdata.id, capt, MessageType.text, { contextInfo: {"mentionedJid": [num]}});
       }
