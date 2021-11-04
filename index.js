@@ -1263,7 +1263,6 @@ if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
 if(!value)return reply(`✳️ Menciona a alguien\n\n📌Ejemplo : ${prefix + command} @tag`)
-if (!isBotGroupAdmins) return reply(Badmin())
 y = q.split('@')[1] + '@s.whatsapp.net'
 Fg.groupRemove(from, [y])
 reply(`✅ Ordenes recibidas, emitidas`)
