@@ -1243,7 +1243,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     m.reply(msg.desk(value))
     break
     
-    case 'kick2':
+    /*case 'kick':
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
@@ -1257,7 +1257,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
           },
         });
     await Fg.groupRemove(from, [dia])
-    break
+    break*/
     case 'kick':
 if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
@@ -1307,6 +1307,20 @@ if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMes
       m.reply(msg.nonum)
     }
     break 
+    
+    case 'invite':
+    if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!value) return m.reply(msg.nonum)
+    users = value.replace(/[^0-9]/g, '')+"@s.whatsapp.net"
+    ini = await Fg.groupInviteCode(from)
+    link = 'https://chat.whatsapp.com/'+ini 
+    Fg.sendMessage(users, "@"+sender.split("@")[0]+"\n Un admin te invita a unirte a este grupo\n"+link, text, {
+          contextInfo: {
+            mentionedJid: [sender],
+          }})
+          m.reply(msg.done)
+    break
     
     case 'promote':
     case 'promover':
