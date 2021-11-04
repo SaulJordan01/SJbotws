@@ -66,8 +66,13 @@ async function starts() {
 	    let buff = await getBuffer(ppimg);
 	    let welc = await getCustomWelcome(mdata.id)
 	    capt = welc.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
-	      Fg.adReply(mdata.id, capt, MessageType.text, 'Bienvenido ', 'Miembro de ' + member + ' Group ' + mdata.subject, buff, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
-      } else if (anu.action == 'remove') {
+	      //Fg.adReply(mdata.id, capt, MessageType.text, 'Bienvenido ', 'Miembro de ' + member + ' Group ' + mdata.subject, buff, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
+	    Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
+	      contextInfo: { 
+            mentionedJid: Fg.parseMention(capt)
+	      } 
+	    });
+        } else if (anu.action == 'remove') {
         num = anu.participants[0];
         let username = Fg.getName(num)
         let about = (await Fg.getStatus(num).catch(console.error) || {}).status || ''
