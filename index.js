@@ -1264,8 +1264,13 @@ if(!isGroup) return m.reply(msg.group)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
 if(!value)return reply(`✳️ Menciona a alguien\n\n📌Ejemplo : ${prefix + command} @tag`)
 y = value.split('@')[1] + '@s.whatsapp.net'
+capt = msg.kick(y)
+    m.reply(capt, null, {
+          contextInfo: {
+            mentionedJid: Fg.parseMention(capt),
+          },
+        });
 Fg.groupRemove(from, [y])
-m.reply(msg.kick)
 break
 
 case 'okick':
