@@ -43,7 +43,8 @@ exports.menu = (v) => {
 ▢ ${v}translate <lang><text>
 └──────────────
 ┌─⊷ *BUSQUEDA* ❳
-▢ ${v}playstore 
+▢ ${v}playstore
+▢ ${v}ytsearch
 └──────────────
 ┌─⊷ *DOWNLOAD* 
 ▢ ${v}play
@@ -88,6 +89,7 @@ exports.menu = (v) => {
 ▢ ${v}setdesc <text>
 ▢ ${v}add <numero>
 ▢ ${v}kick @user
+▢ ${v}okick <reply msg>
 ▢ ${v}promover @user
 ▢ ${v}degradar @user
 ▢ ${v}warn @user
@@ -109,6 +111,7 @@ exports.menu = (v) => {
 ▢ ${v}ban @user
 ▢ ${v}unban @user
 ▢ ${v}view
+▢ ${v}invite <549xxxx>
 ▢ ${v}update
 ▢ ${v}setppbot
 ▢ ${v}setfakethumb
