@@ -394,7 +394,7 @@ if (isCmd) addPoin(sender);
 if (isGroup && budy) addCustomWelcome(from)
 
 // suma puntos al nivel y acumula para subir de nivel
-const Amount = isPoinawal * (Math.pow(2, isLevel) - 1)
+const Amount = isPoindefect * (Math.pow(2, isLevel) - 1)
 if (Amount <= isPoin) {
            await addLevel(sender) 
           }
