@@ -15,7 +15,7 @@ const {
   getCustomBye
 } = require('./functions/welcome')
 const fs = require("fs");
-const thumb = fs.readFileSync('./temp/thumb.jpeg')
+const thumb = fs.readFileSync('./temp/fg.jpg')
 const { getBuffer } = require('./library/fetcher')
 const { week, time, tanggal} = require("./library/functions");
 const { color } = require("./library/color");
