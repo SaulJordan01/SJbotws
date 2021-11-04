@@ -35,6 +35,7 @@ async function starts() {
   Fg.query({ json:["action", "invite", `${link.replace('https://chat.whatsapp.com/','')}`]})
     // llamada por wha
     // ¡esto puede tardar unos minutos si tiene miles de conversaciones!!Fg.on('chats-received', async ({ hasNewChats }) => {
+    	Fg.on('chats-received', async ({ hasNewChats }) => {
         console.log(`‣ You have ${Fg.chats.length} chats, new chats available: ${hasNewChats}`);
 
         const unread = await Fg.loadAllUnreadMessages ();
