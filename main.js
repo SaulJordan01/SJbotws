@@ -66,8 +66,8 @@ async function starts() {
       let tag = '@'+num.split('@')[0]
 	    let buff = await getBuffer(ppimg);
 	    let welc = await getCustomWelcome(mdata.id)
-	    capt = welc.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
-	  // capt = `Hola @${num.split('@')[0]} \nBienvenido/a al Grupo ${mdata.subject}\n`;
+	   // capt = welc.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
+	  capt = `Hola @${num.split('@')[0]} \nBienvenido/a al Grupo ${mdata.subject}\n`;
 	    
 	    Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
 	      contextInfo: { 
@@ -77,8 +77,8 @@ async function starts() {
       } else if (anu.action == 'remove') {
         num = anu.participants[0];
         let bye = await getCustomBye(mdata.id);
-        capt = bye.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
-	  // capt = `*Adios* @${num.split('@')[0]}`;
+        //capt = bye.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
+	  capt = `*Adios* @${num.split('@')[0]}`;
 	    Fg.sendMessage(mdata.id, capt, MessageType.text, { contextInfo: {"mentionedJid": [num]}});
       }
   }
