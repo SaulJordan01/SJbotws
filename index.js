@@ -1308,7 +1308,9 @@ if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMes
     }
     break 
     
+    //-- envía en link de invitación a un número
     case 'invite':
+    case 'invitar':
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!value) return m.reply(msg.nonum)
@@ -1716,13 +1718,12 @@ break
 
 case 'setwelcome':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
-    about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
     fungsi = `
 @tag = @${sender.split('@')[0]}
-@nama = ${pushname}
-@about = ${about}
-@tanggal = ${tanggal}
+@name = ${pushname}
+@bio = ${about}
+@date = ${tanggal}
 @group = ${groupName}`
     if(!value) return m.reply(msg.setwel(fungsi))
      await setCustomWelcome(from, value)
@@ -1731,8 +1732,7 @@ case 'setwelcome':
 
   case 'setbye':
     if(!isGroup) return m.reply(msg.group)
-    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
-    about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
 fungsi = `
 @tag = @${sender.split('@')[0]}
 @nama = ${pushname}
@@ -1765,8 +1765,7 @@ case 'delwelcome':
    welc = getCustomWelcome(from)
    bye = getCustomBye(from)
    tag = '@'+sender.split('@')[0]
-   about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
-   if(value.toLowerCase() === 'welcome') {
+    if(value.toLowerCase() === 'welcome') {
      capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@fecha', tanggal).replace('@group', groupName)
      Fg.adReply(from, capt, text, 'Bienvenido nuevo', 'al grupo' + groupMembers.length + ' Group ' + groupName, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
      } else if(value.toLowerCase() === 'bye') {
