@@ -1262,7 +1262,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
 if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
-if(!value)return reply(`✳️ Menciona a alguien\n\n📌Ejemplo : ${prefix + command} @tag`)
+if(!value)return m.reply(msg.notag)
 y = value.split('@')[1] + '@s.whatsapp.net'
 capt = msg.kick(y)
     m.reply(capt, null, {
@@ -1280,7 +1280,7 @@ case 'okick':
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('✳️ Responde a un mensaje!')
 			kick = mek.message.extendedTextMessage.contextInfo.participant
 		    Fg.groupRemove(from, [kick])
-						m.reply(msg.kick)
+						m.reply(msg.done)
                     break 
 
   case 'add':
