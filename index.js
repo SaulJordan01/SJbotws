@@ -1756,8 +1756,8 @@ case 'delwelcome':
       m.reply(msg.default('BYE'))
     }
   break
-  
- case 'simulate':
+
+  case 'simulate':
  case 'simular':
    if(!isGroup) return m.reply(msg.group)
    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
@@ -1765,16 +1765,17 @@ case 'delwelcome':
    welc = getCustomWelcome(from)
    bye = getCustomBye(from)
    tag = '@'+sender.split('@')[0]
-    if(value.toLowerCase() === 'welcome') {
-     capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@fecha', tanggal).replace('@group', groupName)
-     Fg.adReply(from, capt, text, 'Bienvenido nuevo', 'al grupo' + groupMembers.length + ' Group ' + groupName, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
+   if(value.toLowerCase() === 'welcome') {
+     capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
+     Fg.adReply(from, capt, text, 'Selamat datang member baru', 'Member ke ' + groupMembers.length + ' Group ' + groupName, thumb, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
      } else if(value.toLowerCase() === 'bye') {
-       capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@fecha', tanggal).replace('@group', groupName)
+       capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
        m.reply(capt)
      } else {
        m.reply('Lista de eventos\n\n- Welcome\n- Bye')
      }
   break
+
   
   case 'attp':
 	          if(!value) return m.reply(msg.notext)

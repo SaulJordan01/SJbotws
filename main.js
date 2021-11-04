@@ -76,8 +76,8 @@ async function starts() {
 	    });
       } else if (anu.action == 'remove') {
         num = anu.participants[0];
-        let username = client.getName(num)
-        let about = (await client.getStatus(num).catch(console.error) || {}).status || ''
+        let username = Fg.getName(num)
+        let about = (await Fg.getStatus(num).catch(console.error) || {}).status || ''
         let member = mdata.participants.length
         let tag = '@'+num.split('@')[0]
         let bye = await getCustomBye(mdata.id);
