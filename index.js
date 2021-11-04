@@ -1,4 +1,3 @@
-
 // todas las funciones se han simplificado lo más posible si encuentra un error / error tipográfico por escrito, hágamelo saber en el problema
 
 
@@ -6,7 +5,7 @@
 const {
   WAConnection: _WAConnection,
   MessageType,
-  Presence, 
+  Presence,
   MessageOptions,
   Mimetype,
   MimetypeMap,
@@ -61,15 +60,15 @@ const {
   WIT
 } = require('./library/functions');
 
-// funciones 
+// functions
 
 const {
   direc,
   addImage,
   addVideo,
   addStiker,
-  addReport, 
-  addAudio
+  addAudio,
+  addReport
 } = require('./functions/directory');
 
 
@@ -125,11 +124,11 @@ const {
   cekAntidelete,
   addDetect,
   delDetect,
-  cekDetect, 
+  cekDetect,
   addViewonce,
   delViewonce,
   cekViewonce
-} = require('./functions/group'); // cambiar y recuperar datos en ./database/group
+} = require('./functions/group'); 
 
 const {
   st,
@@ -137,10 +136,11 @@ const {
   addAuthor,
   addPackname,
   addWm,
-  addGametime,
+  addGamewaktu,
   addPoingame,
   addCmd
-} = require('./functions/setting-bot'); // cambiar datos en ./database/setting-bot
+} = require('./functions/setting-bot'); 
+
 const {
   Wel,
   addCustomWelcome,
@@ -153,21 +153,19 @@ const {
 } = require('./functions/welcome');
 
 const { msgFilter } = require('./functions/antispam')
-const { menu } = require('./functions/menu'); 
+const { menu } = require('./functions/menu'); // 
 const { espa, ind, eng, } = require('./language/index');
 
 // funciones de  ./functions/setting-bot
-let ownerNumber = st.ownerNumber; // número de propietario
-let prefix = st.prefix; // prefijo
-let listprefix = st.listprefix; // lista de  prefiijos
+let ownerNumber = st.ownerNumber; 
 let isPoingame = st.poinGame; 
 let isGametime = st.gameTime; 
 let isPoindefect = st.poinDefect; 
-let isNama = st.nameB; // nombre del bot
-let isAuthor = st.author; // El autor se utiliza en la función de Stickers
-let isPackname = st.packname; // El nombre del paquete se utiliza en la función de Stickers
-let isWm = st.wm; // wm se usa para la descripción en el botón de mensaje
-let isTotalcmd = st.totalcommand; // información sobre el número de comandos utilizados por los usuarios
+let isNama = st.nama; 
+let isAuthor = st.author; 
+let isPackname = st.packname; 
+let isWm = st.wm; 
+let isTotalcmd = st.totalcommand; 
 
 // -- thumbnail
 let thumb = fs.readFileSync('./temp/fg.jpg'); 
@@ -178,20 +176,19 @@ let baterai = {
     baterai: 0,
     cas: false
 };
-//- Prefijos
+
 let Use = {
   prefix: '/',
   multi: true,
   nopref: false,
   onepref: false
 };
-//-
+
 module.exports = Fg = async (Fg, mek) => {
   try {
     if (!mek.hasNewMessage) return;
     mek = mek.messages.all()[0];
     if (!mek.message) return;
-    
     //--Bot self
    //if(mek.key.fromMe) return; // Eliminalo para que el Bot sea self
    
@@ -206,32 +203,38 @@ module.exports = Fg = async (Fg, mek) => {
     const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType;
     const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = Fg.user.phone;
 //--
-     const cmd = 
+    const cmd = 
     type === 'conversation' && mek.message.conversation ? mek.message.conversation :
     type === 'imageMessage' && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : 
     type === 'videoMessage' && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : 
     type === 'extendedTextMessage' && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : 
     type === 'listResponseMessage' && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId :
     type === 'buttonsResponseMessage' && mek.message[type].selectedButtonId ? mek.message[type].selectedButtonId : ''.slice(1).trim().split(/ +/).shift().toLowerCase();
-    
+
       if(Use.multi){
-        var prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~zZ+×_*!#%^&./\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓=|~xzZ+×_*!#,|`÷?;:%^&./\\©^]/gi) : '-';
+        var prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~zZ+×_*!#%^&./\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓=|~xzZ+×_*!#,|÷?;:%^&./\\©^]/gi) : '-';
       } else if (Use.nopref) {
         prefix = '';
       } else if (Use.onepref) {
         prefix = Use.prefix;
         }
 
-    const body = 
+     const body = 
     type === 'conversation' && mek.message.conversation.startsWith(prefix) ? mek.message.conversation : 
     type === 'imageMessage' && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : 
     type === 'videoMessage' && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : 
     type === 'extendedTextMessage' && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : 
     type === 'listResponseMessage' && mek.message[type].singleSelectReply.selectedRowId ? mek.message[type].singleSelectReply.selectedRowId :
     type === 'buttonsResponseMessage' && mek.message[type].selectedButtonId.startsWith(prefix) ? mek.message[type].selectedButtonId : ''
-    
-     const budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : '';
-     const command = body.slice(1).trim().split(/ +/).shift().toLowerCase();
+     
+     const budy = 
+     type === 'conversation' ? mek.message.conversation : 
+     type === 'extendedTextMessage' ? mek.message.extendedTextMessage.text :
+     type === 'imageMessage' ? mek.message.imageMessage.caption : 
+     type === 'videoMessage' ? mek.message.videoMessage.caption : 
+     type === 'stickerMessage' ? 'Sticker' :
+     type === 'audioMessage' ? 'Audio' : '';
+     const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase();
      const args = body.trim().split(/ +/).slice(1);
      const more = String.fromCharCode(8206);
      const readMore = more.repeat(4000);
@@ -239,10 +242,9 @@ module.exports = Fg = async (Fg, mek) => {
      const isCmd = body.startsWith(prefix);
      const totalchat = await Fg.chats.all();
      const botNumber = Fg.user.jid;
-     const botNumero = botNumber.replace('@s.whatsapp.net', '') // número del bot   
      
-//-- Grupo Metadata
-      const isGroup = from.endsWith('@g.us');
+//-- Group Metadata
+     const isGroup = from.endsWith('@g.us');
      const sender = isGroup ? mek.participant : mek.key.remoteJid;
      const groupMetadata = isGroup ? await Fg.groupMetadata(from) : '';
      const groupName = isGroup ? groupMetadata.subject : '';
@@ -258,6 +260,7 @@ module.exports = Fg = async (Fg, mek) => {
      let dia = mek.quoted ? mek.quoted.sender : mek.mentionedJid && mek.mentionedJid[0] ? mek.mentionedJid[0] : false;
      const pushname = Fg.getName(who);
      const about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
+    
 
 //--- comprobar la información del usuario
      let isPoin = cekPoin(sender);
@@ -277,7 +280,7 @@ module.exports = Fg = async (Fg, mek) => {
      let isViewonce = cekViewonce(from);
      let msg = cekBahasa(sender);
      
-          // -- Idioma 
+     // -- Idioma 
      if (msg === "es") {
        msg = espa;
      } else if (msg === "en") {
@@ -330,15 +333,15 @@ Fg.on('CB:action,,battery', json => {
 	baterai.cas = b;
 });
      
-// detect quoted 
+// detected quoted 
      const isMedia = type === "imageMessage" || type === "videoMessage";
      const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage');
- 	const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage');
-     const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage');
-	 const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage');
-     const isQuotedDocument = type === 'extendedTextMessage' && content.includes('documentMessage');
-	 const isQuotedLocation = type === 'extendedTextMessage' && content.includes('locationMessage');
-     const isQuotedextendedText = type === 'extendedTextMessage' && content.includes('extendedTextMessage');
+ 	 	 const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage');
+		 const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage');
+		 const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage');
+		 const isQuotedDocument = type === 'extendedTextMessage' && content.includes('documentMessage');
+	   const isQuotedLocation = type === 'extendedTextMessage' && content.includes('locationMessage');
+		 const isQuotedextendedText = type === 'extendedTextMessage' && content.includes('extendedTextMessage');
 
 
 // comando de registro de la consola cuando está en un chat privado
@@ -361,7 +364,7 @@ Fg.on('CB:action,,battery', json => {
       console.log(" De :", color(pushname, "yellow"), "Fecha :", bgcolor(tanggal, 'grey'));
       console.log(" Mensaje :", color(budy, "orange"), "MessageType :", bgcolor(type, "orange"));
     }
-
+    
 // Anti spam que se suma al spam :v
    /* if (isCmd && msgFilter.isFiltered(from)) {
          return m.reply('⚠️ Espera 2 segundos antes de usar otro comando')
@@ -369,15 +372,31 @@ Fg.on('CB:action,,battery', json => {
     if (isCmd && !isOwner && !isYo) msgFilter.addFilter(from*/
 
 
-if (budy) addUser(sender); // agregar información de usuario a la base de datos
-if (budy) addGroup(from); // agregar información de grupo a la base de datos
-if (isCmd) addCmd() // aumentar el número total de comandos cuando el usuario usa el comando
-if (isCmd) addPoin(sender); // agregar puntos de usuario al usar comandos
+// auto respon
+lexa = ['@'+Fg.user.jid.split('@')[0]]
+for ( var L of lexa){
+  if(!mek.isBaileys && budy.match(L)){
+    lari = fs.readFileSync('./database/media/sticker/lari.webp')
+   //return Fg.sendMessage(from, lari, sticker, {quoted: mek})
+   capt = 'Hai @'+sender.split('@')[0]+' Lexa disini'
+   return Fg.send2ButtonLoc(from, thumb, capt, 'hola ', 'Menu', prefix + 'menu', 'Info', prefix + 'info', false, {
+          contextInfo: {
+            mentionedJid: Fg.parseMention(capt),
+          },
+        });
+  }
+}
+
+if (budy) addUser(sender); // 
+if (isGroup && budy) addGroup(from); 
+if (isCmd) addCmd() 
+if (isCmd) addPoin(sender); 
+if (isGroup && budy) addCustomWelcome(from)
 
 // suma puntos al nivel y acumula para subir de nivel
-const Amount = isPoindefect * (Math.pow(2, isLevel) - 1)
+const Amount = isPoinawal * (Math.pow(2, isLevel) - 1)
 if (Amount <= isPoin) {
-           await addLevel(sender) // puntos acumulados para subir de nivel
+           await addLevel(sender) 
           }
 
 // comando especial cuando el estado fuera de línea  está activado en el grupo
@@ -411,7 +430,7 @@ if (isBanned) return; // los usuarios con estado baneado no podrán usar el coma
 
 switch (command) { 
  
- case 'menu': 
+  case 'menu': 
  case 'help':
     capt = `${msg.hi} *${pushname}* ${ucapanWaktu}
     
