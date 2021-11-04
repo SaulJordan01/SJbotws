@@ -1,15 +1,15 @@
 const fs = require("fs");
 const Wel = JSON.parse(fs.readFileSync('./database/welcome.json'));
 
-const welAwal = `*Selamat Datang* @tag di @group
+const welAwal = `*Bienvenido* @user di @group
 
 *Nombre* : @name
 *Bio* : @bio
 *Fecha* : @date
 
-Leer descripción`;
+No olvide leer la descripción del grupo, ¿de acuerdo?`;
 
-const byeAwal = `*Adios* @user :'v`;
+const byeAwal = `Adiós @user`;
 /**
  * Add welcome text to db
  * @param {string} chatId
