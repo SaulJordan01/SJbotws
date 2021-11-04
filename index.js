@@ -1265,7 +1265,7 @@ if(!isGroup) return m.reply(msg.group)
 if(!value)return reply(`✳️ Menciona a alguien\n\n📌Ejemplo : ${prefix + command} @tag`)
 y = value.split('@')[1] + '@s.whatsapp.net'
 Fg.groupRemove(from, [y])
-reply(`✅ Ordenes recibidas, emitidas`)
+m.reply(msg.kick)
 break
 
 case 'okick':
@@ -1275,7 +1275,7 @@ case 'okick':
 if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('✳️ Responde a un mensaje!')
 			kick = mek.message.extendedTextMessage.contextInfo.participant
 		    Fg.groupRemove(from, [kick])
-						reply('✅ Ordenes recibidas, emitidas')
+						m.reply(msg.kick)
                     break 
 
   case 'add':
