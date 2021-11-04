@@ -973,12 +973,10 @@ break
 		    		ytresult += '「 *YOUTUBE SEARCH* 」'
 		    		ytresult += '\n________________________\n\n'
 		   			aramas.all.map((video) => {
-		        	ytresult = `
-📌 *Título :* ${video.title}           
-*🔗 Link* : ${video.url}          
- *⏳ Duración* : ${video.timestamp}             
-📤 Publicado* : ${video.ago} 
-________________________\n\n`
+		        	ytresult += '📌 *Título :* ' + video.title + '\n'
+		            ytresult += '*🔗 Link* : ' + video.url + '\n'
+		            ytresult += '*⏳ Duración* : ' + video.timestamp + '\n'
+		            ytresult += '*📤 Publicado* : ' + video.ago + '\n________________________\n\n'
 		    		});
 		    		ytresult += '─── DyLux ┃ ᴮᴼᵀ ───'
 		    		 Fg.sendMessage(from, tbuff, image, {thumbnail:fakethumb , quoted: mek, caption: ytresult})
@@ -1250,7 +1248,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
     if(!dia) return m.reply(msg.notag)
-    if(dia = isAdmins) return m.reply(msg.isadmin)
+    if(dia = !isAdmins) return m.reply(msg.isadmin)
     anu = "@"+dia.split('@')[0]
     capt = msg.kick(anu)
     m.reply(capt, null, {
