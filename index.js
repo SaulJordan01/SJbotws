@@ -35,6 +35,7 @@ const similarity = require('similarity');
 const threshold = 0.72;
 const fgx = require('./result/index');
 const package = require('./package.json');
+const yts = require('yt-search');
 //-- library
 const simple = require('./whatsapp/connecting');
 const { fetchJson, fakeText, getBuffer } = require('./library/fetcher');
@@ -735,7 +736,7 @@ case "s":
     push = pickRandom(woman)
     m.reply(msg.wait)
     go = await fgx.pinterest(push)
-    pin = pickRandom(go)
+    pin = pickRandom(go) 
     if(!pin) return m.reply('Error')
     Fg.sendButtonImg(from, await getBuffer(pin), `✅ *${msg.resulf}*\n`, msg.next(command), `▷▷ ${msg.next2}`, `${prefix + command}`, mek)
  break
@@ -957,6 +958,29 @@ break
         return m.reply('⚠️ Error')
       })
    break
+   
+   case 'ytsearch':
+   case 'yts':
+    if(!value) return m.reply(msg.notext)
+				try {
+		        	var aramas = await yts(value);
+		   			} catch {
+		        	return await Fg.sendMessage(from, 'Error!', MessageType.text, dload)
+		    		}
+		    		aramat = aramas.all 
+		    		var tbuff = await getBuffer(aramat[0].image)
+		    		var ytresult = '';
+		    		ytresult += '「 *YOUTUBE SEARCH* 」'
+		    		ytresult += '\n________________________\n\n'
+		   			aramas.all.map((video) => {
+		        	ytresult += '📌 *Título :* ' + video.title + '\n'
+		            ytresult += '*🔗 Link* : ' + video.url + '\n'
+		            ytresult += '*⏳ Duración* : ' + video.timestamp + '\n'
+		            ytresult += '*📤 Publicado* : ' + video.ago + '\n________________________\n\n'
+		    		});
+		    		ytresult += '─── DyLux ┃ ᴮᴼᵀ ───'
+		    		 Fg.sendMessage(from, tbuff, image, {thumbnail:fakethumb , quoted: mek, caption: ytresult})
+		            break
    
    case "playstore":
      if(!value) return m.reply(msg.notext)
@@ -1795,10 +1819,11 @@ m.reply(msg.wait)
   mp3 = await getBuffer(lagu)
   Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.mp3`, quoted: mek})
   break 
-  case 'say':
+  
+  /*case 'say':
     if(!value) return m.reply(msg.notext)
     Fg.sendMessage(from, value, text)
-    break 
+    break*/
    
 //---
   default:
