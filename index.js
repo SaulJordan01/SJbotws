@@ -6,7 +6,7 @@
 const {
   WAConnection: _WAConnection,
   MessageType,
-  Presence,
+  Presence, 
   MessageOptions,
   Mimetype,
   MimetypeMap,
@@ -1243,12 +1243,12 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     m.reply(msg.desk(value))
     break
     
-    case 'kick':
+    case 'kick2':
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
     if(!dia) return m.reply(msg.notag)
-    if(dia = !isAdmins) return m.reply(msg.isadmin)
+    if(dia = isAdmins) return m.reply(msg.isadmin)
     anu = "@"+dia.split('@')[0]
     capt = msg.kick(anu)
     m.reply(capt, null, {
@@ -1258,6 +1258,26 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
         });
     await Fg.groupRemove(from, [dia])
     break
+    case 'kick':
+if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+if(!value)return reply(`✳️ Menciona a alguien\n\n📌Ejemplo : ${prefix + command} @tag`)
+if (!isBotGroupAdmins) return reply(Badmin())
+y = q.split('@')[1] + '@s.whatsapp.net'
+Fg.groupRemove(from, [y])
+reply(`✅ Ordenes recibidas, emitidas`)
+break
+
+case 'okick':
+			if(!isGroup) return m.reply(msg.group)
+    if(!isBotAdmins) return m.reply(msg.botadmin)
+    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('✳️ Responde a un mensaje!')
+			kick = mek.message.extendedTextMessage.contextInfo.participant
+		    Fg.groupRemove(from, [kick])
+						reply('✅ Ordenes recibidas, emitidas')
+                    break 
 
   case 'add':
     if(!isGroup) return m.reply(msg.group)
