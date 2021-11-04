@@ -70,7 +70,7 @@ async function starts() {
 	   capt = `Hola @${num.split('@')[0]} \nBienvenido/a al Grupo ${mdata.subject}\n`;
 	    
 	    Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
-	      contextInfo: {
+	      contextInfo: { 
             mentionedJid: Fg.parseMention(capt)
 	      }
 	    });
