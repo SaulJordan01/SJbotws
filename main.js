@@ -39,12 +39,12 @@ async function starts() {
         console.log(`‣ Tú tienes ${Fg.chats.length} chats, new chats available: ${hasNewChats}`);
 
         const unread = await Fg.loadAllUnreadMessages ();
-        console.log ("‣ Tú tienes " + unread.length + " unread messages");
+        console.log ("‣ Tú tienes " + unread.length + " mensajes no leídos");
     });
     // called when WA sends chats
     // this can take up to a few minutes if you have thousands of contacts!
     Fg.on('contacts-received', () => {
-        console.log('‣ Tú tienes ' + Object.keys(Fg.contacts).length + ' contacts');
+        console.log('‣ Tú tienes ' + Object.keys(Fg.contacts).length + ' contactos');
     });
     
     //--- Bienvenida y Despedida 
