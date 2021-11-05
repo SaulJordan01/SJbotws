@@ -1068,7 +1068,6 @@ break
    url = await yts(value);
    link = url.all 
    if(!link) return ('Error')
-   m.reply(msg.wait)
   img = await getBuffer(link[0].thumb)
    music = `≡ *PLAY MUSIC*
    
@@ -1093,7 +1092,7 @@ break
  case 'ytmp3':
    if(!isUrl(value) && !value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match("youtube.com/watch")) return m.reply('Link invalido');
-   res = await lxa.yta(value)
+   res = await fgx.yta(value)
    buff = await getBuffer(res.dl_link)
    if (!buff) return m.reply('⚠️ Error')
    m.reply(msg.wait)
