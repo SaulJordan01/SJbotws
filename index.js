@@ -1091,34 +1091,15 @@ break
  break
  case 'ytmp3':
    if(!isUrl(value) && !value) return m.reply(msg.nolink('youtube'));
-   if(isUrl(value) && !value.match("youtube.com/watch")) return m.reply('Link invalido');
+   if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
    resy = await fgx.yta(value)
    buff = await getBuffer(resy.dl_link)
    if (!buff) return m.reply('⚠️ Error')
    m.reply(msg.wait)
    img = await getBuffer(resy.thumb)
-   Fg.adReplyAudio(from, buff, document, resy.title, `play music`, img, value)
+   Fg.adReplyAudio(from, buff, document, resy.title, `play music FG98`, img, value)
 	break
    
-   case 'play2':
-if (args.length < 1) return m.reply(`✳️ *${msg.plays}*\n\n📌${msg.exple} *${prefix + command}* Lil Peep broken smile`)
-m.reply(msg.wait)
-  pl = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?apikey=WRhywqyYC0doYNeqTZymcB2SjrT&q=${value}`)
-  judul = pl.result.title
-  lagu = pl.result.url_audio
-  size = pl.result.size
-  foto = pl.result.thumbnail
-  durasi = pl.result.duration
-  capt = `≡ *PLAY*
-▢ *Título* : ${judul}
-▢ *Peso* : ${size}
-▢ *Duracion* : ${durasi}`
-  if(Number(size.split(' MB')[0]) >= 99.00) return reply(`✳️ ${msg.playm} 99 mb`)
-  thumb = await getBuffer(foto)
-  Fg.sendMessage(from, thumb, image, {quoted: mek, caption: capt})
-  mp3 = await getBuffer(lagu)
-  Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.mp3`, quoted: mek})
-  break 
 
   case 'hidetag':
   case 'notify':
