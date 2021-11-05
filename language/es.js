@@ -167,7 +167,7 @@ return `✳️ *${value}* se desactivo antes`;
 exports.OnorOff = '✳️ Repita agregando on/off';
 exports.antilink = '❎ No permitimos enlaces de otros grupos!\nLo siento seras expulsado';
 
-exports.setwel = (value) => {
+exports.setwel = (value) => { 
   return `✳️ Ingrese el mensaje de *bienvenida*
 
 *📌 Ejemplo:*

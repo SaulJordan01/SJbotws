@@ -167,38 +167,37 @@ return `✳️ *${value}* not turned on before`;
 exports.OnorOff = '✳️ Please repeat by adding on/off';
 exports.antilink = '❎ We do not allow links from other groups!\nSorry you will be expelled';
 
-exports.setwel = (value) => {
-  return `✳️ Please repeat by adding text
-*📌 Example :*
-!setwelcome Welcome @user in @group
+exports.setwel = (value) => { 
+  return `✳️ Enter your *welcome* message
+
+*📌 Example:*
+/setwelcome Welcome @user to  @group
+ 
 Name : @name
 Bio : @bio
 Date : @date
+Group Name : @group
 
-Don't forget to read the group description, okay?
-
-*Examples for each function*` + value;
+*Examples for each function*\n` + value;
 };
 
 exports.setbye = (value) => {
-  return `✳️ Please repeat by adding text
+  return `✳️ Enter your *Farewell* message
   
-*📌 Example :*
-!setbye Goodbye @user
+*📌 Example:*
+/setbye  goodbye  @user
 
-*Examples for each function*` + value;
+*Examples for each function*\n` + value;
 };
 
 exports.setweldone = (value, fungsi) => {
-  return `✅ Successfully changed welcome\n\n`
-+ value + `\n\n*Examples for each function*` + fungsi;
+  return `✅ *Welcome* message set`;
 };
 
 exports.setbyedone = (value, fungsi) => {
-  return `✅ Successfully replaced bye\n\n`
-+ value + `\n\n*Examples for each function*` + fungsi;
+  return `✅ *bye* message set`;
 };
-
+//--
 exports.default = (value) => {
   return value + ' Return to initial settings';
 };

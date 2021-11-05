@@ -167,38 +167,37 @@ return `✳️ *${value}* belum menyala sebelumnya`;
 exports.OnorOff = '✳️ Silahkan ulangi dengan menambahkan on/off';
 exports.antilink = 'Kamu terdeteksi mengirimkan link whatsapp group lain';
 
-exports.setwel = (value) => {
-  return `✳️ Silahkan ulangi dengan menambahkan text
-*📌 Contoh :*
-!setwelcome Selamat Datang @user di @group
+exports.setwel = (value) => { 
+  return `✳️ Masukkan pesan dari *Selamat datang*
+
+*📌 Contoh:*
+/setwelcome Selamat datang @user  ke @group
+ 
 Nama : @name
 Bio : @bio
 Tanggal : @date
+Nama grup : @group
 
-Jangan lupa memperkenalkan diri + baca deskripsi group ya kak
-
-*Contoh untuk setiap fungsi*` + value;
+*Contoh untuk setiap fungsi*\n` + value;
 };
 
 exports.setbye = (value) => {
-  return `✳️ Silahkan ulangi dengan menambahkan text
+  return `✳️ Masukkan pesan *Perpisahan*
+  
+*📌 Contoh:*
+/setbye Selamat tinggal  @user
 
-*📌 Contoh :*
-!setbye Selamat tinggal @user
-
-*Contoh untuk setiap fungsi*` + value;
+*Contoh untuk setiap fungsi*\n` + value;
 };
 
 exports.setweldone = (value, fungsi) => {
-  return `✅ Berhasil mengganti welcome\n\n`
-+ value + `\n\n*Contoh untuk setiap fungsi*` + fungsi;
+  return `✅ *Selamat datang* kumpulan pesan`;
 };
 
 exports.setbyedone = (value, fungsi) => {
-  return `✅ Berhasil mengganti bye\n\n`
-+ value + `\n\n*Contoh untuk setiap fungsi*` + fungsi;
+  return `✅ *Perpisahan* kumpulan pesan`;
 };
-
+//--
 exports.default = (value) => {
   return value + ' Kembali ke pengaturan awal';
 };
