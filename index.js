@@ -1781,7 +1781,7 @@ case 'delwelcome':
       m.reply(msg.default('BYE'))
     }
   break
-Fg.send3ButtonLoc(from, thumb, capt, `▢ Thank to ©Nurutomo\n▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${msg.foll}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
+
   case 'simulate':
  case 'simular':
    if(!isGroup) return m.reply(msg.group)
@@ -1795,21 +1795,23 @@ Fg.send3ButtonLoc(from, thumb, capt, `▢ Thank to ©Nurutomo\n▢ *DyLux  ┃ �
 	    } catch {
 	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
 	    }
-	
 	welm = await getBuffer(ppimg)
-	
    if(value.toLowerCase() === 'welcome') {
      capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName) 
- //  Fg.sendMessage(from, welm, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakethumb, quoted: mek, caption: capt})
+ // Fg.sendMessage(from, welm, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakethumb, quoted: mek, caption: capt})
 Fg.send2ButtonLoc(from, welm, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
 	      contextInfo: { 
             mentionedJid: Fg.parseMention(capt)
 	      } 
 	    }); //--
      } else if(value.toLowerCase() === 'bye') {
-       capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
-       
-   Fg.sendMessage(from, welm, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakethumb, quoted: mek, caption: capt})
+       capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)       
+  //Fg.sendMessage(from, welm, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakethumb, quoted: mek, caption: capt})
+   Fg.sendButtonLoc(from, welm, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '👋🏻', 'unde', false, {
+	      contextInfo: { 
+            mentionedJid: Fg.parseMention(capt)
+	      } 
+	    });//---
      } else {
        m.reply('Lista de eventos\n\n- Welcome\n- Bye')
      }
