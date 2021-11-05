@@ -432,10 +432,11 @@ switch (command) {
  
   case 'menu': 
  case 'help':
-    capt = `${msg.hi} *${pushname}* ${ucapanWaktu}
+    capt = `─── *DyLux  ┃ ᴮᴼᵀ* ───
+    
+${msg.hi} *${pushname}* ${ucapanWaktu}
     
 ▷ *${msg.lvl}* : ${isLevel}
-▷ *💰Coins* : ${isPoin}
 ▷ *Premium* : ${prem}
 ▷ *Prefix* : ${modepref}
 ${readMore}
@@ -530,9 +531,9 @@ number = '59172945992@s.whatsapp.net'
 					}
 				}
    uptime = process.uptime()
-   teks = `_*INFO BOT*_
+   teks = `≡  *INFO BOT*
    
-*≡ ESTADO*
+   *ESTADO*
 ▢ Contactos : ${Object.keys(Fg.contacts).length}
 ▢ Total Chats : *${totalchat.length}* 
 ▢ *${totalchat.length - giid.length}* Chats privados
@@ -1918,7 +1919,7 @@ m.reply(msg.wait)
         m.reply(msg.addwarn)
         cek = await cekWarn(sender)
         if(cek === 3) {
-          await Fg.groupRemove(from, sender)
+          await Fg.groupRemove(from, [sender])
           await delWarn(sender, 3)
         }
       }
