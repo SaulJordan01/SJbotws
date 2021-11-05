@@ -81,6 +81,7 @@ exports.menu = (v) => {
 ▢ ${v}seybye
 ▢ ${v}delwelcome
 ▢ ${v}delbye
+▢ ${v}simulate <welcome/bye>
 ▢ ${v}group <open/close>
 ▢ ${v}resetlink
 ▢ ${v}online
