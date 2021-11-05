@@ -1786,9 +1786,9 @@ case 'delwelcome':
    bye = getCustomBye(from)
    tag = '@'+sender.split('@')[0]
    try {
-	      ppimg = await client.getProfilePicture(siapa);
+	      ppimg = await Fg.getProfilePicture(who);
 	    } catch {
-	      ppimg = 'https://telegra.ph/file/7c0b1068736040b515d81.jpg';
+	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
 	    }
    if(value.toLowerCase() === 'welcome') {
      capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
