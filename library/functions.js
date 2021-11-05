@@ -5,7 +5,7 @@ const moment = require("moment-timezone");
 const fs = require('fs');
 const { spawn } = require("child_process");
 
-/** -- function
+/** -- función
 * detected link
 */
 const isUrl = (url) => {
@@ -23,7 +23,7 @@ function pickRandom(list) {
 }
 
 /**
- * format jam
+ * formato de reloj
 */
 const kyun = (s) =>{
     function pad(s) {
@@ -37,10 +37,10 @@ const kyun = (s) =>{
 
 
 /**
- * Penyebutan hari dan tanggal 
+ * Mención de día y fecha
  */
      let d = new Date();
-     let locale = "id";
+     let locale = "es";
      let gmt = new Date(0).getTime() - new Date("1 January 1970").getTime();
      let weton = ["Pahing", "Pon", "Wage", "Kliwon", "Legi"][
       Math.floor((d * 1 + gmt) / 84600000) % 5
@@ -59,7 +59,7 @@ const kyun = (s) =>{
      let tanggal = week + " " + weton + ", " + date;
 
 /**
- * Timezone 3 wilayah di Indonesia
+ * 
  */
      const time = moment().tz("America/La_Paz").format("HH:mm:ss");
      const WIB = moment().tz("America/La_Paz").format("HH:mm:ss");
@@ -67,7 +67,7 @@ const kyun = (s) =>{
      const WITA = moment().tz("America/La_Paz").format("HH:mm:ss");
     
 /**
- * Penyebutan bilangan ribuan dan seterusnya
+ * Mencionando el número miles y así sucesivamente
  */
 const h2k = (number) => {
     var SI_POSTFIXES = ["", " K", " M", " G", " T", " P", " E"];
@@ -83,7 +83,7 @@ const h2k = (number) => {
 };
 
 /**
- * pembuat exif untuk watermark sticker
+ * marca de agua  sticker
 */
 const createExif = (pack, auth) =>{
     const code = [0x00,0x00,0x16,0x00,0x00,0x00];
