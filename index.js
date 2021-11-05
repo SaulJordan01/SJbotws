@@ -430,7 +430,7 @@ switch (command) {
  
   case 'menu': 
  case 'help':
-    capt = `─── *DyLux  ┃ ᴮᴼᵀ* ───
+    capt = `──── *DyLux  ┃ ᴮᴼᵀ* ────
     
 ${msg.hi} *${pushname}* ${ucapanWaktu}
     
@@ -542,6 +542,13 @@ number = '59172945992@s.whatsapp.net'
 *≡ DISPOSITIVO*
 
 ▢ Versi Wa : ${Fg.user.phone.wa_version}
+
+*≡ OWNER*
+▢ Instagram : https://www.instagram.com/fg98._
+▢ WhatsApp : wa.me/59172945992 
+
+*≡ SCRIPT*
+▢ Git : ${package.homepage} 
 ` 
   m.reply(teks)
    break
