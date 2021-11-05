@@ -51,14 +51,17 @@ async function starts() {
   Fg.on('group-participants-update', async (anu) => {
       isWelcome = cekWelcome(anu.jid);
       if(isWelcome === true) {
-      mdata = await Fg.groupMetadata(anu.jid);
-      if (anu.action == 'add') {
-        num = anu.participants[0];
-          try {
+      	
+      try {
 	      ppimg = await Fg.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`);
 	    } catch {
 	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
 	    } 
+	
+      mdata = await Fg.groupMetadata(anu.jid);
+      if (anu.action == 'add') {
+        num = anu.participants[0];
+          
 	    let username = Fg.getName(num)
       let about = (await Fg.getStatus(num).catch(console.error) || {}).status || ''
       let member = mdata.participants.length
