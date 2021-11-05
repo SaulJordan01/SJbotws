@@ -168,7 +168,7 @@ let isWm = st.wm;
 let isTotalcmd = st.totalcommand; 
 
 // -- thumbnail
-let thumb = fs.readFileSync('./temp/fg.jpg'); 
+let thumbfg = fs.readFileSync('./temp/fg.jpg'); 
 
 let fakethumb = fs.readFileSync('./temp/fake.jpg'); 
 
@@ -377,7 +377,7 @@ Fg.on('CB:action,,battery', json => {
 for ( var L of Dbot){
   if(!mek.isBaileys && budy.match(L)){
    capt = 'Hola @'+sender.split('@')[0]+' Aquí estoy necesitas ayuda? '
-   return Fg.send2ButtonLoc(from, thumb, capt, 'Opciones ', '⦙☰ Menu', prefix + 'menu', '⏍ Info', prefix + 'info', false, {
+   return Fg.send2ButtonLoc(from, thumbfg, capt, 'Opciones ', '⦙☰ Menu', prefix + 'menu', '⏍ Info', prefix + 'info', false, {
           contextInfo: {
             mentionedJid: Fg.parseMention(capt),
           },
@@ -440,7 +440,7 @@ ${msg.hi} *${pushname}* ${ucapanWaktu}
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send3ButtonLoc(from, thumb, capt, `▢ Thank to ©Nurutomo\n▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${msg.foll}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
+    Fg.send3ButtonLoc(from, thumbfg, capt, `▢ Thank to ©Nurutomo\n▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${msg.foll}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
     break
     
     case 'grupos': 
@@ -502,7 +502,7 @@ case 'developer':
 number = '59172945992@s.whatsapp.net'
     capt = `▢ ${msg.num} : @${number.split('@')[0]}\n\n`
     capt += '▢ Instagram : https://www.instagram.com/fg98._'
-    await Fg.fakeLink(from, capt, thumb, `${msg.click}`, 'https://www.instagram.com/fg98._', mek)
+    await Fg.fakeLink(from, capt, thumbfg, `${msg.click}`, 'https://www.instagram.com/fg98._', mek)
    /* Fg.sendContact(from, '59172945992', 'owner', {
 	 key: {
           fromMe: false,
