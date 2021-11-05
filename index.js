@@ -1782,8 +1782,6 @@ case 'delwelcome':
    if(!isGroup) return m.reply(msg.group)
    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
    if(!value) return m.reply('Lista de eventos\n\n- Welcome\n-Bye')
-   isWelcome = cekWelcome(anu.jid);
-   mdata = await Fg.groupMetadata(anu.jid);
    welc = getCustomWelcome(from)
    bye = getCustomBye(from)
    tag = '@'+sender.split('@')[0]
@@ -1792,17 +1790,11 @@ case 'delwelcome':
 	    } catch {
 	      ppimg = 'https://telegra.ph/file/7c0b1068736040b515d81.jpg';
 	    }
-	
-	let buff = await getBuffer(ppimg);
-	
    if(value.toLowerCase() === 'welcome') {
      capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
-   //Fg.adReply(from, capt, text, 'Bienvenido', 'Miembro ' + groupMembers.length + ' Grupo ' + groupName, thumb, 'https://www.instagram.com/p/B5-otsEgtCT/?utm_medium=copy_link');
-     /*Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
-	      contextInfo: { 
-            mentionedJid: Fg.parseMention(capt)
-	      } 
-	    });*/
+   welm = await getBuffer(ppimg)
+   Fg.sendMessage(from, welcm, image, { thumbnail: fakethumb, quoted: mek, caption: capt})
+
      } else if(value.toLowerCase() === 'bye') {
        capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
        m.reply(capt)
