@@ -1793,7 +1793,7 @@ case 'delwelcome':
    if(value.toLowerCase() === 'welcome') {
      capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
    welm = await getBuffer(ppimg)
-   Fg.sendMessage(from, welcm, image, { thumbnail: fakethumb, quoted: mek, caption: capt})
+   Fg.sendMessage(from, welm, image, { thumbnail: fakethumb, quoted: mek, caption: capt})
 
      } else if(value.toLowerCase() === 'bye') {
        capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
