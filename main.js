@@ -83,7 +83,7 @@ async function starts() {
         let buff = await getBuffer(ppimg);
         let bye = await getCustomBye(mdata.id);
         capt = bye.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
-        Fg.sendButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', 'Un Gusto :V', 'menu', false, {
+        Fg.sendButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '👋🏻', 'unde', false, {
 	      contextInfo: { 
             mentionedJid: Fg.parseMention(capt)
 	      } 
