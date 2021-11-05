@@ -36,7 +36,7 @@ async function starts() {
     // llamada por wha
     // ¡esto puede tardar unos minutos si tiene miles de conversaciones!!Fg.on('chats-received', async ({ hasNewChats }) => {
     	Fg.on('chats-received', async ({ hasNewChats }) => {
-        console.log(`‣ You have ${Fg.chats.length} chats, new chats available: ${hasNewChats}`);
+        console.log(`‣ Tú tienes ${Fg.chats.length} chats, new chats available: ${hasNewChats}`);
 
         const unread = await Fg.loadAllUnreadMessages ();
         console.log ("‣ Tú tienes " + unread.length + " unread messages");
@@ -66,8 +66,7 @@ async function starts() {
 	    let buff = await getBuffer(ppimg);
 	    let welc = await getCustomWelcome(mdata.id)
 	    capt = welc.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
-	      //Fg.adReply(mdata.id, capt, MessageType.text, 'Bienvenido ', 'Miembro de ' + member + ' Group ' + mdata.subject, buff, 'https://www.instagram.com/p/CTKtDqeBgY5/?utm_medium=copy_link');
-	    Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
+	      Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
 	      contextInfo: { 
             mentionedJid: Fg.parseMention(capt)
 	      } 
