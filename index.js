@@ -1788,14 +1788,18 @@ case 'delwelcome':
 	    } catch {
 	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
 	    }
+	
+	welm = await getBuffer(ppimg)
+	
    if(value.toLowerCase() === 'welcome') {
      capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
-   welm = await getBuffer(ppimg)
+   
    Fg.sendMessage(from, welm, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakethumb, quoted: mek, caption: capt})
 
      } else if(value.toLowerCase() === 'bye') {
        capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
-       m.reply(capt)
+       
+   Fg.sendMessage(from, welm, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakethumb, quoted: mek, caption: capt})
      } else {
        m.reply('Lista de eventos\n\n- Welcome\n- Bye')
      }
