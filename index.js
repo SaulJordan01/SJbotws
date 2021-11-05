@@ -1092,12 +1092,12 @@ break
  case 'ytmp3':
    if(!isUrl(value) && !value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match("youtube.com/watch")) return m.reply('Link invalido');
-   res = await fgx.yta(value)
-   buff = await getBuffer(res.dl_link)
+   resy = await fgx.yta(value)
+   buff = await getBuffer(resy.dl_link)
    if (!buff) return m.reply('⚠️ Error')
    m.reply(msg.wait)
-   img = await getBuffer(res.thumb)
-   Fg.adReplyAudio(from, buff, document, res.title, tanggal, img, value)
+   img = await getBuffer(resy.thumb)
+   Fg.adReplyAudio(from, buff, document, resy.title, tanggal, img, value)
 	break
    
    case 'play2':
