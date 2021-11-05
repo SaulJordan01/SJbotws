@@ -169,6 +169,7 @@ let isTotalcmd = st.totalcommand;
 
 // -- thumbnail
 let thumbfg = fs.readFileSync('./temp/fg.jpg'); 
+let tbp = fs.readFileSync('./temp/fgmy.jpg'); 
 
 let fakethumb = fs.readFileSync('./temp/fake.jpg'); 
 
@@ -430,7 +431,7 @@ switch (command) {
  
   case 'menu': 
  case 'help':
-    capt = `──── *DyLux  ┃ ᴮᴼᵀ* ────
+    capt = `────  *DyLux  ┃ ᴮᴼᵀ*  ────
     
 ${msg.hi} *${pushname}* ${ucapanWaktu}
     
@@ -1068,7 +1069,7 @@ break
    url = await yts(value);
    link = url.all 
    if(!link) return ('Error')
-  img = await getBuffer(link[0].image)
+ // img = await getBuffer(link[0].image)
    music = `≡ *PLAY MUSIC*
    
 ▢ *RESULTADOS*
@@ -1093,7 +1094,7 @@ break
 ▢ *Duración* : ${link[2].timestamp}
 ▢ *Vistas* : ${link[2].views}
 └──────────────` 
- Fg.send3ButtonLoc(from, img, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
+ Fg.send3ButtonLoc(from, tbp, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
  case 'ytmp3':
    if(!isUrl(value) && !value) return m.reply(msg.nolink('youtube'));
