@@ -1075,16 +1075,16 @@ break
 
 ≡ Music 1 
 ┌──────────────
-▢ *📌Título*  : ${link[0].title}
-▢ *⏱️Duración* : ${link[0].timestamp}
-▢ *👀Vistas* : ${link[0].views}
+▢ *Título*  : ${link[0].title}
+▢ *Duración* : ${link[0].timestamp}
+▢ *Vistas* : ${link[0].views}
 └──────────────
 
 ≡ Music 2
 ┌──────────────
-▢ *📌Título*  : ${link[1].title}
-▢ *⏱️Duración* : ${link[1].timestamp}
-▢ *👀Vistas* : ${link[1].views}
+▢ *Título*  : ${link[1].title}
+▢ *Duración* : ${link[1].timestamp}
+▢ *Vistas* : ${link[1].views}
 └──────────────
 
 ≡ Music 3
