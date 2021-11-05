@@ -373,12 +373,10 @@ Fg.on('CB:action,,battery', json => {
 
 
 // auto respon
-lexa = ['@'+Fg.user.jid.split('@')[0]]
+bot = ['@'+Fg.user.jid.split('@')[0]]
 for ( var L of lexa){
   if(!mek.isBaileys && budy.match(L)){
-    lari = fs.readFileSync('./database/media/sticker/lari.webp')
-   //return Fg.sendMessage(from, lari, sticker, {quoted: mek})
-   capt = 'Hai @'+sender.split('@')[0]+' Lexa disini'
+   capt = 'Hola @'+sender.split('@')[0]+' ayuda!'
    return Fg.send2ButtonLoc(from, thumb, capt, 'hola ', 'Menu', prefix + 'menu', 'Info', prefix + 'info', false, {
           contextInfo: {
             mentionedJid: Fg.parseMention(capt),
@@ -1793,7 +1791,7 @@ case 'delwelcome':
    if(value.toLowerCase() === 'welcome') {
      capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
    welm = await getBuffer(ppimg)
-   Fg.sendMessage(from, welm, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakefg, quoted: mek, caption: capt})
+   Fg.sendMessage(from, welm, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakethumb, quoted: mek, caption: capt})
 
      } else if(value.toLowerCase() === 'bye') {
        capt = bye.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
