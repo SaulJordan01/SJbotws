@@ -195,7 +195,7 @@ exports.setweldone = (value, fungsi) => {
 };
 
 exports.setbyedone = (value, fungsi) => {
-  return `✅ Se estableció el mensaje de  *Despedida*
+  return `✅ Se estableció el mensaje de  *Despedida*`;
 };
 //--
 exports.default = (value) => {
