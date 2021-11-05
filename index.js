@@ -1068,7 +1068,7 @@ break
    url = await yts(value);
    link = url.all 
    if(!link) return ('Error')
-  img = await getBuffer(link[0].thumb)
+  img = await getBuffer(link[0].image)
    music = `≡ *PLAY MUSIC*
    
 ▢ *RESULTADOS*
@@ -1097,7 +1097,7 @@ break
    if (!buff) return m.reply('⚠️ Error')
    m.reply(msg.wait)
    img = await getBuffer(resy.thumb)
-   Fg.adReplyAudio(from, buff, document, resy.title, tanggal, img, value)
+   Fg.adReplyAudio(from, buff, document, resy.title, `play music`, img, value)
 	break
    
    case 'play2':
