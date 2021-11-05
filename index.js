@@ -1076,6 +1076,8 @@ break
 ≡ Music 1 
 ┌──────────────
 ▢ *Título*  : ${link[0].title}
+▢ *Duración* : ${link[0].timestamp}
+▢ *Vistas* : ${link[0].views} 
 └──────────────
 
 ≡ Music 2
