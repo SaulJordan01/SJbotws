@@ -1062,6 +1062,64 @@ break
      Fg.sendMessage(from, buffer, video, {quoted: mek, caption: msg.done})
    }
    break
+   
+    case 'play': 
+   if (!value) return m.reply(`✳️ *${msg.plays}*\n\n📌${msg.exple} *${prefix + command}* Lil Peep broken smile`)
+   url = await yts(value);
+   link = url.all 
+   if(!link) return ('Error')
+   m.reply(msg.wait)
+  // img = await getBuffer(link[0].thumb)
+   music = `≡ *PLAY MUSIC*
+   
+▢ *RESULTADOS*
+
+≡ Music 1 
+┌──────────────
+▢ *Título*  : ${link[0].title}
+└──────────────
+
+≡ Music 2
+┌──────────────
+▢ *Título* : ${link[1].title}
+└──────────────
+
+≡ Music 3
+┌──────────────
+▢ *Título* : ${link[2].title}
+└──────────────` 
+ Fg.send3ButtonLoc(from, thumb, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
+ break
+ case 'ytmp3':
+   if(!isUrl(value) && !value) return m.reply(msg.nolink('youtube'));
+   if(isUrl(value) && !value.match("youtube.com/watch")) return m.reply('Link invalido');
+   res = await lxa.yta(value)
+   buff = await getBuffer(res.dl_link)
+   if (!buff) return m.reply('⚠️ Error')
+   m.reply(msg.wait)
+   img = await getBuffer(res.thumb)
+   Fg.adReplyAudio(from, buff, document, res.title, tanggal, img, value)
+	break
+   
+   case 'play2':
+if (args.length < 1) return m.reply(`✳️ *${msg.plays}*\n\n📌${msg.exple} *${prefix + command}* Lil Peep broken smile`)
+m.reply(msg.wait)
+  pl = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?apikey=WRhywqyYC0doYNeqTZymcB2SjrT&q=${value}`)
+  judul = pl.result.title
+  lagu = pl.result.url_audio
+  size = pl.result.size
+  foto = pl.result.thumbnail
+  durasi = pl.result.duration
+  capt = `≡ *PLAY*
+▢ *Título* : ${judul}
+▢ *Peso* : ${size}
+▢ *Duracion* : ${durasi}`
+  if(Number(size.split(' MB')[0]) >= 99.00) return reply(`✳️ ${msg.playm} 99 mb`)
+  thumb = await getBuffer(foto)
+  Fg.sendMessage(from, thumb, image, {quoted: mek, caption: capt})
+  mp3 = await getBuffer(lagu)
+  Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.mp3`, quoted: mek})
+  break 
 
   case 'hidetag':
   case 'notify':
@@ -1879,25 +1937,7 @@ case 'bot':
     }
     break
     
-    case 'play':
-if (args.length < 1) return m.reply(`✳️ *${msg.plays}*\n\n📌${msg.exple} *${prefix + command}* Lil Peep broken smile`)
-m.reply(msg.wait)
-  pl = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?apikey=WRhywqyYC0doYNeqTZymcB2SjrT&q=${value}`)
-  judul = pl.result.title
-  lagu = pl.result.url_audio
-  size = pl.result.size
-  foto = pl.result.thumbnail
-  durasi = pl.result.duration
-  capt = `≡ *PLAY*
-▢ *Título* : ${judul}
-▢ *Peso* : ${size}
-▢ *Duracion* : ${durasi}`
-  if(Number(size.split(' MB')[0]) >= 99.00) return reply(`✳️ ${msg.playm} 99 mb`)
-  thumb = await getBuffer(foto)
-  Fg.sendMessage(from, thumb, image, {quoted: mek, caption: capt})
-  mp3 = await getBuffer(lagu)
-  Fg.sendMessage(from, mp3, document, {mimetype: 'audio/mp4', filename: `${judul}.mp3`, quoted: mek})
-  break 
+    
   
   /*case 'say':
     if(!value) return m.reply(msg.notext)
