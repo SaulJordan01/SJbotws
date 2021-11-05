@@ -1069,7 +1069,7 @@ break
    link = url.all 
    if(!link) return ('Error')
    m.reply(msg.wait)
-  // img = await getBuffer(link[0].thumb)
+  img = await getBuffer(link[0].thumb)
    music = `≡ *PLAY MUSIC*
    
 ▢ *RESULTADOS*
@@ -1088,7 +1088,7 @@ break
 ┌──────────────
 ▢ *Título* : ${link[2].title}
 └──────────────` 
- Fg.send3ButtonLoc(from, thumb, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
+ Fg.send3ButtonLoc(from, img, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
  case 'ytmp3':
    if(!isUrl(value) && !value) return m.reply(msg.nolink('youtube'));
