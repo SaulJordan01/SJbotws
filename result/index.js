@@ -14,6 +14,7 @@ const { pinterest } = require('./download/pinterest_img');
 const { igDl } = require('./download/instagramPost_dl.js');
 const { Ttdl } = require('./download/tiktokPost_dl.js');
 const { joox } = require('./download/jooxDl.js');
+const { yta, ytv } = require('./download/yt_download');
 
 // -- resultados de búsqueda
 const { playstore } = require('./search/playstore');
@@ -49,5 +50,7 @@ module.exports = {
   playstore,
   igDl,
   Ttdl, 
-  joox
+   joox,
+  yta,
+  ytv
 };
