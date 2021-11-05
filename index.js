@@ -1782,6 +1782,8 @@ case 'delwelcome':
    if(!isGroup) return m.reply(msg.group)
    if(!isAdmins && !isOwner && !isYo) return m.reply(msg.admin)
    if(!value) return m.reply('Lista de eventos\n\n- Welcome\n-Bye')
+   isWelcome = cekWelcome(anu.jid);
+   mdata = await Fg.groupMetadata(anu.jid);
    welc = getCustomWelcome(from)
    bye = getCustomBye(from)
    tag = '@'+sender.split('@')[0]
@@ -1795,7 +1797,7 @@ case 'delwelcome':
 	
    if(value.toLowerCase() === 'welcome') {
      capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName)
-   Fg.adReply(from, capt, text, 'Bienvenido', 'Miembro ' + groupMembers.length + ' Grupo' + groupName, thumb, buff);
+   //Fg.adReply(from, capt, text, 'Bienvenido', 'Miembro ' + groupMembers.length + ' Grupo ' + groupName, thumb, 'https://www.instagram.com/p/B5-otsEgtCT/?utm_medium=copy_link');
      /*Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
 	      contextInfo: { 
             mentionedJid: Fg.parseMention(capt)
