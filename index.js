@@ -1077,17 +1077,21 @@ break
 ┌──────────────
 ▢ *📌Título*  : ${link[0].title}
 ▢ *⏱️Duración* : ${link[0].timestamp}
-▢ *⚖️Tamaño* : ${filesizeF}
+▢ *👀Vistas* : ${link[0].views}
 └──────────────
 
 ≡ Music 2
 ┌──────────────
-▢ *Título* : ${link[1].title}
+▢ *📌Título*  : ${link[1].title}
+▢ *⏱️Duración* : ${link[1].timestamp}
+▢ *👀Vistas* : ${link[1].views}
 └──────────────
 
 ≡ Music 3
 ┌──────────────
-▢ *Título* : ${link[2].title}
+▢ *📌Título*  : ${link[2].title}
+▢ *⏱️Duración* : ${link[2].timestamp}
+▢ *👀Vistas* : ${link[2].views}
 └──────────────` 
  Fg.send3ButtonLoc(from, img, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
