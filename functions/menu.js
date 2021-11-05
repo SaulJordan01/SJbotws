@@ -77,6 +77,10 @@ exports.menu = (v) => {
 ▢ ${v}checkvote
 └──────────────
 ┌─⊷ *ADMIN* 
+▢ ${v}setwelcome
+▢ ${v}seybye
+▢ ${v}delwelcome
+▢ ${v}delbye
 ▢ ${v}group <open/close>
 ▢ ${v}resetlink
 ▢ ${v}online
@@ -90,8 +94,8 @@ exports.menu = (v) => {
 ▢ ${v}add <numero>
 ▢ ${v}kick @user
 ▢ ${v}okick <reply msg>
-▢ ${v}promover @user
-▢ ${v}degradar @user
+▢ ${v}promote @user
+▢ ${v}demote @user
 ▢ ${v}warn @user
 ▢ ${v}delwarn @user
 ▢ ${v}warns @user
@@ -104,6 +108,7 @@ exports.menu = (v) => {
 ▢ ${v}link
 ▢ ${v}infogp
 ▢ ${v}profile
+▢ ${v}invite <549xxxx> 
 └──────────────
 ┌─⊷ *OWNER* 
 ▢ ${v}addpremium @user
@@ -111,7 +116,6 @@ exports.menu = (v) => {
 ▢ ${v}ban @user
 ▢ ${v}unban @user
 ▢ ${v}view
-▢ ${v}invite <549xxxx>
 ▢ ${v}update
 ▢ ${v}setppbot
 ▢ ${v}setfakethumb
