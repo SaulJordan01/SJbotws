@@ -48,6 +48,7 @@ exports.menu = (v) => {
 └──────────────
 ┌─⊷ *DOWNLOAD* 
 ▢ ${v}play
+▢ ${v}ytmp3 <link>
 ▢ ${v}igdl <link>
 ▢ ${v}tiktok <link>
 ▢ ${v}tiktoknowm <link>
