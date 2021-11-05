@@ -57,7 +57,7 @@ function ytv(url) {
                             })
                         }).catch(reject)
                 }).catch(reject)
-        } else reject('URL INVALID')
+        } else reject('⚠️ URL Invalido')
     })
 }
 
