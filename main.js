@@ -79,7 +79,12 @@ async function starts() {
         let tag = '@'+num.split('@')[0]
         let bye = await getCustomBye(mdata.id);
         capt = bye.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@group', mdata.subject);
-        Fg.sendMessage(mdata.id, capt, MessageType.text, { contextInfo: {"mentionedJid": [num]}});
+        Fg.sendButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', 'Un Gusto :V', 'menu', false, {
+	      contextInfo: { 
+            mentionedJid: Fg.parseMention(capt)
+	      } 
+	    });
+	//--
       }
   }
 });
