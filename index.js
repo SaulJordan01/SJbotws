@@ -373,17 +373,17 @@ Fg.on('CB:action,,battery', json => {
 
 
 // auto respon
-bot = ['@'+Fg.user.jid.split('@')[0]]
-for ( var L of bot){
+/*Dbot = ['@'+Fg.user.jid.split('@')[0]]
+for ( var L of Dbot){
   if(!mek.isBaileys && budy.match(L)){
-   capt = 'Hola @'+sender.split('@')[0]+' ayuda!'
-   return Fg.send2ButtonLoc(from, thumb, capt, 'hola ', 'Menu', prefix + 'menu', 'Info', prefix + 'info', false, {
+   capt = 'Hola @'+sender.split('@')[0]+' Aquí estoy necesitas ayuda? '
+   return Fg.send2ButtonLoc(from, thumb, capt, 'Opciones ', '⦙☰ Menu', prefix + 'menu', '⏍ Info', prefix + 'info', false, {
           contextInfo: {
             mentionedJid: Fg.parseMention(capt),
           },
         });
   }
-}
+}*/
 
 if (budy) addUser(sender); // 
 if (isGroup && budy) addGroup(from); 
