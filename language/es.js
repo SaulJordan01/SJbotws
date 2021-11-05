@@ -169,6 +169,7 @@ exports.antilink = '❎ No permitimos enlaces de otros grupos!\nLo siento seras 
 
 exports.setwel = (value) => {
   return `✳️ Ingrese el mensaje de *bienvenida*
+
 *📌 Ejemplo:*
 /setwelcome Bienvenido @user  a @group
  
@@ -177,7 +178,7 @@ Bio : @bio
 Fecha : @date
 Nombre de Grupo : @group
 
-*Ejemplos para cada función*` + value;
+*Ejemplos para cada función*\n` + value;
 };
 
 exports.setbye = (value) => {
@@ -186,21 +187,19 @@ exports.setbye = (value) => {
 *📌 Ejemplo:*
 /setbye Adios  @user
 
-*Ejemplos para cada función*` + value;
+*Ejemplos para cada función*\n` + value;
 };
 
 exports.setweldone = (value, fungsi) => {
-  return `✅ Mensaje de Bienvenida Cambiada\n\n`
-+ value + `\n\n*Ejemplos para cada función*` + fungsi;
+  return `✅ Se estableció el mensaje de  *Bienvenida*`;
 };
 
 exports.setbyedone = (value, fungsi) => {
-  return `✅ Mensaje de Depedida Cambiada\n\n`
-+ value + `\n\n*Ejemplos para cada función*` + fungsi;
+  return `✅ Se estableció el mensaje de  *Despedida*
 };
 //--
 exports.default = (value) => {
-  return value + ' Volver a la configuración inicial';
+  return value + ' Vouelve a la configuración inicial';
 };
 
 exports.main = (value) => {
