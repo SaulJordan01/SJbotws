@@ -1877,7 +1877,9 @@ case 'setwelcome':
 @name = ${pushname}
 @bio = ${about}
 @date = ${tanggal}
-@group = ${groupName}`
+@group = ${groupName}
+@desc = ${groupDesc}
+`
     if(!value) return m.reply(msg.setwel(fungsi))
      await setCustomWelcome(from, value)
      m.reply(msg.setweldone(value, fungsi))
@@ -1925,7 +1927,7 @@ case 'delwelcome':
 	    }
 	welm = await getBuffer(ppimg)
    if(value.toLowerCase() === 'welcome') {
-     capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@group', groupName) 
+     capt = welc.replace('@user', tag).replace('@name', pushname).replace('@bio', about).replace('@date', tanggal).replace('@desc', groupDesc).replace('@group', groupName) 
  // Fg.sendMessage(from, welm, image, {contextInfo: {  mentionedJid: [sender]}, thumbnail: fakethumb, quoted: mek, caption: capt})
 Fg.send2ButtonLoc(from, welm, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
 	      contextInfo: { 
