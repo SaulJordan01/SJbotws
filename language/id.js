@@ -76,6 +76,9 @@ exports.tamaño = `Ukuran`;
 exports.pfo = `Pilih format\n\nJika Anda memiliki masalah dengan perintah, gunakan`;
 exports.pafo = `Pilih musik yang ingin Anda unduh`;
 exports.pvfo = `Pilih video yang ingin Anda unduh`;
+exports.titlp = `Kualifikasi`;
+exports.timp = `Durasi`;
+exports.viep = `Tampilan`;
 
 // -- Saying time
 exports.night = 'Selamat Malam';
@@ -180,6 +183,7 @@ exports.setwel = (value) => {
 *📌 Contoh:*
 /setwelcome Selamat datang @user  ke @group
  
+Tag : @user 
 Nama : @name
 Bio : @bio
 Tanggal : @date

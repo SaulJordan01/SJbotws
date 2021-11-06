@@ -76,6 +76,9 @@ exports.tamaño = `Size`;
 exports.pfo = `Choose a format\n\nIf you have problems with the command use`;
 exports.pafo = `Select the music you want to download`;
 exports.pvfo = `Select the video you want to download`;
+exports.titlp = `Title`;
+exports.timp = `Duration`;
+exports.viep = `Views`;
 
 // -- Saying time
 exports.night = 'Good night'
@@ -180,6 +183,7 @@ exports.setwel = (value) => {
 *📌 Example:*
 /setwelcome Welcome @user to  @group
  
+Tag : @user 
 Name : @name
 Bio : @bio
 Date : @date
