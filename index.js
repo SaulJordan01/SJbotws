@@ -1104,8 +1104,7 @@ break
      })
    } else {
      img = await getBuffer(resp.thumb)
-     capt = `▢ FG MUSIC
-▢ Calidad : ${resp.quality}
+     capt = `▢ Calidad : ${resp.quality}
 ▢ Tamaño : ${resp.size}`
      Fg.adReplyAudio(from, buff, document, resp.judul, capt, img, value, mek)
    }
@@ -1124,8 +1123,7 @@ break
      })
    } else {
      img = await getBuffer(resv.thumb)
-     capt = `▢ FG MUSIC
-▢ Calidad : ${resp.quality}
+     capt = `▢ Calidad : ${resp.quality}
 ▢ Tamaño : ${resp.size}`
      await Fg.adReplyVideo(from, buff, document, resv.judul, capt, img, value, mek)
    }
