@@ -73,6 +73,9 @@ exports.playm = `El archivo es demasiado grande, la reproducción de música se 
 exports.listgp = `LISTA de Grupos`;
 exports.calidad = `Calidad`;
 exports.tamaño = `Tamaño`;
+exports.pfo = `Elija un formato\n\nSi tiene problemas  con el comando use`;
+exports.pafo = `Seleccione la música que desea descargar`;
+exports.pvfo = `Seleccione el video que desea descargar`;
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'

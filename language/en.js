@@ -73,6 +73,9 @@ exports.playm = `The file is too large, music playback was canceled, the maximum
 exports.listgp = `LIST of Groups`;
 exports.calidad = `Quality`;
 exports.tamaño = `Size`;
+exports.pfo = `Choose a format\n\nIf you have problems with the command use`;
+exports.pafo = `Select the music you want to download`;
+exports.pvfo = `Select the video you want to download`;
 
 // -- Saying time
 exports.night = 'Good night'

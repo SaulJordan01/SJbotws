@@ -73,6 +73,9 @@ exports.playm = `File terlalu besar, pemutaran musik dibatalkan, ukuran file mak
 exports.listgp = `DAFTAR Grup`;
 exports.calidad = `Kualitas`;
 exports.tamaño = `Ukuran`;
+exports.pfo = `Pilih format\n\nJika Anda memiliki masalah dengan perintah, gunakan`;
+exports.pafo = `Pilih musik yang ingin Anda unduh`;
+exports.pvfo = `Pilih video yang ingin Anda unduh`;
 
 // -- Saying time
 exports.night = 'Selamat Malam';
