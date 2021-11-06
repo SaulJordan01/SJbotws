@@ -30,6 +30,7 @@ const translate = require('@iamtraction/google-translate');
 const ffmpeg = require("fluent-ffmpeg");
 const toMs = require('ms');
 const fs = require("fs");
+const fetch = require('node-fetch');
 const similarity = require('similarity');
 const threshold = 0.72;
 const fgx = require('./result/index');
