@@ -1061,9 +1061,9 @@ break
  img = await (await fetch('https://i.ibb.co/CnHx2Fr/fgmy.jpg')).buffer()
    music = `≡ *FG MUSIC*
 ┌──────────────
-▢ *Título*  : ${linkp[0].title}
-▢ *Duración* : ${linkp[0].timestamp}
-▢ *Vistas* : ${linkp[0].views} 
+▢ *${msg.titlp}*  : ${linkp[0].title}
+▢ *${msg.timp}* : ${linkp[0].timestamp}
+▢ *${msg.viep}* : ${linkp[0].views} 
 └──────────────` 
  Fg.send2ButtonLoc(from, img, music, `${msg.pfo} *${prefix}play2*\n`, '⎙ MP3', `${prefix}fgmp3 ${linkp[0].url}`, '⎙ MP4', `${prefix}fgmp4 ${linkp[0].url}`)
  break
@@ -1080,18 +1080,18 @@ break
 ▢ *RESULTADOS*
 ≡ Music 1 
 ┌──────────────
-▢ *Título*  : ${link[0].title}
-▢ *Duración* : ${link[0].timestamp}
+▢ *${msg.titlp}*  : ${link[0].title}
+▢ *${msg.timp}* : ${link[0].timestamp}
 └──────────────
 ≡ Music 2
 ┌──────────────
-▢ *Título*  : ${link[1].title}
-▢ *Duración* : ${link[1].timestamp}
+▢ *${msg.titlp}*  : ${link[1].title}
+▢ *${msg.timp}* : ${link[1].timestamp}
 └──────────────
 ≡ Music 3
 ┌──────────────
-▢ *Título*  : ${link[2].title}
-▢ *Duración* : ${link[2].timestamp}
+▢ *${msg.titlp}*  : ${link[2].title}
+▢ *${msg.timp}* : ${link[2].timestamp}
 └──────────────` 
  Fg.send3ButtonLoc(from, img, music, `${msg.pafo}`, '⎙ Music 1', `${prefix}fgmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}fgmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}fgmp3 ${link[2].url}`)
  break
@@ -1110,18 +1110,18 @@ break
 ▢ *RESULTADOS*
 ≡ Video 1 
 ┌──────────────
-▢ *Título*  : ${link[0].title}
-▢ *Duración* : ${link[0].timestamp}
+▢ *${msg.titlp}*  : ${link[0].title}
+▢ *${msg.timp}* : ${link[0].timestamp}
 └──────────────
 ≡ Video 2
 ┌──────────────
-▢ *Título*  : ${link[1].title}
-▢ *Duración* : ${link[1].timestamp}
+▢ *${msg.titlp}*  : ${link[1].title}
+▢ *${msg.timp}* : ${link[1].timestamp}
 └──────────────
 ≡ Video 3
 ┌──────────────
-▢ *Título*  : ${link[2].title}
-▢ *Duración* : ${link[2].timestamp}
+▢ *${msg.titlp}*  : ${link[2].title}
+▢ *${msg.timp}* : ${link[2].timestamp}
 └──────────────` 
  Fg.send3ButtonLoc(from, img, music, `${msg.pvfo}`, '⎙ Video 1', `${prefix}fgmp4 ${link[0].url}`, '⎙ Video 2', `${prefix}fgmp4 ${link[1].url}`, '⎙ Video 3', `${prefix}fgmp4 ${link[2].url}`)
  break
