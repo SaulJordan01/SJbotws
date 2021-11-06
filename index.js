@@ -1090,17 +1090,6 @@ break
 └──────────────` 
  Fg.send3ButtonLoc(from, img, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
- 
- /*case 'ytmp3':
-   if(!isUrl(value) && !value) return m.reply(msg.nolink('youtube'));
-   if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
-   resy = await fgx.yta(value)
-   buff = await getBuffer(resy.dl_link)
-   if (!buff) return m.reply('⚠️ Error')
-   m.reply(msg.wait)
-   img = await getBuffer(resy.thumb)
-   Fg.adReplyAudio(from, buff, document, resy.title, `play music FG98`, img, value)
-	break*/
 	
 	case 'ytmp3':
    if(!value) return m.reply(msg.nolink('youtube'));
@@ -1115,8 +1104,9 @@ break
      })
    } else {
      img = await getBuffer(resp.thumb)
-     capt = 'Calidad : ' + resp.quality
-     capt += '\nTamaño : ' + resp.size
+     capt = `▢ *FG MUSIC*
+▢ Calidad : ${resp.quality}
+▢ Tamaño : ${resp.size}`
      Fg.adReplyAudio(from, buff, document, resp.judul, capt, img, value, mek)
    }
 	break
@@ -1134,8 +1124,9 @@ break
      })
    } else {
      img = await getBuffer(resv.thumb)
-     capt = 'Calidad : ' + resv.quality
-     capt += '\nTamaño : ' + resv.size
+     capt = `▢ *FG MUSIC*
+▢ Calidad : ${resp.quality}
+▢ Tamaño : ${resp.size}`
      await Fg.adReplyVideo(from, buff, document, resv.judul, capt, img, value, mek)
    }
 	break
@@ -1646,10 +1637,12 @@ case 'listgp':
 case 'listgroup':
    if(!isOwner) return m.reply(msg.owner)
    capt = totalchat.filter(z => z.jid.endsWith('g.us')).map((z, i) =>`
+────────────
 *${i + 1}.* ${Fg.getName(z.jid)}
-Id : ${z.jid}
-Estafos : ${z.read_only ? 'Abandonado' : 'Dentro'}`).join`\n\n`
-  m.reply(capt)
+• *🛡️ID : ${z.jid}
+• *🏮Estado* : ${z.read_only ? 'Abandonado' : 'Dentro'}
+────────────`).join`\n\n`
+  m.reply(`≡ *${msg.listgp}*\n\n${capt}`)
   break  
   
 case 'voting':
