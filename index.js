@@ -1869,17 +1869,6 @@ if (stdout) m.reply(`✅ ${msg.updatef} :\n\n${stdout}`)
 })
 break
 
-case 'restoreqr':
-case 'restaurarqr':
-if (!isOwner && !isBot) return m.reply(msg.owner)
-m.reply(` eliminando sesión de QR`)
-exec(`rm -r dylux-bot/whatsapp/sessions.json`, (err, stdout) => {
-if (err) return m.reply(err)
-if (stdout) m.reply(stdout)
-})
-break
-
-
 case 'setwelcome':
     if(!isGroup) return m.reply(msg.group)
     if(!isAdmins && !isOwner) return m.reply(msg.admin)
