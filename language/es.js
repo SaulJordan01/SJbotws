@@ -172,7 +172,7 @@ exports.Thisoff = (value) => {
 return `✳️ *${value}* se desactivo antes`;
 };
 exports.OnorOff = '✳️ Repita agregando on/off';
-exports.antilink = '❎ No permitimos enlaces de otros grupos!\nLo siento seras expulsado';
+exports.antilink = '⚠️ Se te detecta enviando un enlace de un grupo de whatsapp';
 
 exports.setwel = (value) => { 
   return `✳️ Ingrese el mensaje de *bienvenida*
