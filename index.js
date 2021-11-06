@@ -1076,7 +1076,7 @@ break
 ▢ *Duración* : ${linkp[0].timestamp}
 ▢ *Vistas* : ${linkp[0].views} 
 └──────────────` 
- Fg.send2ButtonLoc(from, img, music, `Elija un formato\n\nSi tiene problemas  con el comando use *${prefix}play2*\n`, '⎙ MP3', `${prefix}ytmp3 ${linkp[0].url}`, '⎙ MP4', `${prefix}ytmp4 ${linkp[0].url}`)
+ Fg.send2ButtonLoc(from, img, music, `${msg.pfo} *${prefix}play2*\n`, '⎙ MP3', `${prefix}ytmp3 ${linkp[0].url}`, '⎙ MP4', `${prefix}ytmp4 ${linkp[0].url}`)
  break
    
     case 'play2': 
@@ -1104,7 +1104,7 @@ break
 ▢ *Título*  : ${link[2].title}
 ▢ *Duración* : ${link[2].timestamp}
 └──────────────` 
- Fg.send3ButtonLoc(from, img, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
+ Fg.send3ButtonLoc(from, img, music, `${msg.pafo}`, '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
  
  case 'playvid': 
@@ -1134,7 +1134,7 @@ break
 ▢ *Título*  : ${link[2].title}
 ▢ *Duración* : ${link[2].timestamp}
 └──────────────` 
- Fg.send3ButtonLoc(from, img, music, 'Seleccione el video que desea descargar', '⎙ Video 1', `${prefix}ytmp4 ${link[0].url}`, '⎙ Video 2', `${prefix}ytmp4 ${link[1].url}`, '⎙ Video 3', `${prefix}ytmp4 ${link[2].url}`)
+ Fg.send3ButtonLoc(from, img, music, `${msg.pvfo}`, '⎙ Video 1', `${prefix}ytmp4 ${link[0].url}`, '⎙ Video 2', `${prefix}ytmp4 ${link[1].url}`, '⎙ Video 3', `${prefix}ytmp4 ${link[2].url}`)
  break
  
 	case 'ytmp3':
