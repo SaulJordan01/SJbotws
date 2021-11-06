@@ -67,7 +67,7 @@ async function starts() {
         let member = mdata.participants.length
         let tag = '@'+num.split('@')[0]
 	    let buff = await getBuffer(ppimg);
-	    let descrip = ${mdata.desc}
+	    let descrip = mdata.desc
 	    let welc = await getCustomWelcome(mdata.id)
 	    capt = welc.replace('@user', tag).replace('@name', username).replace('@bio', about).replace('@date', tanggal).replace('@desc', descrip).replace('@group', mdata.subject);
 	      Fg.send2ButtonLoc(mdata.id, buff, capt, 'Sígueme en Instagram\nhttps://www.instagram.com/fg98._', '⦙☰ MENU', '/menu', '⏍ INFO GP', '/infogp', false, {
