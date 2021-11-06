@@ -48,6 +48,8 @@ exports.menu = (v) => {
 └──────────────
 ┌─⊷ *DOWNLOAD* 
 ▢ ${v}play
+▢ ${v}play2
+▢ ${v}playvid
 ▢ ${v}ytmp3 <link yt>
 ▢ ${v}ytmp4 <link yt>
 ▢ ${v}igdl <link>
