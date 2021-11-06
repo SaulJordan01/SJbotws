@@ -70,6 +70,7 @@ exports.piedra = `stone`;
 exports.foll = `Follow me in Instagram \nhttps://www.instagram.com/fg98._ `;
 exports.plays = `Enter a song title`;
 exports.playm = `The file is too large, music playback was canceled, the maximum file size is`;
+exports.listgp = `LIST of Groups`;
 
 // -- Saying time
 exports.night = 'Good night'
