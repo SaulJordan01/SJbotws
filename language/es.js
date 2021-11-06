@@ -71,6 +71,8 @@ exports.foll = `Sígueme en Instagram \nhttps://www.instagram.com/fg98._`;
 exports.plays = `Ingresa el título de una canción`;
 exports.playm = `El archivo es demasiado grande, la reproducción de música se canceló, el tamaño máximo del archivo es de`;
 exports.listgp = `LISTA de Grupos`;
+exports.calidad = `Calidad`;
+exports.tamaño = `Tamaño`;
 
 // -- Decir tiempo
 exports.night = 'Buenas noches'
