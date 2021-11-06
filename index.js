@@ -1063,7 +1063,23 @@ break
    }
    break
    
-    case 'play': 
+   case 'play': 
+   if (!value) return m.reply(`✳️ *${msg.plays}*\n\n📌${msg.exple} *${prefix + command}* Lil Peep broken smile`)
+   url = await yts(value);
+   linkp = url.all 
+   if(!linkp) return ('Error')
+ // img = await getBuffer(linkp[0].image)
+ img = await (await fetch('https://i.ibb.co/CnHx2Fr/fgmy.jpg')).buffer()
+   music = `≡ *FG MUSIC*
+┌──────────────
+▢ *Título*  : ${linkp[0].title}
+▢ *Duración* : ${linkp[0].timestamp}
+▢ *Vistas* : ${linkp[0].views} 
+└──────────────` 
+ Fg.send2ButtonLoc(from, img, music, `Elija un formato\n\nSi tiene problemas  con el comando use *${prefix}play2*`, '⎙ MP3', `${prefix}ytmp3 ${linkp[0].url}`, '⎙ MP4', `${prefix}ytmp4 ${linkp[0].url}`)
+ break
+   
+    case 'play2': 
    if (!value) return m.reply(`✳️ *${msg.plays}*\n\n📌${msg.exple} *${prefix + command}* Lil Peep broken smile`)
    url = await yts(value);
    link = url.all 
@@ -1090,7 +1106,6 @@ break
 └──────────────` 
  Fg.send3ButtonLoc(from, img, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
-	
 	case 'ytmp3':
    if(!value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
