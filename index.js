@@ -457,17 +457,6 @@ https://chat.whatsapp.com/CDUqNRu5Kh5KY5uqQI0BKE
 `
 m.reply(gps)
 break 
-    
-  case 'restart': 
-  case 'reiniciar': 
-    if(!isOwner && !isBot) return m.reply(msg.owner)
-    m.reply(msg.restart)
-try {
-  process.send('reset')
-} catch (e) {
-  m.reply('...')
-}
-  break
  
   case 'ping':
     const timestamp = speed();
@@ -1868,6 +1857,17 @@ if (err) return m.reply(err)
 if (stdout) m.reply(`✅ ${msg.updatef} :\n\n${stdout}`)
 })
 break
+
+case 'restart': 
+  case 'reiniciar': 
+    if(!isOwner && !isBot) return m.reply(msg.owner)
+    m.reply(msg.restart)
+try {
+  process.send('reset')
+} catch (e) {
+  m.reply('...')
+}
+  break
 
 case 'setwelcome':
     if(!isGroup) return m.reply(msg.group)
