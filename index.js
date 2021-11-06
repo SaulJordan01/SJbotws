@@ -1123,8 +1123,8 @@ break
      })
    } else {
      img = await getBuffer(resv.thumb)
-     capt = `▢ Calidad : ${resp.quality}
-▢ Tamaño : ${resp.size}`
+     capt = `▢ ${msg.calidad} : ${resp.quality}
+▢ ${msg.tamaño} : ${resp.size}`
      await Fg.adReplyVideo(from, buff, document, resv.judul, capt, img, value, mek)
    }
 	break
