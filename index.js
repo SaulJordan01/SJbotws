@@ -1076,7 +1076,7 @@ break
 ▢ *Duración* : ${linkp[0].timestamp}
 ▢ *Vistas* : ${linkp[0].views} 
 └──────────────` 
- Fg.send2ButtonLoc(from, img, music, `Elija un formato\n\nSi tiene problemas  con el comando use *${prefix}play2*`, '⎙ MP3', `${prefix}ytmp3 ${linkp[0].url}`, '⎙ MP4', `${prefix}ytmp4 ${linkp[0].url}`)
+ Fg.send2ButtonLoc(from, img, music, `Elija un formato\n\nSi tiene problemas  con el comando use *${prefix}play2*\n`, '⎙ MP3', `${prefix}ytmp3 ${linkp[0].url}`, '⎙ MP4', `${prefix}ytmp4 ${linkp[0].url}`)
  break
    
     case 'play2': 
@@ -1106,6 +1106,37 @@ break
 └──────────────` 
  Fg.send3ButtonLoc(from, img, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
+ 
+ case 'playvid': 
+ case 'playmp4': 
+ case 'playvideo': 
+   if (!value) return m.reply(`✳️ *${msg.plays}*\n\n📌${msg.exple} *${prefix + command}* Lil Peep broken smile`)
+   url = await yts(value);
+   link = url.all 
+   if(!link) return ('Error')
+ // img = await getBuffer(link[0].image)
+ img = await (await fetch('https://i.ibb.co/CnHx2Fr/fgmy.jpg')).buffer()
+   music = `≡ *PLAY VIDEO*
+   
+▢ *RESULTADOS*
+≡ Video 1 
+┌──────────────
+▢ *Título*  : ${link[0].title}
+▢ *Duración* : ${link[0].timestamp}
+└──────────────
+≡ Video 2
+┌──────────────
+▢ *Título*  : ${link[1].title}
+▢ *Duración* : ${link[1].timestamp}
+└──────────────
+≡ Video 3
+┌──────────────
+▢ *Título*  : ${link[2].title}
+▢ *Duración* : ${link[2].timestamp}
+└──────────────` 
+ Fg.send3ButtonLoc(from, img, music, 'Seleccione el video que desea descargar', '⎙ Video 1', `${prefix}ytmp4 ${link[0].url}`, '⎙ Video 2', `${prefix}ytmp4 ${link[1].url}`, '⎙ Video 3', `${prefix}ytmp4 ${link[2].url}`)
+ break
+ 
 	case 'ytmp3':
    if(!value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
