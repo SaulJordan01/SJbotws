@@ -48,7 +48,8 @@ exports.menu = (v) => {
 └──────────────
 ┌─⊷ *DOWNLOAD* 
 ▢ ${v}play
-▢ ${v}ytmp3 <link>
+▢ ${v}ytmp3 <link yt>
+▢ ${v}ytmp4 <link yt>
 ▢ ${v}igdl <link>
 ▢ ${v}tiktok <link>
 ▢ ${v}tiktoknowm <link>
@@ -118,6 +119,7 @@ exports.menu = (v) => {
 ▢ ${v}ban @user
 ▢ ${v}unban @user
 ▢ ${v}view
+▢ ${v}grouplist
 ▢ ${v}update
 ▢ ${v}setppbot
 ▢ ${v}setfakethumb
