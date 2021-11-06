@@ -1096,7 +1096,8 @@ break
 └──────────────` 
  Fg.send3ButtonLoc(from, tbp, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
- case 'ytmp3':
+ 
+/*case 'ytmp3':
    if(!isUrl(value) && !value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
    resy = await fgx.yta(value)
@@ -1105,7 +1106,46 @@ break
    m.reply(msg.wait)
    img = await getBuffer(resy.thumb)
    Fg.adReplyAudio(from, buff, document, resy.title, `play music FG98`, img, value)
+	break*/
+	
+	case 'ytmp3':
+   if(!value) return m.reply(msg.nolink('youtube'));
+   if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
+   res = await fgx.yta(value)
+   buff = await getBuffer(res.link)
+   if (!buff) return m.reply('⚠️ Error')
+   m.reply(msg.wait)
+   if(Number(res.size.split(' MB')[0]) >= 100.00) {
+     axios.get(`https://tinyurl.com/api-create.php?url=${res.link}`).then((G) => {
+     return m.reply(msg.oversize + G.data)
+     })
+   } else {
+     img = await getBuffer(res.thumb)
+     capt = 'Calidad : ' + res.quality
+     capt += '\nTamaño : ' + res.size
+     Fg.adReplyAudio(from, buff, document, res.judul, capt, img, value)
+   }
 	break
+	
+	case 'ytmp4':
+   if(!value) return m.reply(msg.nolink('youtube'));
+   if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
+   res = await fgx.ytv(value)
+   buff = await getBuffer(res.link)
+   if (!buff) return m.reply('⚠️ Error')
+   m.reply(msg.wait)
+   if(Number(res.size.split(' MB')[0]) >= 100.00) {
+     axios.get(`https://tinyurl.com/api-create.php?url=${res.link}`).then((G) => {
+     return m.reply(msg.oversize + G.data)
+     })
+   } else {
+     img = await getBuffer(res.thumb)
+     capt = 'Calidad : ' + res.quality
+     capt += '\nTamaño : ' + res.size
+     await Fg.adReplyVideo(from, buff, document, res.judul, capt, img, value, mek)
+   }
+	break
+
    
 
   case 'hidetag':
@@ -1607,6 +1647,14 @@ gpp = await getBuffer(ppimg)
 Fg.sendMessage(from, gpp, image, { thumbnail: fakethumb, quoted: mek, caption: infogpp})
 break 
 
+case 'grouplist':
+case 'listgp':
+case 'listgroup':
+   if(!isOwner) return m.reply(msg.owner)
+   capt = totalchat.filter(z => z.jid.endsWith('g.us')).map((z, i) =>`*${i + 1}.* ${client.getName(z.jid)}\nId : ${z.jid}\nStatus : ${z.read_only ? 'Left' : 'Joined'}`).join`\n\n`
+  m.reply(capt)
+  break  
+  
 case 'voting':
 case 'votacion':
    if(!isGroup) return m.reply(msg.group)
