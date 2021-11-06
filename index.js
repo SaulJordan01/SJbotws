@@ -1104,8 +1104,8 @@ break
      })
    } else {
      img = await getBuffer(resp.thumb)
-     capt = `▢ Calidad : ${resp.quality}
-▢ Tamaño : ${resp.size}`
+     capt = `▢ ${msg.calidad} : ${resp.quality}
+▢ ${msg.tamaño} : ${resp.size}`
      Fg.adReplyAudio(from, buff, document, resp.judul, capt, img, value, mek)
    }
 	break
@@ -1123,8 +1123,8 @@ break
      })
    } else {
      img = await getBuffer(resv.thumb)
-     capt = `▢ ${msg.calidad} : ${resp.quality}
-▢ ${msg.tamaño} : ${resp.size}`
+     capt = `▢ ${msg.calidad} : ${resv.quality}
+▢ ${msg.tamaño} : ${resv.size}`
      await Fg.adReplyVideo(from, buff, document, resv.judul, capt, img, value, mek)
    }
 	break
