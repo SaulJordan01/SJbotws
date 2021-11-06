@@ -1073,26 +1073,20 @@ break
    music = `≡ *PLAY MUSIC*
    
 ▢ *RESULTADOS*
-
 ≡ Music 1 
 ┌──────────────
 ▢ *Título*  : ${link[0].title}
 ▢ *Duración* : ${link[0].timestamp}
-▢ *Vistas* : ${link[0].views}
 └──────────────
-
 ≡ Music 2
 ┌──────────────
 ▢ *Título*  : ${link[1].title}
 ▢ *Duración* : ${link[1].timestamp}
-▢ *Vistas* : ${link[1].views}
 └──────────────
-
 ≡ Music 3
 ┌──────────────
 ▢ *Título*  : ${link[2].title}
 ▢ *Duración* : ${link[2].timestamp}
-▢ *Vistas* : ${link[2].views}
 └──────────────` 
  Fg.send3ButtonLoc(from, img, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
@@ -1111,11 +1105,11 @@ break
 	case 'ytmp3':
    if(!value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
+   m.reply(msg.wait)
    resp = await fgx.yta(value)
    buff = await getBuffer(resp.link)
    if (!buff) return m.reply('⚠️ Error')
-   m.reply(msg.wait)
-   if(Number(resp.size.split(' MB')[0]) >= 100.00) {
+   if(Number(resp.size.split(' MB')[0]) >= 99.00) {
      axios.get(`https://tinyurl.com/api-create.php?url=${resp.link}`).then((G) => {
      return m.reply(msg.oversize + G.data)
      })
@@ -1123,18 +1117,18 @@ break
      img = await getBuffer(resp.thumb)
      capt = 'Calidad : ' + resp.quality
      capt += '\nTamaño : ' + resp.size
-     Fg.adReplyAudio(from, buff, document, resp.judul, capt, img, value)
+     Fg.adReplyAudio(from, buff, document, resp.judul, capt, img, value, mek)
    }
 	break
 	
 	case 'ytmp4': 
    if(!value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
+   m.reply(msg.wait)
    resv = await fgx.ytv(value)
    buff = await getBuffer(resv.link)
    if (!buff) return m.reply('⚠️ Error')
-   m.reply(msg.wait)
-   if(Number(resv.size.split(' MB')[0]) >= 100.00) {
+   if(Number(resv.size.split(' MB')[0]) >= 99.00) {
      axios.get(`https://tinyurl.com/api-create.php?url=${resv.link}`).then((G) => {
      return m.reply(msg.oversize + G.data)
      })
