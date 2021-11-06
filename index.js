@@ -170,8 +170,6 @@ let isTotalcmd = st.totalcommand;
 
 // -- thumbnail
 let thumbfg = fs.readFileSync('./temp/fg.jpg'); 
-let tbp = fs.readFileSync('./temp/fgmy.jpg'); 
-
 let fakethumb = fs.readFileSync('./temp/fake.jpg'); 
 
 let baterai = {
