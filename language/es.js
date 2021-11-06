@@ -184,6 +184,7 @@ Nombre : @name
 Bio : @bio
 Fecha : @date
 Nombre de Grupo : @group
+Descripción : @desc
 
 *Ejemplos para cada función*\n` + value;
 };
