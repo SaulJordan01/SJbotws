@@ -90,6 +90,7 @@ exports.noprem = `✳️ Maaf kak Hanya User Premium yang bisa menggunakan fitur
 exports.ban = '✳️ User yang kaka masukan sudah dibanned sebelumnya,silahkan masukan perintah ini jika user ini belum terbanned oleh bot';
 exports.noban = '✳️ User ini tidak memiliki status banned didalam database bot';
 exports.isadmin = '✳️ Maaf bot tidak bisa mengeluarkan admin';
+exports.oversize = 'Ukuran file melebihi ukuran yang di tentukan, download sendiri melalui link dibawah\n*🔗 Link* : ';
 
 // -- text
 exports.notag = '✳️ Coba tag salah satu anggota group';

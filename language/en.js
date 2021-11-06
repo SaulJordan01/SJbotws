@@ -90,6 +90,7 @@ exports.noprem = '✳️ The user is not yet a premium user';
 exports.ban = '✳️ User status has been banned before';
 exports.noban = '✳️ User does not have banned status';
 exports.isadmin = '✳️ Bot can\'t log admin';
+exports.oversize = '⚠️ The file size exceeds the specified size, please download it yourself via the link below\n*🔗 Link* : ';
 
 // -- text
 exports.notag = '✳️ Tag a group member';

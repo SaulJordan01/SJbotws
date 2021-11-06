@@ -90,6 +90,7 @@ exports.noprem = '✳️ El usuario aún no es un usuario premium.';
 exports.ban = '✳️ El estado de usuario ha sido prohibido antes';
 exports.noban = '✳️ El usuario no tiene estado prohibido';
 exports.isadmin = '✳️ El bot no puede iniciar sesión como administrador';
+exports.oversize = '⚠️ El tamaño del archivo excede el tamaño especificado, descárguelo usted mismo a través del siguiente enlace\n*🔗 Link* : ';
 
 // -- texto
 exports.notag = '✳️ Etiqueta a un miembro del grupo';
