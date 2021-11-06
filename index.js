@@ -1097,7 +1097,7 @@ break
  Fg.send3ButtonLoc(from, img, music, 'Seleccione la música que desea descargar', '⎙ Music 1', `${prefix}ytmp3 ${link[0].url}`, '⎙ Music 2', `${prefix}ytmp3 ${link[1].url}`, '⎙ Music 3', `${prefix}ytmp3 ${link[2].url}`)
  break
  
- case 'ytmp3':
+ /*case 'ytmp3':
    if(!isUrl(value) && !value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
    resy = await fgx.yta(value)
@@ -1106,9 +1106,9 @@ break
    m.reply(msg.wait)
    img = await getBuffer(resy.thumb)
    Fg.adReplyAudio(from, buff, document, resy.title, `play music FG98`, img, value)
-	break
+	break*/
 	
-	/*case 'ytmp3':
+	case 'ytmp3':
    if(!value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
    resp = await fgx.yta(value)
@@ -1125,9 +1125,9 @@ break
      capt += '\nTamaño : ' + resp.size
      Fg.adReplyAudio(from, buff, document, resp.judul, capt, img, value)
    }
-	break*/
+	break
 	
-	case 'ytmp4':
+	case 'ytmp4': 
    if(!value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
    resv = await fgx.ytv(value)
@@ -1139,10 +1139,10 @@ break
      return m.reply(msg.oversize + G.data)
      })
    } else {
-     img = await getBuffer(res.thumb)
+     img = await getBuffer(resv.thumb)
      capt = 'Calidad : ' + resv.quality
      capt += '\nTamaño : ' + resv.size
-     await Fg.adReplyVideo(from, buff, document, res.judul, capt, img, value, mek)
+     await Fg.adReplyVideo(from, buff, document, resv.judul, capt, img, value, mek)
    }
 	break
 
