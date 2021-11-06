@@ -1104,7 +1104,7 @@ break
      })
    } else {
      img = await getBuffer(resp.thumb)
-     capt = `▢ *FG MUSIC*
+     capt = `▢ FG MUSIC
 ▢ Calidad : ${resp.quality}
 ▢ Tamaño : ${resp.size}`
      Fg.adReplyAudio(from, buff, document, resp.judul, capt, img, value, mek)
@@ -1124,7 +1124,7 @@ break
      })
    } else {
      img = await getBuffer(resv.thumb)
-     capt = `▢ *FG MUSIC*
+     capt = `▢ FG MUSIC
 ▢ Calidad : ${resp.quality}
 ▢ Tamaño : ${resp.size}`
      await Fg.adReplyVideo(from, buff, document, resv.judul, capt, img, value, mek)
@@ -1639,7 +1639,7 @@ case 'listgroup':
    capt = totalchat.filter(z => z.jid.endsWith('g.us')).map((z, i) =>`
 ────────────
 *${i + 1}.* ${Fg.getName(z.jid)}
-• *🛡️ID : ${z.jid}
+• *🛡️ID* : ${z.jid}
 • *🏮Estado* : ${z.read_only ? 'Abandonado' : 'Dentro'}
 ────────────`).join`\n\n`
   m.reply(`≡ *${msg.listgp}*\n\n${capt}`)
