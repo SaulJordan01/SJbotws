@@ -1111,37 +1111,37 @@ break
 	case 'ytmp3':
    if(!value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
-   res = await fgx.yta(value)
-   buff = await getBuffer(res.link)
+   resp = await fgx.yta(value)
+   buff = await getBuffer(resp.link)
    if (!buff) return m.reply('⚠️ Error')
    m.reply(msg.wait)
-   if(Number(res.size.split(' MB')[0]) >= 100.00) {
-     axios.get(`https://tinyurl.com/api-create.php?url=${res.link}`).then((G) => {
+   if(Number(resp.size.split(' MB')[0]) >= 100.00) {
+     axios.get(`https://tinyurl.com/api-create.php?url=${resp.link}`).then((G) => {
      return m.reply(msg.oversize + G.data)
      })
    } else {
-     img = await getBuffer(res.thumb)
-     capt = 'Calidad : ' + res.quality
-     capt += '\nTamaño : ' + res.size
-     Fg.adReplyAudio(from, buff, document, res.judul, capt, img, value)
+     img = await getBuffer(resp.thumb)
+     capt = 'Calidad : ' + resp.quality
+     capt += '\nTamaño : ' + resp.size
+     Fg.adReplyAudio(from, buff, document, resp.judul, capt, img, value)
    }
 	break
 	
 	case 'ytmp4':
    if(!value) return m.reply(msg.nolink('youtube'));
    if(isUrl(value) && !value.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)) return m.reply('Link invalido');
-   res = await fgx.ytv(value)
-   buff = await getBuffer(res.link)
+   resv = await fgx.ytv(value)
+   buff = await getBuffer(resv.link)
    if (!buff) return m.reply('⚠️ Error')
    m.reply(msg.wait)
-   if(Number(res.size.split(' MB')[0]) >= 100.00) {
-     axios.get(`https://tinyurl.com/api-create.php?url=${res.link}`).then((G) => {
+   if(Number(resv.size.split(' MB')[0]) >= 100.00) {
+     axios.get(`https://tinyurl.com/api-create.php?url=${resv.link}`).then((G) => {
      return m.reply(msg.oversize + G.data)
      })
    } else {
      img = await getBuffer(res.thumb)
-     capt = 'Calidad : ' + res.quality
-     capt += '\nTamaño : ' + res.size
+     capt = 'Calidad : ' + resv.quality
+     capt += '\nTamaño : ' + resv.size
      await Fg.adReplyVideo(from, buff, document, res.judul, capt, img, value, mek)
    }
 	break
@@ -1651,7 +1651,10 @@ case 'grouplist':
 case 'listgp':
 case 'listgroup':
    if(!isOwner) return m.reply(msg.owner)
-   capt = totalchat.filter(z => z.jid.endsWith('g.us')).map((z, i) =>`*${i + 1}.* ${client.getName(z.jid)}\nId : ${z.jid}\nStatus : ${z.read_only ? 'Left' : 'Joined'}`).join`\n\n`
+   capt = totalchat.filter(z => z.jid.endsWith('g.us')).map((z, i) =>`
+*${i + 1}.* ${Fg.getName(z.jid)}
+Id : ${z.jid}
+Estafos : ${z.read_only ? 'Abandonado' : 'Dentro'}`).join`\n\n`
   m.reply(capt)
   break  
   
