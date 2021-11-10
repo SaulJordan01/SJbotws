@@ -248,3 +248,13 @@ exports.hampir = '*✳️ Casi lo logras* \nSigue intentando!';
 exports.benar = (value, value2) => {
   return `✅ *Respuesta correcta!*\n\n‣ Ganaste : *${value2}*`;
 };
+
+// afk
+exports.with = 'con razón ';
+exports.onAfk = (value) => {
+  return 'Ahora estas afk ' + value
+};
+exports.offAfk = 'Regresaste de AFK'
+exports.inAfk = (value, time) => {
+  return 'El usuario está en modo Apk ' + value + '\n Después : ' + time
+}
