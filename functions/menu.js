@@ -89,8 +89,8 @@ exports.menu = (v) => {
 ▢ ${v}simulate <welcome/bye>
 ▢ ${v}group <open/close>
 ▢ ${v}resetlink
-▢ ${v}online
-▢ ${v}offline
+▢ ${v}banchat
+▢ ${v}unbanchat
 ▢ ${v}hidetag
 ▢ ${v}notify
 ▢ ${v}tagall
