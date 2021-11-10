@@ -1200,7 +1200,7 @@ break
   
   case 'join':
   case 'entrabot':
-    if(!isOwner && !isBot) return
+ //   if(!isOwner && !isBot) return
     if(!value) return m.reply(`✳️Ingrese el link de tu Grupo`) 
     join = value.split('https://chat.whatsapp.com/')[1]
     await Fg.acceptInvite(join).then((res) => {
@@ -1373,12 +1373,12 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     m.reply(msg.desk(value))
     break
     
-    /*case 'kick':
+    case 'kic':
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
+    if(!isOwner) return m.reply(msg.owner)
     if(!dia) return m.reply(msg.notag)
-    if(dia = isAdmins) return m.reply(msg.isadmin)
+    //if(dia === isAdmins) return m.reply(msg.isadmin)
     anu = "@"+dia.split('@')[0]
     capt = msg.kick(anu)
     m.reply(capt, null, {
@@ -1387,7 +1387,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
           },
         });
     await Fg.groupRemove(from, [dia])
-    break*/
+    break
     case 'kick':
 if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
