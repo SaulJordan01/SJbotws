@@ -250,11 +250,11 @@ exports.benar = (value, value2) => {
 };
 
 // afk
-exports.with = 'con razón ';
+exports.with = 'Razón ';
 exports.onAfk = (value) => {
-  return 'Ahora estas afk ' + value
+  return `😴 *AFK* \n\nAhora estas afk hasta que envies un mensaje\▢ *${value}`
 };
 exports.offAfk = 'Regresaste de AFK'
 exports.inAfk = (value, time) => {
-  return 'El usuario está en modo Apk ' + value + '\n Después : ' + time
+  return `El usuario que mencionas está AFK  \n▢ ${value}\n▢ Desde : ${time} `
 }
