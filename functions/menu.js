@@ -34,10 +34,11 @@ exports.menu = (v) => {
 ▢ ${v}wallpaper
 └──────────────
 ┌─⊷ *TOOLS*
+├ ${v}afk <razon>
 ▢ ${v}fakethumb
 ▢ ${v}tomp3
 ▢ ${v}toav
-├ ${v}q
+▢ ${v}q
 └──────────────
 ┌─⊷ *EDUCACIÓN* 
 ▢ ${v}translate <lang><text>
