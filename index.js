@@ -390,7 +390,10 @@ if (isGroup && budy) addGroup(from);
 if (isCmd) addCmd() 
 if (isCmd) addPoin(sender); 
 if (isGroup && budy) addCustomWelcome(from)
-
+if(isGroup && budy && isAfk){ //comprobar jugadores afk
+  await delAfk(sender)
+ return m.reply(msg.offAfk)
+}
 // suma puntos al nivel y acumula para subir de nivel
 const Amount = isPoindefect * (Math.pow(2, isLevel) - 1)
 if (Amount <= isPoin) {
@@ -590,6 +593,15 @@ preg = `Pregunta : *${value}*
 Respuesta : ${random}`
 m.reply(preg)
 break
+
+case 'afk':
+   if(!isGroup) return m.reply(msg.group)
+   tgl = week + ", " + time
+   reason = value ? msg.with + value : ''
+   if(args.length > 10) return m.reply('No')
+   await addAfk(sender, tgl, reason)
+   m.reply(msg.onAfk(reason))
+ break
 
 case "s":
   case "stiker":
@@ -1373,7 +1385,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
     m.reply(msg.desk(value))
     break
     
-    case 'kic':
+    case 'kick':
     if(!isGroup) return m.reply(msg.group)
     if(!isBotAdmins) return m.reply(msg.botadmin)
     if(!isOwner) return m.reply(msg.owner)
@@ -1388,30 +1400,6 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
         });
     await Fg.groupRemove(from, [dia])
     break
-    case 'kick':
-if(!isGroup) return m.reply(msg.group)
-    if(!isBotAdmins) return m.reply(msg.botadmin)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
-if(!value)return m.reply(msg.notag)
-y = value.split('@')[1] + '@s.whatsapp.net'
-capt = msg.kick(y)
-    m.reply(capt, null, {
-          contextInfo: {
-            mentionedJid: Fg.parseMention(capt),
-          },
-        });
-Fg.groupRemove(from, [y])
-break
-
-case 'okick':
-			if(!isGroup) return m.reply(msg.group)
-    if(!isBotAdmins) return m.reply(msg.botadmin)
-    if(!isAdmins && !isOwner) return m.reply(msg.admin)
-if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('✳️ Responde a un mensaje!')
-			kick = mek.message.extendedTextMessage.contextInfo.participant
-		    Fg.groupRemove(from, [kick])
-						m.reply(msg.done)
-                    break 
 
   case 'add':
     if(!isGroup) return m.reply(msg.group)
@@ -2057,6 +2045,18 @@ case 'bot':
         }
       }
     }
+
+
+// usio Afk
+let jids = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
+  for (let jid of jids) {
+    let isOnAfk = cekAfk(jid);
+    let isOnAfkTime = cekAfkTime(jid);
+    let isOnAfkReason = cekAfkReason(jid);
+      if(isOnAfk && isGroup) {
+        return m.reply(msg.inAfk(isOnAfkReason, isOnAfkTime))
+      }
+  }
     
         //-- chatbot // establece como quieras
 if(!isCmd && isChatbot === true){
@@ -2078,19 +2078,18 @@ if (m.mtype == 'viewOnceMessage' && isViewonce === true){
 } 
 
 // respuestas del juego
-   if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !m.quoted.text) return 
-   if (!Fg.game) return
-    if (m.quoted.from == Fg.game[from][0].from) {
-        let json = JSON.parse(JSON.stringify(Fg.game[from][1]))
-        if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
-            m.reply(msg.benar(json.jawaban.toUpperCase(), isPoingame))
+ if (!Fg.game || !m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !m.quoted.text) return !0
+    if (Fg.game[from] && m.quoted.from == Fg.game[from][0].from) {
+        if (m.text.toLowerCase() == Fg.game[from][1].toLowerCase().trim()) {
+            m.reply(msg.benar(Fg.game[from][1].toUpperCase(), isPoingame))
             await addPoin(sender, isPoingame)
+            clearTimeout(Fg.game[from][2])
             clearTimeout(Fg.game[from][3])
-            clearTimeout(Fg.game[from][4])
             delete Fg.game[from]
-        } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold) m.reply(msg.hampir)
+        } else if (similarity(m.text.toLowerCase(), Fg.game[from][1].toLowerCase().trim()) >= threshold) m.reply(msg.hampir)
         else m.reply(msg.salah)
-    } return !0   
+    }
+    
 
 } catch (e) {
   console.log(bgcolor('‣ Alerta :', 'red'), e);
