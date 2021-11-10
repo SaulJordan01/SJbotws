@@ -98,7 +98,6 @@ exports.menu = (v) => {
 ▢ ${v}setdesc <text>
 ▢ ${v}add <numero>
 ▢ ${v}kick @user
-▢ ${v}okick <reply msg>
 ▢ ${v}promote @user
 ▢ ${v}demote @user
 ▢ ${v}warn @user
