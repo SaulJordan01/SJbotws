@@ -403,7 +403,7 @@ if (Amount <= isPoin) {
 // comando especial cuando el estado fuera de línea  está activado en el grupo
 switch (command) {
   
-  case 'offline': // escribe  offline el bot no responderá a ningún comando en ciertos grupos
+  case 'banchat': // escribe  banchat el bot no responderá a ningún comando en ciertos grupos
     if(!isGroup) return m.reply(msg.group)
     if(!isAdmins && !isOwner && !isBot) return m.reply(msg.admin)
     if (isOffline === true ) {
@@ -413,7 +413,7 @@ switch (command) {
     m.reply(msg.offline)
     break
 
-  case 'online':
+  case 'unbanchat':
     if(!isGroup) return m.reply(msg.group)
     if(!isAdmins && !isOwner && !isBot) return m.reply(msg.admin)
     if (isOffline === false ) {
