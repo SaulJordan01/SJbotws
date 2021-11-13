@@ -443,7 +443,7 @@ ${msg.hi} *${pushname}* ${ucapanWaktu}
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send3ButtonLoc(from, thumbfg, capt, `▢ Thank to ©Nurutomo\n▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${msg.foll}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
+    Fg.send3ButtonLoc(from, thumbfg, capt, `▢ Thank to ©Nurutomo\n▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Usuarios* : ${User.length}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${msg.foll}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
     break
     
     case 'grupos': 
@@ -1023,6 +1023,16 @@ break
      m.reply(store);
    break;
    
+   case 'google':
+   if (!value) return m.reply(msg.notext)
+   m.reply(msg.wait)
+   res = await gls({'query' : value})
+   msg = res.map(({ title, link, snippet}) => {
+    return `*${title}*\n${link}\n${snippet}`
+  }).join`\n\n`
+   await Fg.adReply(from, msg, text, 'BÚSQUEDA DE GOOGLE : ' + value, tanggal, thumbfg, 'https://www.instagram.com/fg98._')
+   break
+   
    case 'igvid':
  case 'igimg':
  case 'igdl':
@@ -1213,6 +1223,7 @@ break
   case 'join':
   case 'entrabot':
  //   if(!isOwner && !isBot) return
+   if(!isPremium && !isOwner && !isBot) return m.reply(msg.premium)
     if(!value) return m.reply(`✳️Ingrese el link de tu Grupo`) 
     join = value.split('https://chat.whatsapp.com/')[1]
     await Fg.acceptInvite(join).then((res) => {
