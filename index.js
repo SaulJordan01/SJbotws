@@ -1024,14 +1024,14 @@ break
      m.reply(store);
    break;
    
-   case 'google':
+   case 'google': 
    if (!value) return m.reply(msg.notext)
    m.reply(msg.wait)
-   res = await gls({'query' : value})
-   msg = res.map(({ title, link, snippet}) => {
+   resgl = await gls({'query' : value})
+   msg = resgl.map(({ title, link, snippet}) => {
     return `*${title}*\n${link}\n${snippet}`
   }).join`\n\n`
-   await Fg.adReply(from, msg, text, 'BÚSQUEDA DE GOOGLE : ' + value, tanggal, thumbfg, 'https://www.instagram.com/fg98._')
+   await Fg.adReply(from, msg, text, ' BÚSQUEDA DE GOOGLE : ' + value, tanggal, thumbfg, 'https://www.instagram.com/fg98._')
    break
    
    case 'igvid':
