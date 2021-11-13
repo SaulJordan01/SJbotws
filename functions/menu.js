@@ -46,6 +46,7 @@ exports.menu = (v) => {
 ┌─⊷ *BUSQUEDA* ❳
 ▢ ${v}playstore
 ▢ ${v}ytsearch
+▢ ${v}google
 └──────────────
 ┌─⊷ *DOWNLOAD* 
 ▢ ${v}play
