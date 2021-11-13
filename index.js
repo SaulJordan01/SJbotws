@@ -36,7 +36,7 @@ const threshold = 0.72;
 const fgx = require('./result/index');
 const package = require('./package.json');
 const yts = require('yt-search');
-const gls = require('google-it')
+const gls = require('google-it');
 //-- library
 const simple = require('./whatsapp/connecting');
 const { fetchJson, fakeText, getBuffer } = require('./library/fetcher');
