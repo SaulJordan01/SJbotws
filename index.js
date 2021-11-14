@@ -2029,7 +2029,7 @@ case 'bot':
           m.reply("‣ "+e); }}} 
           
           //---
-    let isLink = 'https://chat.whatsapp.com/'
+  /*  let isLink = 'https://chat.whatsapp.com/'
     if(budy.match(isLink) && isAntilink === true ) {
       if(isAdmins && isOwner && isBot) return
       if(!isBotAdmins) return
@@ -2048,7 +2048,25 @@ case 'bot':
           await delWarn(sender, 1)
         }
       }
-    }
+    }*/
+    
+
+let isLink = 'https://chat.whatsapp.com/'
+if (isGroup && isAntilink) {
+if (budy.includes(isLink)) {
+if (isAdmins && isOwner && isBot) return
+if (!isBotAdmins) return reply('🤨 Por suerte no soy  admin, asi que no te expulsare')
+   linkgp = await Fg.groupInviteCode (from)
+   if (budy.includes(`https://chat.whatsapp.com/${linkgp}`)) return
+ //   if (budy.includes(`https://chat.whatsapp.com/Ly4I2LObSvW8VgOnJjofgA`)) return reply('✳️ Menos mal que este enlace es del grupo *📲💻ANDROID WORLD🎬🎮* v:')
+    
+console.log(color('[KICK]', 'red'), color('Anti link WhatsApp!', 'yellow'))
+m.reply(`❎ No permitimos enlaces de otros grupos!\nLo siento *${pushname}* seras expulsado`)
+setTimeout(() => {
+Fg.groupRemove(from, [sender])
+}, 2000);
+}
+}
 
 
 // usuario Afk
