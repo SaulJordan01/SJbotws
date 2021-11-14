@@ -3,22 +3,10 @@
 
 // conectando a WhatsApp web usando Baileys https://www.github.com/adiwajshing/baileys
 const {
-  WAConnection: _WAConnection,
   MessageType,
-  Presence,
-  MessageOptions,
   Mimetype,
-  MimetypeMap,
-  WALocationMessage,
-  ChatModification,
-  WA_MESSAGE_STUB_TYPES,
-  WA_DEFAULT_EPHEMERAL,
-  ReconnectMode,
-  ProxyAgent,
   GroupSettingChange,
-  waChatKey,
-  mentionedJid,
-  processTime
+  mentionedJid
 } = require("@adiwajshing/baileys");
 
 // functions node modules
@@ -36,7 +24,7 @@ const threshold = 0.72;
 const fgx = require('./result/index');
 const package = require('./package.json');
 const yts = require('yt-search');
-const gls = require('google-it');
+const gls = require('google-it')
 //-- library
 const simple = require('./whatsapp/connecting');
 const { fetchJson, fakeText, getBuffer } = require('./library/fetcher');
@@ -260,7 +248,7 @@ module.exports = Fg = async (Fg, mek) => {
      let who = mek.quoted ? mek.quoted.sender : mek.mentionedJid && mek.mentionedJid[0] ? mek.mentionedJid[0] : mek.fromMe ? Fg.user.jid : mek.sender;
      let dia = mek.quoted ? mek.quoted.sender : mek.mentionedJid && mek.mentionedJid[0] ? mek.mentionedJid[0] : false;
      const pushname = Fg.getName(who);
-     const about = (await Fg.getStatus(sender).catch(console.error) || {}).status || ''
+     const about = (await Fg.getStatus(who).catch(console.error) || {}).status || ''
     
 
 //--- comprobar la información del usuario
@@ -294,6 +282,8 @@ module.exports = Fg = async (Fg, mek) => {
      
      //--- Decir la hora según la zona horaria 
      
+     //const time2 = moment().tz("America/La_Paz").format("HH:mm:ss");
+     
      if (time < "24:59:00") {
        ucapanWaktu = msg.night;
      }
@@ -321,9 +311,9 @@ module.exports = Fg = async (Fg, mek) => {
      
      // funciones de mención de usuario premium
      if (isPremium) {
-       prem = "✅";
+       prem = "Si";
      } else {
-       prem = "❎";
+       prem = "No";
      }
      
 // -- bateria
@@ -2041,7 +2031,7 @@ case 'bot':
           //---
     let isLink = 'https://chat.whatsapp.com/'
     if(budy.match(isLink) && isAntilink === true ) {
-      if(isAdmins) return
+      if(isAdmin && isOwner && isBot) return
       if(!isBotAdmins) return
       code = await Fg.groupInviteCode(from) 
       if(budy.match(isLink+code)) {
@@ -2059,7 +2049,7 @@ case 'bot':
     }
 
 
-// usio Afk
+// usuario Afk
 let jids = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
   for (let jid of jids) {
     let isOnAfk = cekAfk(jid);
