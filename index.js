@@ -2033,11 +2033,13 @@ case 'bot':
     if(budy.match(isLink) && isAntilink === true ) {
       if(isAdmins && isOwner && isBot) return
       if(!isBotAdmins) return
+      
       code = await Fg.groupInviteCode(from) 
       if(budy.match(isLink+code)) {
         return !0
-      } else {
         m.reply(msg.antilink)
+      } else {
+        
         await addWarn(sender)
         //m.reply(msg.addwarn)
         cek = await cekWarn(sender)
