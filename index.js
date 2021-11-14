@@ -2039,11 +2039,11 @@ case 'bot':
       } else {
         m.reply(msg.antilink)
         await addWarn(sender)
-        m.reply(msg.addwarn)
+        //m.reply(msg.addwarn)
         cek = await cekWarn(sender)
-        if(cek === 3) {
+        if(cek === 1) {
           await Fg.groupRemove(from, [sender])
-          await delWarn(sender, 3)
+          await delWarn(sender, 1)
         }
       }
     }
