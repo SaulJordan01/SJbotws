@@ -21,7 +21,7 @@ const { week, time, tanggal} = require("./library/functions");
 const { color } = require("./library/color");
 async function starts() {
 	Fg.autoReconnect = ReconnectMode.onConnectionLost;
-	Fg.version = [2, 2140, 6];
+	Fg.version = [3, 3234, 9];
 	Fg.logger.level = 'warn';
 	Fg.on('qr', () => {
 	console.log(color('[QR]','white'), color('Escanee el codigo QR para conectarse'));
