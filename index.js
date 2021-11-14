@@ -1,6 +1,5 @@
 // todas las funciones se han simplificado lo más posible si encuentra un error / error tipográfico por escrito, hágamelo saber en el problema
 
-
 // conectando a WhatsApp web usando Baileys https://www.github.com/adiwajshing/baileys
 const {
   MessageType,
