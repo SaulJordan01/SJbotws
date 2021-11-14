@@ -2031,7 +2031,7 @@ case 'bot':
           //---
     let isLink = 'https://chat.whatsapp.com/'
     if(budy.match(isLink) && isAntilink === true ) {
-      if(isAdmin && isOwner && isBot) return
+      if(isAdmins && isOwner && isBot) return
       if(!isBotAdmins) return
       code = await Fg.groupInviteCode(from) 
       if(budy.match(isLink+code)) {
