@@ -5,12 +5,6 @@ let fs = require('fs')
 let package = require('./package.json')
 const CFonts  = require('cfonts')
 
-/*CFonts.say(`'${package.name}' By @${package.author.name || package.author}`, {
-  font: 'pallet',
-  align: 'center',
-  colors: ['green'],
-});*/
-
 CFonts.say('FG98', {
   font: 'pallet',
   align: 'center',
