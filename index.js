@@ -424,7 +424,7 @@ switch (command) {
  
   case 'menu': 
  case 'help':
-    capt = `────  *DyLux  ┃ ᴮᴼᵀ*  ────
+    capt = `────  *BOTBREAK ┃ SJ*  ────
     
 ${msg.hi} *${pushname}* ${ucapanWaktu}
     
@@ -441,13 +441,13 @@ ${menu(prefix)}
     case 'groups': 
     case 'dylux': 
     gps = `
-≡  *DyLux  ┃ ᴮᴼᵀ*  GRUPOS
+≡  *BOTBREAK  ┃SJ*  GRUPOS
 
 ▢ ${msg.gp} 1
-https://chat.whatsapp.com/G5sXrkhJ0pb0Tu8nhWLaFK
+No hay grupos aun
 
 ▢ ${msg.gp} 2
-https://chat.whatsapp.com/CDUqNRu5Kh5KY5uqQI0BKE
+No hay grupos aun
 `
 m.reply(gps)
 break 
@@ -482,11 +482,11 @@ case 'lang':
 case 'creator':
 case 'creador': 
 case 'developer':
-number = '59172945992@s.whatsapp.net'
+number = '59162471139@s.whatsapp.net'
     capt = `▢ ${msg.num} : @${number.split('@')[0]}\n\n`
-    capt += '▢ Instagram : https://www.instagram.com/fg98._'
+    capt += '▢ Instagram : https://www.instagram.com/Ezyei_Oficial._'
     await Fg.fakeLink(from, capt, thumbfg, `${msg.click}`, 'https://www.instagram.com/fg98._', mek)
-   /* Fg.sendContact(from, '59172945992', 'owner', {
+   /* Fg.sendContact(from, '59162471139', 'owner', {
 	 key: {
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(from ? 
@@ -526,9 +526,9 @@ number = '59172945992@s.whatsapp.net'
 
 ▢ Versi Wa : ${Fg.user.phone.wa_version}
 
-*≡ OWNER*
-▢ Instagram : https://www.instagram.com/fg98._
-▢ WhatsApp : wa.me/59172945992 
+*≡ CREADOR*
+▢ Instagram : https://www.instagram.com/Ezyei_Oficial_
+▢ WhatsApp : wa.me/59162471139
 
 *≡ SCRIPT*
 ▢ Git : ${package.homepage} 
