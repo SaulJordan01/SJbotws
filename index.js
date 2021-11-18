@@ -434,7 +434,7 @@ ${msg.hi} *${pushname}* ${ucapanWaktu}
 ${readMore}
 ${menu(prefix)} 
 `
-    Fg.send3ButtonLoc(from, thumbfg, capt, `▢ *DyLux  ┃ ᴮᴼᵀ*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Usuarios* : ${User.length}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${msg.foll}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
+    Fg.send3ButtonLoc(from, thumbfg, capt, `▢ *SaulJordan*\n▢ *Total Hits* : ${isTotalcmd}\n▢ *Usuarios* : ${User.length}\n▢ *Runtime* : ${kyun(process.uptime())}\n\n${msg.foll}`, '✆ Owner', `${prefix}owner`, '⏍ Info', `${prefix}info`, `⌬ ${msg.gp}s`, `${prefix}grupos`)
     break
     
     case 'grupos': 
@@ -485,7 +485,7 @@ case 'developer':
 number = '59162471139@s.whatsapp.net'
     capt = `▢ ${msg.num} : @${number.split('@')[0]}\n\n`
     capt += '▢ Instagram : https://www.instagram.com/Ezyei_Oficial._'
-    await Fg.fakeLink(from, capt, thumbfg, `${msg.click}`, 'https://www.instagram.com/fg98._', mek)
+    await Fg.fakeLink(from, capt, thumbfg, `${msg.click}`, 'SJordan', mek)
    /* Fg.sendContact(from, '59162471139', 'owner', {
 	 key: {
           fromMe: false,
@@ -530,8 +530,7 @@ number = '59162471139@s.whatsapp.net'
 ▢ Instagram : https://www.instagram.com/Ezyei_Oficial_
 ▢ WhatsApp : wa.me/59162471139
 
-*≡ SCRIPT*
-▢ Git : ${package.homepage} 
+
 ` 
   m.reply(teks)
    break
