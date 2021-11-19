@@ -994,7 +994,7 @@ break
 		            ytresult += '*⏳ Duración* : ' + video.timestamp + '\n'
 		            ytresult += '*📤 Publicado* : ' + video.ago + '\n________________________\n\n'
 		    		});
-		    		ytresult += '─── DyLux ┃ ᴮᴼᵀ ───'
+		    		ytresult += '─── BOTBREAK SJ───'
 		    		 Fg.sendMessage(from, tbuff, image, {thumbnail:fakethumb , quoted: mek, caption: ytresult})
 		            break
    
@@ -1071,7 +1071,7 @@ break
    if(!linkp) return ('Error')
  // img = await getBuffer(linkp[0].image)
  img = await (await fetch('https://i.ibb.co/jH6cjQ2/MUSIC-BREAK-SJ.jpg')).buffer()
-   music = `≡ *FG MUSIC*
+   music = `≡ *MUSIC BREAK-SJ*
 ┌──────────────
 ▢ *${msg.titlp}*  : ${linkp[0].title}
 ▢ *${msg.timp}* : ${linkp[0].timestamp}
