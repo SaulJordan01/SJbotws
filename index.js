@@ -527,7 +527,7 @@ number = '59162471139@s.whatsapp.net'
 ▢ Versi Wa : ${Fg.user.phone.wa_version}
 
 *≡ CREADOR*
-▢ Instagram : https://www.instagram.com/ezyei_oficia
+▢ Instagram : https://www.instagram.com/ezyei_oficial
 ▢ WhatsApp : wa.me/59162471139
 
 
