@@ -1070,7 +1070,7 @@ break
    linkp = url.all 
    if(!linkp) return ('Error')
  // img = await getBuffer(linkp[0].image)
- img = await (await fetch('https://i.ibb.co/CnHx2Fr/fgmy.jpg')).buffer()
+ img = await (await fetch('https://i.ibb.co/jH6cjQ2/MUSIC-BREAK-SJ.jpg')).buffer()
    music = `≡ *FG MUSIC*
 ┌──────────────
 ▢ *${msg.titlp}*  : ${linkp[0].title}
@@ -1086,7 +1086,7 @@ break
    link = url.all 
    if(!link) return ('Error')
  // img = await getBuffer(link[0].image)
- img = await (await fetch('https://i.ibb.co/CnHx2Fr/fgmy.jpg')).buffer()
+ img = await (await fetch('https://i.ibb.co/jH6cjQ2/MUSIC-BREAK-SJ.jpg')).buffer()
    music = `≡ *PLAY MUSIC*
    
 ▢ *RESULTADOS*
@@ -1116,7 +1116,7 @@ break
    link = url.all 
    if(!link) return ('Error')
  // img = await getBuffer(link[0].image)
- img = await (await fetch('https://i.ibb.co/CnHx2Fr/fgmy.jpg')).buffer()
+ img = await (await fetch('https://i.ibb.co/jH6cjQ2/MUSIC-BREAK-SJ.jpg')).buffer()
    music = `≡ *PLAY VIDEO*
    
 ▢ *RESULTADOS*
@@ -1608,7 +1608,7 @@ Fg.groupSettingChange(from, GroupSettingChange.messageSend, true)
    try {
 	      ppimg = await Fg.getProfilePicture(who);
 	    } catch {
-	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
+	      ppimg = 'https://i.ibb.co/1X8dw6y/Profile-BREAK-SJ.jpg';
 	    }
 	 Prema = cekPremium(who) ? 'Si' : 'No'
    perfil = ` ┌───「 *${msg.pfile}* 」
@@ -1630,7 +1630,7 @@ Fg.sendMessage(from, prof, image, { thumbnail: fakethumb, quoted: mek, caption: 
    try {
 	      ppimg = await Fg.getProfilePicture(from);
 	    } catch {
-	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
+	      ppimg = 'https://i.ibb.co/1X8dw6y/Profile-BREAK-SJ.jpg';
 	    }
    isAntilink = isAntilink ? 'Si' : 'No' 
    isAntidelete = isAntidelete ? 'Si' : 'No' 
@@ -1912,7 +1912,7 @@ case 'delwelcome':
    try {
 	      ppimg = await Fg.getProfilePicture(who);
 	    } catch {
-	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
+	      ppimg = 'https://i.ibb.co/1X8dw6y/Profile-BREAK-SJ.jpg';
 	    }
 	welm = await getBuffer(ppimg)
    if(value.toLowerCase() === 'welcome') {
