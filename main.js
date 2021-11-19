@@ -55,7 +55,7 @@ async function starts() {
       try {
 	      ppimg = await Fg.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`);
 	    } catch {
-	      ppimg = 'https://i.ibb.co/PZNv21q/Profile-FG98.jpg';
+	      ppimg = 'https://i.ibb.co/1X8dw6y/Profile-BREAK-SJ.jpg';
 	    } 
 	
       mdata = await Fg.groupMetadata(anu.jid);
